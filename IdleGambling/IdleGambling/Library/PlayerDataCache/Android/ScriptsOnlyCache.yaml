@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - DisplayingTheWinOrLose
     - Randomizer
     - Settings
+    - Test
     - ViewportHandler
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -102,17 +103,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 4716}
+      Script: {instanceID: 4116}
     - Class: 114
-      Script: {instanceID: 4802}
+      Script: {instanceID: 4718}
     - Class: 114
-      Script: {instanceID: 4818}
+      Script: {instanceID: 4804}
     - Class: 114
-      Script: {instanceID: 4928}
+      Script: {instanceID: 4820}
     - Class: 114
-      Script: {instanceID: 5330}
+      Script: {instanceID: 4930}
     - Class: 114
-      Script: {instanceID: 5788}
+      Script: {instanceID: 5332}
+    - Class: 114
+      Script: {instanceID: 5790}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -478,6 +481,12 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
+      Hash: 8c637106a8d31391489800025db76b23
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Test
+  - hash:
+      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -574,7 +583,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 79356e0d35b5eac331d6291d1b08ab67
+      Hash: 1b82606a871d6741634bacfc025c33ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer

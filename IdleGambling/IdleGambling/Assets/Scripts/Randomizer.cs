@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 public class Randomizer : MonoBehaviour
 {
@@ -56,9 +57,10 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private TMP_Text playerMoneyText;
 
     [Tooltip("The text of the of the prestige button")]
-    [SerializeField] private TMP_Text prestigeText;  
+    [SerializeField] private TMP_Text prestigeLevelText;
 
-    [Tooltip("The text of the of the prestige button")]
+
+    [Tooltip("The text of of target amount to achive the prestige unlock")]
     [SerializeField] private TMP_Text prestigeGoalText;
 
 
@@ -105,11 +107,56 @@ public class Randomizer : MonoBehaviour
             prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
         }
 
+        if (prestigeLevel == 1)
+        {
+            prestigeGoalText.text = " Target Coins: 200";
+        }
+        else if (prestigeLevel == 2)
+        {
+            prestigeGoalText.text = " Target Coins: 500";
+        }
+        else if (prestigeLevel == 3)
+        {
+            prestigeGoalText.text = " Target Coins: 1,000";
+        }
+        else if (prestigeLevel == 4)
+        {
+            prestigeGoalText.text = " Target Coins: 2,500";
+        }
+        else if (prestigeLevel == 5)
+        {
+            prestigeGoalText.text = " Target Coins: 5,000";
+        }
+        else if (prestigeLevel == 6)
+        {
+            prestigeGoalText.text = " Target Coins: 25,000";
+        }
+        else if (prestigeLevel == 7)
+        {
+            prestigeGoalText.text = " Target Coins: 75,000";
+        }
+        else if (prestigeLevel == 8)
+        {
+            prestigeGoalText.text = " Target Coins: 250,000";
+        }
+        else if (prestigeLevel == 9)
+        {
+            prestigeGoalText.text = " Target Coins: 1,000,000";
+        }
+        else if (prestigeLevel == 10)
+        {
+            prestigeGoalText.text = " Target Coins: ??????";
+
+            //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
+        }
+
+
+
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayingTheWinOrLose>();
 
         //Display the level of the player
-        prestigeText.text = "Prestige Level: " + PlayerPrefs.GetInt("PrestigeLevel").ToString();
+        prestigeLevelText.text = "Prestige Level: " + PlayerPrefs.GetInt("PrestigeLevel").ToString();
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
@@ -192,7 +239,7 @@ public class Randomizer : MonoBehaviour
         yield return null;
         displayingResult.ReadyToGamble();
         machineButton.interactable = true;
-        ClearingEditorLog(); //Disable in build
+       // ClearingEditorLog(); //Disable in build
     }
 
     public void StartGambling()
@@ -296,11 +343,11 @@ public class Randomizer : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (playerMoney >= 2000 && prestigeLevel == 3)
+        else if (playerMoney >= 1000 && prestigeLevel == 3)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 2000;
+            playerMoney -= 1000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -317,11 +364,11 @@ public class Randomizer : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (playerMoney >= 10000 && prestigeLevel == 4)
+        else if (playerMoney >= 2500 && prestigeLevel == 4)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 10000;
+            playerMoney -= 2500;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -337,11 +384,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 50000 && prestigeLevel == 5)
+        else if (playerMoney >= 5000 && prestigeLevel == 5)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 50000;
+            playerMoney -= 5000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -357,11 +404,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 100000 && prestigeLevel == 6)
+        else if (playerMoney >= 25000 && prestigeLevel == 6)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 100000;
+            playerMoney -= 25000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -377,11 +424,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 250000 && prestigeLevel == 7)
+        else if (playerMoney >= 75000 && prestigeLevel == 7)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 250000;
+            playerMoney -= 75000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -397,11 +444,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 1000000 && prestigeLevel == 8)
+        else if (playerMoney >= 250000 && prestigeLevel == 8)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 1000000;
+            playerMoney -= 250000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -417,11 +464,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 10000000 && prestigeLevel == 9)
+        else if (playerMoney >= 1000000 && prestigeLevel == 9)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 10000000;
+            playerMoney -= 1000000;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -440,13 +487,13 @@ public class Randomizer : MonoBehaviour
 
     }
     //Disable in build
-    public void ClearingEditorLog()
+/*    public void ClearingEditorLog()
     {
         var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
         var type = assembly.GetType("UnityEditor.LogEntries");
         var method = type.GetMethod("Clear");
         method.Invoke(new object(), null);
-    }
+    }*/
 
     //Animation the text of adding and subtracting amount from the player money
     /*    IEnumerator TextAnimation(int amount)
