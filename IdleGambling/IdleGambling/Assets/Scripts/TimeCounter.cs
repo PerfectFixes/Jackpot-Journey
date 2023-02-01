@@ -28,6 +28,7 @@ public class TimeCounter : MonoBehaviour
 
     private void Start()
     {
+
         //Sets the amount of reward the player will get to 0
         score = 0;
         PlayerPrefs.SetInt("AFK Reward", 0);

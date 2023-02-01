@@ -321,7 +321,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: 50d637e9a88f116d34d47375a33d2f6a
+      Hash: 8104e2379b8804e4753992b87c7a7cec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TimeCounter
@@ -627,7 +627,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: a83d715b8971d0590466aca0f845c415
+      Hash: a6410e8df05b6e97af3974ae9fca9a22
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer
