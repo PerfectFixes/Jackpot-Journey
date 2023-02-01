@@ -176,7 +176,10 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            SceneManager.LoadScene(1);
+        }
     }
     IEnumerator RandomizeNumber()
     {

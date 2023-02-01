@@ -22,12 +22,12 @@ public class Settings : MonoBehaviour
         if(settingsState == "Open")
         {
             settingsGameObject.SetActive(true);
-            //gameObject.SetActive(true);
+            
         }
         else
         {
             settingsGameObject.SetActive(false);
-            //gameObject.SetActive(false);
+         
         }
     }
     public void ResetPlayerPrefs()
