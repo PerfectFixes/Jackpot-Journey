@@ -8,6 +8,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Randomizer : MonoBehaviour
 {
+    //Public Stats
+    #region
 
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
@@ -76,11 +78,7 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
 
-/*    [Tooltip("The text to display the amount of money the player get from winning or betting")]
-    [SerializeField] private TMP_Text rewardAndLoseText;
-
-    [Tooltip("The animator who controls the animation of the text of the winnings or the bettings")]
-    [SerializeField] private Animator rewardAndLoseAnimator;*/
+    #endregion
 
     //Setting the animation of the winning/losing
     private DisplayingTheWinOrLose displayingResult;
@@ -150,8 +148,6 @@ public class Randomizer : MonoBehaviour
             //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
         }
 
-
-
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayingTheWinOrLose>();
 
@@ -161,6 +157,23 @@ public class Randomizer : MonoBehaviour
         //Setting the amount of clicks to 0 
         clickerCount = 0;
 
+        //***************TEMP**************//
+        #region
+        //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
+        playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
+
+        //Sets the reward value to 0
+        PlayerPrefs.SetInt("AFK Reward", 0);
+
+        //Saves the amount of coins
+        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+
+        //Update the player money in the UI
+        playerMoneyText.text = playerMoney.ToString();
+        playerMoneyText.text = $"{playerMoney:N0}";
+
+        //***************TEMP**************//
+        #endregion
 
         //Setting the amount of earning and losing
         bettingAmount = -1 * prestigeLevel;
@@ -178,7 +191,7 @@ public class Randomizer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("AFK_Scene");
         }
     }
     IEnumerator RandomizeNumber()
