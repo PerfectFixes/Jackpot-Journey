@@ -7,6 +7,7 @@ public class Settings : MonoBehaviour
 {
 
     [SerializeField] private GameObject settingsGameObject;
+
     private void Awake()
     {
         settingsGameObject.SetActive(false);
@@ -17,18 +18,21 @@ public class Settings : MonoBehaviour
     
       
     }
-    public void OpenOrCloseTab(string settingsState)
+    public void OpenOrCloseSettingsTab(string settingsState)
     {
         if(settingsState == "Open")
         {
             settingsGameObject.SetActive(true);
-            
         }
         else
         {
             settingsGameObject.SetActive(false);
-         
         }
+    }
+
+    public void SleepMode()
+    {
+        SceneManager.LoadScene("AFK_Scene");
     }
     public void ResetPlayerPrefs()
     {

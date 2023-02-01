@@ -8,8 +8,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Randomizer : MonoBehaviour
 {
-    //Public Stats
-    #region
+
+    #region Public Stats
 
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
@@ -61,9 +61,11 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The text of the of the prestige button")]
     [SerializeField] private TMP_Text prestigeLevelText;
 
-
     [Tooltip("The text of of target amount to achive the prestige unlock")]
     [SerializeField] private TMP_Text prestigeGoalText;
+
+    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [SerializeField] private TMP_Text afkRewardText;
 
 
 
@@ -75,8 +77,13 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
 
+    [Tooltip("The AFK reward popup when you log in and get a reward")]
+    [SerializeField] private GameObject afkRewardGameObject;
+
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
+
+
 
     #endregion
 
@@ -84,7 +91,40 @@ public class Randomizer : MonoBehaviour
     private DisplayingTheWinOrLose displayingResult;
     private void Awake()
     {
+        //If there is no money gained from being afk dont display a message
+        if (PlayerPrefs.GetInt("AFK Reward") != 0)
+        {
+            //Display the message
+            afkRewardGameObject.SetActive(true);
 
+            //Different message for if you have different amount
+            if(PlayerPrefs.GetInt("AFK Reward") == 1)
+            {
+                afkRewardText.text = "You've Got only 1 coin";
+            }
+            else
+            {
+                //Display an easteregg on selected numbers
+                if (PlayerPrefs.GetInt("AFK Reward") == 69)
+                {
+                    afkRewardText.text = "You've Got 69 coins! Nice ;)";
+                }
+                else if(PlayerPrefs.GetInt("AFK Reward") == 420)
+                {
+                    afkRewardText.text = "You've Got 420 coins! LIT :3";
+                }
+                else
+                {
+                    afkRewardText.text = "You've Got: " + PlayerPrefs.GetInt("AFK Reward").ToString() + " Coins";
+                }
+                
+            }
+            
+        }
+        else
+        {
+            afkRewardGameObject.SetActive(false);
+        }
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
         if (!PlayerPrefs.HasKey("PlayerMoney"))
         {  
@@ -105,6 +145,7 @@ public class Randomizer : MonoBehaviour
             prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
         }
 
+        #region Setting the prestige goal
         if (prestigeLevel == 1)
         {
             prestigeGoalText.text = " Target Coins: 200";
@@ -147,6 +188,7 @@ public class Randomizer : MonoBehaviour
 
             //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
         }
+        #endregion
 
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayingTheWinOrLose>();
@@ -156,24 +198,6 @@ public class Randomizer : MonoBehaviour
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
-
-        //***************TEMP**************//
-        #region
-        //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
-        playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
-
-        //Sets the reward value to 0
-        PlayerPrefs.SetInt("AFK Reward", 0);
-
-        //Saves the amount of coins
-        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
-
-        //Update the player money in the UI
-        playerMoneyText.text = playerMoney.ToString();
-        playerMoneyText.text = $"{playerMoney:N0}";
-
-        //***************TEMP**************//
-        #endregion
 
         //Setting the amount of earning and losing
         bettingAmount = -1 * prestigeLevel;
@@ -189,10 +213,7 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            SceneManager.LoadScene("AFK_Scene");
-        }
+     
     }
     IEnumerator RandomizeNumber()
     {
@@ -312,7 +333,25 @@ public class Randomizer : MonoBehaviour
         }
           
     }
+    public void OpenOrCloseAFKRewardTab()
+    {
+        
+        //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
+        playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
 
+        //Sets the reward value to 0
+        PlayerPrefs.SetInt("AFK Reward", 0);
+
+        //Saves the amount of coins
+        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+
+        //Update the player money in the UI
+        playerMoneyText.text = playerMoney.ToString();
+        playerMoneyText.text = $"{playerMoney:N0}";
+
+        //Sets the gameobject to inactive
+        afkRewardGameObject.SetActive(false);
+    }
     public void PrestigeLevelUp()
     {
         if (playerMoney >= 200 && prestigeLevel == 1)

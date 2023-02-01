@@ -6,7 +6,7 @@ ScriptsOnlyBuild:
     - DisplayingTheWinOrLose
     - Randomizer
     - Settings
-    - Test
+    - TimeCounter
     - ViewportHandler
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -20,9 +20,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
-    Unity.DeviceSimulator.Editor.dll:
-    - UnityEditor.DeviceSimulation.DeviceInfoAsset
-    - UnityEditor.DeviceSimulation.SimulatorWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -51,7 +48,56 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Toggle
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/AFK_Scene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1546}
+    - Class: 114
+      Script: {instanceID: 1870}
+    - Class: 114
+      Script: {instanceID: 2716}
+    - Class: 114
+      Script: {instanceID: 2718}
+    - Class: 114
+      Script: {instanceID: 2888}
+    - Class: 114
+      Script: {instanceID: 2940}
+    - Class: 114
+      Script: {instanceID: 3134}
+    - Class: 114
+      Script: {instanceID: 3380}
+    - Class: 114
+      Script: {instanceID: 3506}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Game_Scene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -91,19 +137,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2716}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2888}
     - Class: 114
-      Script: {instanceID: 2926}
+      Script: {instanceID: 2928}
     - Class: 114
-      Script: {instanceID: 2938}
+      Script: {instanceID: 2940}
     - Class: 114
-      Script: {instanceID: 3132}
+      Script: {instanceID: 3134}
     - Class: 114
-      Script: {instanceID: 3378}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3504}
-    - Class: 114
-      Script: {instanceID: 4116}
+      Script: {instanceID: 3506}
     - Class: 114
       Script: {instanceID: 4718}
     - Class: 114
@@ -275,6 +319,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: CanvasScaler
+  - hash:
+      serializedVersion: 2
+      Hash: 50d637e9a88f116d34d47375a33d2f6a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TimeCounter
   - hash:
       serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
@@ -481,12 +531,6 @@ ScriptsOnlyBuild:
     className: PositionAsUV1
   - hash:
       serializedVersion: 2
-      Hash: 8c637106a8d31391489800025db76b23
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Test
-  - hash:
-      serializedVersion: 2
       Hash: 87ff43d2baf3385cba327d8f803a4ebb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -583,7 +627,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 1b82606a871d6741634bacfc025c33ac
+      Hash: a83d715b8971d0590466aca0f845c415
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer
@@ -703,5 +747,6 @@ ScriptsOnlyBuild:
     className: FabrikSolver2D
   platform: 13
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/Game_Scene.unity
+  - Assets/Scenes/AFK_Scene.unity
   playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling.apk

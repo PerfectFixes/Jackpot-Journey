@@ -12,7 +12,7 @@ public class TimeCounter : MonoBehaviour
 
     //The amount of time the player is in the scene
     private float timeInScene;
-    public int targetSecondsForReward;
+    private int targetSecondsForReward;
 
     //Time data
     private int minutes = 0;
