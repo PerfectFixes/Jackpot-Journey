@@ -180,6 +180,9 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator RandomizeNumber()
     {
+
+        //Saving the amount of wins in a temp INT to add only at the end of the coroutine
+        int result = 0;
         //Disabling the button to stop the player from betting
         machineButton.interactable = false;
 
@@ -197,22 +200,20 @@ public class Randomizer : MonoBehaviour
             { 
                 print("The player got " + smallWinReward + " Coins");
                 StartCoroutine(displayingResult.DisplayTheWin(60));
-                playerMoney += smallWinReward;
-                PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+                result = smallWinReward;
             }
             else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
             {
                 print("The player got " + mediumWinReward + " Coins");
                 StartCoroutine(displayingResult.DisplayTheWin(30));
-                playerMoney += mediumWinReward;
-                PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+                result = mediumWinReward;
             }
             else
             {
                 print("The player got " + bigWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(10));
-                playerMoney += bigWinReward;
-                PlayerPrefs.SetInt("PlayerMoney", playerMoney);
+                StartCoroutine(displayingResult.DisplayTheWin(10));;
+                result = bigWinReward;
+                
             }
         }
         else
@@ -220,7 +221,6 @@ public class Randomizer : MonoBehaviour
             //When the player rolls a bad number he loses
             print("Lost the bet");
             StartCoroutine(displayingResult.DisplayingTheLose());
-            
         }
 
         //Waiting 1 second before reseting the stats of the gambling number
@@ -232,6 +232,8 @@ public class Randomizer : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         //Update the amount of money
+        playerMoney += result;
+        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
 
@@ -280,14 +282,10 @@ public class Randomizer : MonoBehaviour
 
                 playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
 
-
-                //Display the new currency of the player
-                if (machineButton.interactable)
-                {
-                    //Update the amount of money
-                    playerMoneyText.text = playerMoney.ToString();
-                    playerMoneyText.text = $"{playerMoney:N0}";
-                }
+                //Update the amount of money
+                playerMoneyText.text = playerMoney.ToString();
+                playerMoneyText.text = $"{playerMoney:N0}";
+              
                 PlayerPrefs.SetInt("PlayerMoney", playerMoney);
             }
         }
