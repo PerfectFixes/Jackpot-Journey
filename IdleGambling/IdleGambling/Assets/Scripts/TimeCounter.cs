@@ -12,6 +12,7 @@ public class TimeCounter : MonoBehaviour
 
     //The amount of time the player is in the scene
     public float timeInScene;
+
     public int targetSecondsForReward;
 
     //Time data
@@ -32,7 +33,6 @@ public class TimeCounter : MonoBehaviour
 
     private float progress;
     private bool isReady;
-    private bool resetAnimation;
 
     [Header("GameObjects")]
     [SerializeField] private GameObject smokeAnimation;
@@ -44,7 +44,6 @@ public class TimeCounter : MonoBehaviour
     }
     private void Start()
     {
-        resetAnimation = false;
         //Sets the amount of reward the player will get to 0
         score = 0;
 
@@ -71,16 +70,21 @@ public class TimeCounter : MonoBehaviour
 
             progress %= 1f;
         }
+
+
     }
     //When the button is pressed the scene will change back to the start
     public void LeaveScene()
     {
+        score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
+
+        //Update the reward in a playerprefs
+        PlayerPrefs.SetInt("AFK Reward", score);
+
         SceneManager.LoadScene("Game_Scene");
     }
-
     IEnumerator UpdateTime()
     {
-        
         //Get the amount of time in the scene
         timeInScene = Time.timeSinceLevelLoad;
 
@@ -93,50 +97,39 @@ public class TimeCounter : MonoBehaviour
         hours = (int)(minutes / 60);
         minutes = (int)(minutes % 60);
 
-        //Wait 1 second to display the numbers on screen
-        yield return new WaitForSeconds(1);
+        //Update the time on screen
+        yield return new WaitForFixedUpdate();
 
         //formatting the string into the correct format 
-        string timeString = string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
+        string timeString = string.Format("{0:000}:{1:00}:{2:00}", hours, minutes, seconds);
 
         //Updating the UI
         timerText.text = timeString;
 
-       
         //Repeat the function
         StartCoroutine(UpdateTime());
 
         //Add coins
-        if (timeInScene == targetSecondsForReward)
+        if (timeInScene >= targetSecondsForReward)
         {
-            //Restart the animation
-            resetAnimation = true;
+            targetSecondsForReward += 30;
+
             smokeAnimation.SetActive(true);
 
             //Stops the animation from restarting until the next cycle
             isReady = false;
 
-            score++;
-
-            //Adds 30 seconds so the next reward will be after 30 seconds
-            targetSecondsForReward += 30;
-
-            //Update the reward in a playerprefs
-            PlayerPrefs.SetInt("AFK Reward", score);
-
-            yield return new WaitForSeconds(0.2f);
             //Reseting the progess
             progress = 0;
             cointMaterial.SetFloat("_Progress", progress);
-            yield return new WaitForSeconds(0.2f);
         }
         isReady = true;
+    }
+    private void OnApplicationQuit()
+    {
+        score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
 
-        if (resetAnimation)
-        {
-            resetAnimation = false;
-            yield return new WaitForSeconds(0.5f);
-            smokeAnimation.SetActive(false);
-        }
+        //Update the reward in a playerprefs
+        PlayerPrefs.SetInt("AFK Reward", score);
     }
 }
