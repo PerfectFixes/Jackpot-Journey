@@ -132,4 +132,19 @@ public class TimeCounter : MonoBehaviour
         //Update the reward in a playerprefs
         PlayerPrefs.SetInt("AFK Reward", score);
     }
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
+
+            //Update the reward in a playerprefs
+            PlayerPrefs.SetInt("AFK Reward", score);
+        }
+        else
+        {
+            print("Game resumed");
+        }
+    }
+
 }
