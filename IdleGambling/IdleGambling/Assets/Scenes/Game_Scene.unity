@@ -324,7 +324,7 @@ Transform:
   m_GameObject: {fileID: 234992901}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1853348477}
   m_RootOrder: 5
@@ -369,15 +369,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.58, y: 1.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &237576373
@@ -422,7 +422,6 @@ MonoBehaviour:
   prestigeLevelText: {fileID: 1972106630}
   prestigeGoalText: {fileID: 614332052}
   afkRewardText: {fileID: 507749392}
-  machineButton: {fileID: 878069707}
   coinButtonImage: {fileID: 853806089}
   afkRewardGameObject: {fileID: 750511173}
   coinSpriteAnimation:
@@ -1145,7 +1144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -10.297883}
+  m_AnchoredPosition: {x: 0, y: -10.297913}
   m_SizeDelta: {x: 751.5842, y: 134.0766}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &507749392
@@ -1454,8 +1453,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.4317501}
   m_AnchorMax: {x: 1, y: 0.5652499}
-  m_AnchoredPosition: {x: 0, y: 0.72998047}
-  m_SizeDelta: {x: 782.61816, y: 242.48248}
+  m_AnchoredPosition: {x: 2.8475, y: 0.72998047}
+  m_SizeDelta: {x: 619.2618, y: 242.4825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581177786
 MonoBehaviour:
@@ -1521,7 +1520,7 @@ Transform:
   m_GameObject: {fileID: 584106163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.75, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1853348477}
   m_RootOrder: 3
@@ -1566,15 +1565,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &592152440
@@ -2063,8 +2062,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 643130743}
-  - component: {fileID: 643130742}
   - component: {fileID: 643130744}
+  - component: {fileID: 643130745}
   m_Layer: 0
   m_Name: Game_Master
   m_TagString: Untagged
@@ -2072,27 +2071,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &643130742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 643130741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cdf8ae48a4ea646b3aa5efb29e36be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstSlot: {fileID: 584106165}
-  secondSlot: {fileID: 1471992411}
-  thirdSlot: {fileID: 234992903}
-  losingColor: {r: 1, g: 0, b: 0, a: 1}
-  smallWinColor: {r: 1, g: 0.95686275, b: 0, a: 1}
-  mediumWinColor: {r: 0, g: 0.11372549, b: 1, a: 1}
-  bigWinColor: {r: 1, g: 0, b: 0.8, a: 1}
-  blockedColor: {r: 1, g: 1, b: 1, a: 0.47058824}
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &643130743
 Transform:
   m_ObjectHideFlags: 0
@@ -2120,6 +2098,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsGameObject: {fileID: 2010027133}
+--- !u!114 &643130745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643130741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52421f40afd8cb04fa9c8bfa6c7ba91f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineButton: {fileID: 878069707}
+  playerMoneyText: {fileID: 1020266243}
+  firstSlot: {fileID: 584106165}
+  secondSlot: {fileID: 1471992411}
+  thirdSlot: {fileID: 234992903}
+  smallWin:
+  - {fileID: 21300000, guid: 0a600ca75df078148bfcce97ccdcadf1, type: 3}
+  - {fileID: 21300000, guid: 81fd5831bbf0add4fb0af87cf0a639d5, type: 3}
+  - {fileID: 21300000, guid: 479f72459b66a844c95de280051d6e23, type: 3}
+  - {fileID: 21300000, guid: 2bba50fbf11b76748a0c41c1a578689b, type: 3}
+  mediumWin:
+  - {fileID: 21300000, guid: 2f2ff22a92cb97f46987d65162eecd79, type: 3}
+  - {fileID: 21300000, guid: 9a2065ffb144fbd419c0bcf6b03c8c76, type: 3}
+  - {fileID: 21300000, guid: 76dd2c84e9aeb984e9789a3ffaaa685a, type: 3}
+  - {fileID: 21300000, guid: e6f76a74fb216b34cbf09c1eb202d9b4, type: 3}
+  bigWin:
+  - {fileID: 21300000, guid: b382150dc21cc2c4ab6e4637bb113331, type: 3}
+  - {fileID: 21300000, guid: 939e2f9cbaf73fb45851727add8af989, type: 3}
+  - {fileID: 21300000, guid: 199a732d3865f9043a5a38edb49d19c7, type: 3}
+  - {fileID: 21300000, guid: 4d3247cc656813741823b65410195588, type: 3}
+  selectRandomIcon: 0
+  selectingRandomTime: 0
+  randomLoseChooser: 0
+  randomLoseCounter: 0
 --- !u!1 &655476318
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,7 +3582,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4946,7 +4960,7 @@ Transform:
   m_GameObject: {fileID: 1471992409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1853348477}
   m_RootOrder: 4
@@ -4991,15 +5005,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1498526258
@@ -5302,7 +5316,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6076,7 +6090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2010027134
 RectTransform:
   m_ObjectHideFlags: 0

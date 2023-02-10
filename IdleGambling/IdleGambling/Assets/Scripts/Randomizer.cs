@@ -71,8 +71,7 @@ public class Randomizer : MonoBehaviour
 
 
     [Header("Button")]
-    [Tooltip("The buttons that is over the mechine which makes the player able to gamble")]
-    [SerializeField] private Button machineButton;
+
 
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
@@ -88,7 +87,7 @@ public class Randomizer : MonoBehaviour
     #endregion
 
     //Setting the animation of the winning/losing
-    private DisplayingTheWinOrLose displayingResult;
+    private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
         //If there is no money gained from being afk dont display a message
@@ -191,7 +190,7 @@ public class Randomizer : MonoBehaviour
         #endregion
 
         //Get the game master component 
-        displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayingTheWinOrLose>();
+        displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayWinOrLoseIcon>();
 
         //Display the level of the player
         prestigeLevelText.text = "Prestige Level: " + PlayerPrefs.GetInt("PrestigeLevel").ToString();
@@ -220,8 +219,7 @@ public class Randomizer : MonoBehaviour
 
         //Saving the amount of wins in a temp INT to add only at the end of the coroutine
         int result = 0;
-        //Disabling the button to stop the player from betting
-        machineButton.interactable = false;
+
 
         playerMoneyText.text =  playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
@@ -229,10 +227,19 @@ public class Randomizer : MonoBehaviour
         //Randomizing the number to know if the play can win a prize
         isWinningNumber = Random.Range(1, 11);
 
-        if(isWinningNumber >= 5)
+        // ************** FOR TESTING ONLY **************** //
+
+        //Test the Losing logic
+        //isWinningNumber = 1;
+        // ************** FOR TESTING ONLY **************** //
+
+        if (isWinningNumber >= 5)
         {
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 11);
+
+
+
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             { 
                 print("The player got " + smallWinReward + " Coins");
@@ -265,20 +272,9 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = 0;
         randomNumberPicker = 0;
 
-        //Waiting half a second until letting the player gamble again and change the money
-        yield return new WaitForSeconds(0.5f);
-
-        //Update the amount of money
+        //Update the amount of money in the save file
         playerMoney += result;
         PlayerPrefs.SetInt("PlayerMoney", playerMoney);
-        playerMoneyText.text = playerMoney.ToString();
-        playerMoneyText.text = $"{playerMoney:N0}";
-
-        //Enabling the gambling again
-        yield return null;
-        displayingResult.ReadyToGamble();
-        machineButton.interactable = true;
-       // ClearingEditorLog(); //Disable in build
     }
 
     public void StartGambling()
@@ -334,8 +330,7 @@ public class Randomizer : MonoBehaviour
           
     }
     public void OpenOrCloseAFKRewardTab()
-    {
-        
+    {     
         //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
         playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
 
@@ -539,14 +534,7 @@ public class Randomizer : MonoBehaviour
         }
 
     }
-    //Disable in build
-/*    public void ClearingEditorLog()
-    {
-        var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
-        var type = assembly.GetType("UnityEditor.LogEntries");
-        var method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
-    }*/
+
 
     //Animation the text of adding and subtracting amount from the player money
     /*    IEnumerator TextAnimation(int amount)

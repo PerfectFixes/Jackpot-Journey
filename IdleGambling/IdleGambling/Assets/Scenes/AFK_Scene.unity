@@ -341,7 +341,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.35
+  m_fontSize: 41.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -523,7 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e65bc573b97a567429cabc642befc9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopCounter: 0
+  timeInScene: 0
+  targetSecondsForReward: 0
   score: 0
   timerText: {fileID: 120089759}
   cointMaterial: {fileID: 2100000, guid: 459d199134e075f4399660adcc3cc4a7, type: 2}
