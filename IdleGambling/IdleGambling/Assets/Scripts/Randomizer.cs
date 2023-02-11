@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
 
 public class Randomizer : MonoBehaviour
 {
@@ -53,7 +52,7 @@ public class Randomizer : MonoBehaviour
 
 
 
-    [Header("Text")]
+    [Header("Texts")]
     [Header("---UI---")]
     [Tooltip("The text to display the amount of money the player has")]
     [SerializeField] private TMP_Text playerMoneyText;
@@ -68,11 +67,29 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private TMP_Text afkRewardText;
 
 
+    [Header("Settings Related")]
+
+    [Tooltip("The toggle button of enabling/disabling Music in the settings")]
+    [SerializeField] private Toggle musicToggle;
+
+    [Tooltip("The toggle button of enabling/disabling SFX in the settings")]
+    [SerializeField] private Toggle sfxToggle;
+
+    [Tooltip("The button to activate sleep mode")]
+    [SerializeField] private Button sleepModeButton;
+
+    [Tooltip("The toggle button of the auto gambling mode in the settings")]
+    [SerializeField] private Toggle autoGambleToggle;
+
+    
+
 
 
     [Header("Button")]
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
+
+    [SerializeField] private Button machineButton;
 
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
@@ -88,31 +105,36 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+        
+        int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
+        rewardAmount *= PlayerPrefs.GetInt("PrestigeLevel");
+
         //If there is no money gained from being afk dont display a message
-        if (PlayerPrefs.GetInt("AFK Reward") != 0)
+        if (rewardAmount != 0)
         {
             //Display the message
             afkRewardGameObject.SetActive(true);
 
             //Different message for if you have different amount
-            if(PlayerPrefs.GetInt("AFK Reward") == 1)
+            if(rewardAmount == 1)
             {
                 afkRewardText.text = "You've Got only 1 coin";
             }
             else
             {
                 //Display an easteregg on selected numbers
-                if (PlayerPrefs.GetInt("AFK Reward") == 69)
+                if (rewardAmount == 69)
                 {
                     afkRewardText.text = "You've Got 69 coins! Nice ;)";
                 }
-                else if(PlayerPrefs.GetInt("AFK Reward") == 420)
+                else if(rewardAmount == 420)
                 {
                     afkRewardText.text = "You've Got 420 coins! LIT :3";
                 }
                 else
                 {
-                    afkRewardText.text = "You've Got: " + PlayerPrefs.GetInt("AFK Reward").ToString() + " Coins";
+                    print("Here"); 
+                    afkRewardText.text = "You've Got: " + rewardAmount + " Coins";
                 }
                 
             }
@@ -187,6 +209,24 @@ public class Randomizer : MonoBehaviour
         }
         #endregion
 
+        if(prestigeLevel >= 2)
+        {
+            sleepModeButton.interactable = true;
+        }
+        else
+        {
+            sleepModeButton.interactable = false;
+        }
+        if (prestigeLevel >= 5)
+        {
+            
+            autoGambleToggle.interactable = true;
+        }
+        else
+        {
+            autoGambleToggle.interactable = false;
+        }
+
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayWinOrLoseIcon>();
 
@@ -210,11 +250,13 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
-     
+        if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
+        {
+            StartGambling();
+        }
     }
     IEnumerator RandomizeNumber()
     {
-
         //Saving the amount of wins in a temp INT to add only at the end of the coroutine
         int result = 0;
 
@@ -236,25 +278,25 @@ public class Randomizer : MonoBehaviour
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 11);
 
-
-
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
-            { 
-                print("The player got " + smallWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(60));
+            {
                 result = smallWinReward;
+                print("The player got " + smallWinReward + " Coins");
+                StartCoroutine(displayingResult.DisplayTheWin(60, result));
             }
             else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
             {
-                print("The player got " + mediumWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(30));
                 result = mediumWinReward;
+                print("The player got " + mediumWinReward + " Coins");
+                StartCoroutine(displayingResult.DisplayTheWin(30, result));
+                
             }
             else
             {
-                print("The player got " + bigWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(10));;
                 result = bigWinReward;
+                print("The player got " + bigWinReward + " Coins");
+                StartCoroutine(displayingResult.DisplayTheWin(10, result));;
+                
                 
             }
         }
@@ -264,15 +306,10 @@ public class Randomizer : MonoBehaviour
             print("Lost the bet");
             StartCoroutine(displayingResult.DisplayingTheLose());
         }
-
         //Waiting 1 second before reseting the stats of the gambling number
         yield return new WaitForSeconds(1);
         isWinningNumber = 0;
         randomNumberPicker = 0;
-
-        //Update the amount of money in the save file
-        playerMoney += result;
-        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
     }
 
     public void StartGambling()
@@ -312,11 +349,10 @@ public class Randomizer : MonoBehaviour
                 clickerCount = 0;
 
                 playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
-
+               
                 //Update the amount of money
                 playerMoneyText.text = playerMoney.ToString();
-                playerMoneyText.text = $"{playerMoney:N0}";
-              
+                playerMoneyText.text = $"{playerMoney:N0}";  
                 PlayerPrefs.SetInt("PlayerMoney", playerMoney);
             }
         }

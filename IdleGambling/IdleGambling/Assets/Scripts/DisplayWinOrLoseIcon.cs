@@ -36,8 +36,10 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     [SerializeField] private int randomLoseChooser;
     [SerializeField] private int randomLoseCounter;
 
-    public IEnumerator DisplayTheWin(int result)
+    public IEnumerator DisplayTheWin(int result, int winningAmount)
     {
+        
+
         //Disabling the button to stop the player from betting
         machineButton.interactable = false;
         ReadyToGamble();
@@ -101,14 +103,18 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
                 break;
         }
+
+        //Update the amount of money in the save file
+        int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
+        PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
         playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
         playerMoneyText.text = $"{PlayerPrefs.GetInt("PlayerMoney"):N0}";
 
         yield return new WaitForSeconds(1f);
+
+
         machineButton.interactable = true;
         ReadyToGamble();
-
-  
     }
     public IEnumerator DisplayingTheLose()
     {
