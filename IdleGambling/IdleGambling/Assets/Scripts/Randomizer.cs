@@ -71,8 +71,6 @@ public class Randomizer : MonoBehaviour
 
 
     [Header("Button")]
-
-
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
 

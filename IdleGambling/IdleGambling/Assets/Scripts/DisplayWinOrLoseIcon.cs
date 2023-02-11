@@ -19,6 +19,11 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     [SerializeField] private SpriteRenderer secondSlot;
     [SerializeField] private SpriteRenderer thirdSlot;
 
+    [Header("Animators")]
+    [SerializeField] private Animator firstSlotAnimator;
+    [SerializeField] private Animator secondSlotAnimator;
+    [SerializeField] private Animator thirdSlotAnimator;
+
     [Header("Icons List")]
 
     [SerializeField] private List<Sprite> smallWin;
@@ -41,15 +46,18 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         {
             case 60:
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1);
+                firstSlotAnimator.enabled = false;
                 firstSlot.sprite = smallWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                secondSlotAnimator.enabled = false;
                 secondSlot.sprite = smallWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = smallWin[selectRandomIcon];
 
                 
@@ -58,39 +66,49 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             //-------------------------------------------------
             case 30:
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1);
+                firstSlotAnimator.enabled = false;
                 firstSlot.sprite = mediumWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                secondSlotAnimator.enabled = false;
                 secondSlot.sprite = mediumWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = mediumWin[selectRandomIcon];
 
                 break;
             //-------------------------------------------------
             case 10:
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1);
+                firstSlotAnimator.enabled = false;
                 firstSlot.sprite = bigWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                secondSlotAnimator.enabled = false;
                 secondSlot.sprite = bigWin[selectRandomIcon];
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+                thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = bigWin[selectRandomIcon];
 
 
                 break;
         }
-        machineButton.interactable = true;
-
         playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
         playerMoneyText.text = $"{PlayerPrefs.GetInt("PlayerMoney"):N0}";
+
+        yield return new WaitForSeconds(1f);
+        machineButton.interactable = true;
+        ReadyToGamble();
+
+  
     }
     public IEnumerator DisplayingTheLose()
     {
@@ -121,8 +139,11 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 
                 if(randomLoseChooser == 0)
                 {
+                    firstSlotAnimator.enabled = false;
+
                     //Sets the image from the Small win List<>
                     firstSlot.sprite = smallWin[selectRandomIcon];
+
 
                     //Add 1 to the counter to track the amount of Small win List<> usage
                     randomLoseCounter += 1;
@@ -130,6 +151,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 
                 else if (randomLoseChooser == 1)
                 {
+                    firstSlotAnimator.enabled = false;
+
                     //Sets the image from the Medim win List<>
                     firstSlot.sprite = mediumWin[selectRandomIcon];
 
@@ -139,6 +162,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 
                 else
                 {
+                    firstSlotAnimator.enabled = false;
+
                     //Sets the image from the Big win List<>
                     firstSlot.sprite = bigWin[selectRandomIcon];
 
@@ -152,6 +177,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 
                 if (randomLoseChooser == 0)
                 {
+                    secondSlotAnimator.enabled = false;
+
                     //Sets the image from the Small win List<>
                     secondSlot.sprite = smallWin[selectRandomIcon];
 
@@ -160,6 +187,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 }
                 else if (randomLoseChooser == 1)
                 {
+                    secondSlotAnimator.enabled = false;
+
                     //Sets the image from the Medim win List<>
                     secondSlot.sprite = mediumWin[selectRandomIcon];
 
@@ -168,6 +197,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 }
                 else
                 {
+                    secondSlotAnimator.enabled = false;
+
                     //Sets the image from the Big win List<>
                     secondSlot.sprite = bigWin[selectRandomIcon];
 
@@ -181,6 +212,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 //Checks to see if it rolled 3 times in a row from the same List<>
                 if (randomLoseChooser == 0 && randomLoseCounter != 2)
                 {
+                    thirdSlotAnimator.enabled = false;
+
                     //Sets the image from the Small win List<>
                     thirdSlot.sprite = smallWin[selectRandomIcon];
                     break;
@@ -193,12 +226,16 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                     randomLoseChooser = Random.Range(0, 2);
                     if(randomLoseChooser == 0)
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Medium win List<>
                         thirdSlot.sprite = mediumWin[selectRandomIcon];
                         break;
                     }
                     else
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Big win List<>
                         thirdSlot.sprite = bigWin[selectRandomIcon];
                         break;
@@ -207,6 +244,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 //Checks to see if it rolled 3 times in a row from the same List<>
                 if (randomLoseChooser == 1 && randomLoseCounter != 6)
                 {
+                    thirdSlotAnimator.enabled = false;
+
                     //Sets the image from the Small win List<>
                     thirdSlot.sprite = mediumWin[selectRandomIcon];
                     break;
@@ -219,12 +258,16 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                     print("In special else of random 1");
                     if (randomLoseChooser == 0)
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Small win List<>
                         thirdSlot.sprite = smallWin[selectRandomIcon];
                         break;
                     }
                     else
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Big win List<>
                         thirdSlot.sprite = bigWin[selectRandomIcon];
                         break;
@@ -233,6 +276,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 //Checks to see if it rolled 3 times in a row from the same List<>
                 if (randomLoseChooser == 2 && randomLoseCounter != 14)
                 {
+                    thirdSlotAnimator.enabled = false;
+
                     //Sets the image from the Big win List<>
                     thirdSlot.sprite = bigWin[selectRandomIcon];
                     break;
@@ -245,12 +290,16 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                     randomLoseChooser = Random.Range(0, 2);
                     if (randomLoseChooser == 0)
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Small win List<>
                         thirdSlot.sprite = smallWin[selectRandomIcon];
                         break;
                     }
                     else
                     {
+                        thirdSlotAnimator.enabled = false;
+
                         //Sets the image from the Medium win List<>
                         thirdSlot.sprite = mediumWin[selectRandomIcon];
                         break;
@@ -258,24 +307,30 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 }
             }
         }
+        yield return new WaitForSeconds(1f);
         machineButton.interactable = true;
+        ReadyToGamble();
     }
     public void ReadyToGamble()
     {
-        //Disable in build
-        ClearingEditorLog();
-
         //Setting the sprite to null
         firstSlot.sprite = null;
         secondSlot.sprite = null;
         thirdSlot.sprite = null;
+
+        firstSlotAnimator.enabled = true;
+        secondSlotAnimator.enabled = true;
+        thirdSlotAnimator.enabled = true;
+
+        /* //Disable in build
+       ClearingEditorLog();*/
     }
     //Disable in build
-    public void ClearingEditorLog()
-    {
-        var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
-        var type = assembly.GetType("UnityEditor.LogEntries");
-        var method = type.GetMethod("Clear");
-        method.Invoke(new object(), null);
-    }
+    /* public void ClearingEditorLog()
+     {
+         var assembly = System.Reflection.Assembly.GetAssembly(typeof(UnityEditor.Editor));
+         var type = assembly.GetType("UnityEditor.LogEntries");
+         var method = type.GetMethod("Clear");
+         method.Invoke(new object(), null);
+     }*/
 }
