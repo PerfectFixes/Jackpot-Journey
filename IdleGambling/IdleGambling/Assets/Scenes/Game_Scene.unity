@@ -456,13 +456,10 @@ MonoBehaviour:
   prestigeLevelText: {fileID: 1972106630}
   prestigeGoalText: {fileID: 614332052}
   afkRewardText: {fileID: 507749392}
-  musicToggle: {fileID: 708987613}
-  sfxToggle: {fileID: 1747488001}
-  sleepModeButton: {fileID: 1402048701}
-  autoGambleToggle: {fileID: 920968562}
   coinButtonImage: {fileID: 853806089}
   machineButton: {fileID: 878069707}
   afkRewardGameObject: {fileID: 750511173}
+  autoGambleToggle: {fileID: 920968562}
   coinSpriteAnimation:
   - {fileID: 21300000, guid: de660073fc772254ca9bc626a0bc16a5, type: 3}
   - {fileID: 21300000, guid: c877b52d293b81445b96b5a6893190a0, type: 3}
@@ -2205,6 +2202,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingsGameObject: {fileID: 2010027133}
+  musicToggle: {fileID: 708987613}
+  sfxToggle: {fileID: 1747488001}
+  sleepModeButton: {fileID: 1402048701}
+  autoGambleToggle: {fileID: 920968562}
 --- !u!114 &643130745
 MonoBehaviour:
   m_ObjectHideFlags: 0

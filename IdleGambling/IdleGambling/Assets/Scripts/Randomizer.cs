@@ -67,21 +67,6 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private TMP_Text afkRewardText;
 
 
-    [Header("Settings Related")]
-
-    [Tooltip("The toggle button of enabling/disabling Music in the settings")]
-    [SerializeField] private Toggle musicToggle;
-
-    [Tooltip("The toggle button of enabling/disabling SFX in the settings")]
-    [SerializeField] private Toggle sfxToggle;
-
-    [Tooltip("The button to activate sleep mode")]
-    [SerializeField] private Button sleepModeButton;
-
-    [Tooltip("The toggle button of the auto gambling mode in the settings")]
-    [SerializeField] private Toggle autoGambleToggle;
-
-    
 
 
 
@@ -94,10 +79,13 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
 
+    [Tooltip("The toggle button of the auto gambling mode in the settings")]
+    [SerializeField] private Toggle autoGambleToggle;
+
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
 
-
+   
 
     #endregion
 
@@ -133,7 +121,6 @@ public class Randomizer : MonoBehaviour
                 }
                 else
                 {
-                    print("Here"); 
                     afkRewardText.text = "You've Got: " + rewardAmount + " Coins";
                 }
                 
@@ -209,23 +196,7 @@ public class Randomizer : MonoBehaviour
         }
         #endregion
 
-        if(prestigeLevel >= 2)
-        {
-            sleepModeButton.interactable = true;
-        }
-        else
-        {
-            sleepModeButton.interactable = false;
-        }
-        if (prestigeLevel >= 5)
-        {
-            
-            autoGambleToggle.interactable = true;
-        }
-        else
-        {
-            autoGambleToggle.interactable = false;
-        }
+      
 
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayWinOrLoseIcon>();
@@ -252,23 +223,23 @@ public class Randomizer : MonoBehaviour
     {
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
-            StartGambling();
+            //playerMoney = PlayerPrefs.GetInt("PlayerMoney");
+            StartGambling();          
         }
     }
     IEnumerator RandomizeNumber()
     {
         //Saving the amount of wins in a temp INT to add only at the end of the coroutine
-        int result = 0;
+        int winningAmount;
 
 
-        playerMoneyText.text =  playerMoney.ToString();
+        playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
 
         //Randomizing the number to know if the play can win a prize
         isWinningNumber = Random.Range(1, 11);
 
         // ************** FOR TESTING ONLY **************** //
-
         //Test the Losing logic
         //isWinningNumber = 1;
         // ************** FOR TESTING ONLY **************** //
@@ -280,22 +251,22 @@ public class Randomizer : MonoBehaviour
 
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             {
-                result = smallWinReward;
+                winningAmount = smallWinReward;
                 print("The player got " + smallWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(60, result));
+                StartCoroutine(displayingResult.DisplayTheWin(60, winningAmount));
             }
             else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
             {
-                result = mediumWinReward;
+                winningAmount = mediumWinReward;
                 print("The player got " + mediumWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(30, result));
+                StartCoroutine(displayingResult.DisplayTheWin(30, winningAmount));
                 
             }
             else
             {
-                result = bigWinReward;
+                winningAmount = bigWinReward;
                 print("The player got " + bigWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(10, result));;
+                StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));
                 
                 
             }
@@ -310,11 +281,18 @@ public class Randomizer : MonoBehaviour
         yield return new WaitForSeconds(1);
         isWinningNumber = 0;
         randomNumberPicker = 0;
-    }
 
+    }
+    public void UpdatePlayerMoney()
+    {
+        playerMoney = PlayerPrefs.GetInt("PlayerMoney");
+        playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
+        playerMoneyText.text = $"{PlayerPrefs.GetInt("PlayerMoney"):N0}";
+    }
     public void StartGambling()
     {
-        if(playerMoney >= 1)
+        playerMoney = PlayerPrefs.GetInt("PlayerMoney");
+        if (playerMoney >= 1)
         {
             //Lowering the money and starting the animation
             playerMoney += bettingAmount;
@@ -348,13 +326,15 @@ public class Randomizer : MonoBehaviour
             {
                 clickerCount = 0;
 
+                playerMoney = PlayerPrefs.GetInt("PlayerMoney");
                 playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
                
                 //Update the amount of money
                 playerMoneyText.text = playerMoney.ToString();
-                playerMoneyText.text = $"{playerMoney:N0}";  
+                playerMoneyText.text = $"{playerMoney:N0}";
                 PlayerPrefs.SetInt("PlayerMoney", playerMoney);
             }
+
         }
         else
         {
