@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class DisplayWinOrLoseIcon : MonoBehaviour
 {
     private Randomizer updateMoney;
+
+    [Header("Gameobject")]
+    [SerializeField] private GameObject coinPrefab;
+
     [Header("---UI---")]
     [Tooltip("The buttons that is over the mechine which makes the player able to gamble")]
     [SerializeField] private Button machineButton;
@@ -105,6 +109,12 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
         updateMoney.UpdatePlayerMoney();
+        winningAmount = Mathf.RoundToInt(winningAmount / 2);
+        for (int i = 0; i < winningAmount ; i++)
+        {
+            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+        }
+        
         yield return new WaitForSeconds(1f);
 
         machineButton.interactable = true;

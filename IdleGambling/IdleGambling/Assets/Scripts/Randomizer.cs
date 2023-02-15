@@ -10,14 +10,14 @@ public class Randomizer : MonoBehaviour
 
     #region Public Stats
 
+    [SerializeField] private GameObject coinPrefab;
+
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
     [SerializeField] private int randomNumberPicker = 0;
 
     [Tooltip("Picks a number if its in the correct range the player wins a prize, else the player lose")]
     [SerializeField] private int isWinningNumber = 0;
-
-
 
 
     [Header("Player Stats")]
@@ -266,9 +266,7 @@ public class Randomizer : MonoBehaviour
             {
                 winningAmount = bigWinReward;
                 print("The player got " + bigWinReward + " Coins");
-                StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));
-                
-                
+                StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));              
             }
         }
         else
@@ -328,7 +326,12 @@ public class Randomizer : MonoBehaviour
 
                 playerMoney = PlayerPrefs.GetInt("PlayerMoney");
                 playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
-               
+
+                for (int i = 0; i < prestigeLevel; i++)
+                {
+                    Instantiate(coinPrefab, transform.position, Quaternion.identity);
+                }
+
                 //Update the amount of money
                 playerMoneyText.text = playerMoney.ToString();
                 playerMoneyText.text = $"{playerMoney:N0}";
