@@ -12,6 +12,9 @@ public class Randomizer : MonoBehaviour
 
     [SerializeField] private GameObject coinPrefab;
 
+    private bool isStreakOn;
+    private int multiplierAmount;
+
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
     [SerializeField] private int randomNumberPicker = 0;
@@ -93,7 +96,6 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
-        
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
         rewardAmount *= PlayerPrefs.GetInt("PrestigeLevel");
 
@@ -132,23 +134,20 @@ public class Randomizer : MonoBehaviour
             afkRewardGameObject.SetActive(false);
         }
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
-        if (!PlayerPrefs.HasKey("PlayerMoney"))
-        {  
-            PlayerPrefs.SetInt("PlayerMoney", 0);
-        }
-        else
-        {
-            playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-        }
 
-        if (!PlayerPrefs.HasKey("PrestigeLevel"))
+        playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0); 
+
+        prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel", 1);
+     
+        if(prestigeLevel >= 8)
         {
-           
-            PlayerPrefs.SetInt("PrestigeLevel", 1);
+            isStreakOn = true;
+
+            multiplierAmount = PlayerPrefs.GetInt("StreakReward" , 1);
         }
         else
         {
-            prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
+            isStreakOn = false;
         }
 
         #region Setting the prestige goal
@@ -196,22 +195,33 @@ public class Randomizer : MonoBehaviour
         }
         #endregion
 
-      
-
         //Get the game master component 
         displayingResult = GameObject.Find("Game_Master").GetComponent<DisplayWinOrLoseIcon>();
 
         //Display the level of the player
-        prestigeLevelText.text = "Prestige Level: " + PlayerPrefs.GetInt("PrestigeLevel").ToString();
+        prestigeLevelText.text = "Prestige Level: " + PlayerPrefs.GetInt("PrestigeLevel" , 1).ToString();
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
 
-        //Setting the amount of earning and losing
-        bettingAmount = -1 * prestigeLevel;
-        smallWinReward = 3 * prestigeLevel;
-        mediumWinReward = 6 * prestigeLevel;
-        bigWinReward = 16 * prestigeLevel;
+        if (isStreakOn)
+        {
+            print("The multiplier is " + multiplierAmount);
+            //Setting the amount of earning and losing
+            bettingAmount = -1 * prestigeLevel * multiplierAmount;
+            smallWinReward = 3 * prestigeLevel * multiplierAmount;
+            mediumWinReward = 6 * prestigeLevel * multiplierAmount;
+            bigWinReward = 16 * prestigeLevel * multiplierAmount;
+        }
+        else
+        {
+            //Setting the amount of earning and losing
+            bettingAmount = -1 * prestigeLevel;
+            smallWinReward = 3 * prestigeLevel;
+            mediumWinReward = 6 * prestigeLevel;
+            bigWinReward = 16 * prestigeLevel;
+        }
+  
     }
     void Start()
     {
@@ -223,7 +233,6 @@ public class Randomizer : MonoBehaviour
     {
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
-            //playerMoney = PlayerPrefs.GetInt("PlayerMoney");
             StartGambling();          
         }
     }
@@ -232,7 +241,6 @@ public class Randomizer : MonoBehaviour
         //Saving the amount of wins in a temp INT to add only at the end of the coroutine
         int winningAmount;
 
-
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
 
@@ -240,15 +248,18 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = Random.Range(1, 11);
 
         // ************** FOR TESTING ONLY **************** //
-        //Test the Losing logic
-        //isWinningNumber = 1;
+        //Test the logic
+        //isWinningNumber = 6;
         // ************** FOR TESTING ONLY **************** //
 
         if (isWinningNumber >= 5)
         {
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 11);
-
+            // ************** FOR TESTING ONLY **************** //
+            //Test the logic
+            //randomNumberPicker = 10;
+            // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             {
                 winningAmount = smallWinReward;
@@ -279,7 +290,6 @@ public class Randomizer : MonoBehaviour
         yield return new WaitForSeconds(1);
         isWinningNumber = 0;
         randomNumberPicker = 0;
-
     }
     public void UpdatePlayerMoney()
     {
@@ -325,8 +335,17 @@ public class Randomizer : MonoBehaviour
                 clickerCount = 0;
 
                 playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-                playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
 
+                
+
+                if (isStreakOn)
+                {
+                    playerMoney += 2 * prestigeLevel * multiplierAmount;//Multiply by prestige level and streak to add more money
+                }
+                else
+                {
+                    playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
+                }
                 for (int i = 0; i < prestigeLevel; i++)
                 {
                     Instantiate(coinPrefab, transform.position, Quaternion.identity);
@@ -491,6 +510,9 @@ public class Randomizer : MonoBehaviour
         }
         else if (playerMoney >= 75000 && prestigeLevel == 7)
         {
+            //Starting to count the login streak and making sure it is reseted
+            PlayerPrefs.SetInt("LoginStreak", 1);
+
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
             playerMoney -= 75000;
@@ -553,25 +575,26 @@ public class Randomizer : MonoBehaviour
     }
 
 
-    //Animation the text of adding and subtracting amount from the player money
-    /*    IEnumerator TextAnimation(int amount)
-        { 
-            if(amount > 0)
-            {
-                yield return new WaitForSeconds(1.2f);
-                rewardAndLoseText.text = "+ " + amount.ToString();
-                rewardAndLoseAnimator.Play("FloatingUp");
-                yield return new WaitForSeconds(0.3f);
-                rewardAndLoseText.text = null;
-            }
-            else
-            {
-                rewardAndLoseText.text = amount.ToString();
-                rewardAndLoseAnimator.Play("FloatingDown");
-                yield return new WaitForSeconds(0.5f);
-                rewardAndLoseText.text = null;
-            }
-
-        }*/
-
 }
+
+
+//Animation the text of adding and subtracting amount from the player money
+/*    IEnumerator TextAnimation(int amount)
+    { 
+        if(amount > 0)
+        {
+            yield return new WaitForSeconds(1.2f);
+            rewardAndLoseText.text = "+ " + amount.ToString();
+            rewardAndLoseAnimator.Play("FloatingUp");
+            yield return new WaitForSeconds(0.3f);
+            rewardAndLoseText.text = null;
+        }
+        else
+        {
+            rewardAndLoseText.text = amount.ToString();
+            rewardAndLoseAnimator.Play("FloatingDown");
+            yield return new WaitForSeconds(0.5f);
+            rewardAndLoseText.text = null;
+        }
+
+    }*/

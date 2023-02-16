@@ -109,9 +109,18 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
         updateMoney.UpdatePlayerMoney();
-        winningAmount = Mathf.RoundToInt(winningAmount / 2);
+
+        if (PlayerPrefs.GetInt("PrestigeLevel") >= 8)
+        {
+            winningAmount = Mathf.RoundToInt(winningAmount / 5f);
+        }
+        else
+        {
+            winningAmount = Mathf.RoundToInt(winningAmount / 2);
+        }  
         for (int i = 0; i < winningAmount ; i++)
         {
+            yield return new WaitForEndOfFrame();
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
         }
         

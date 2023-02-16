@@ -16,7 +16,7 @@ public class CoinLogic : MonoBehaviour
         horizontalRandomize = Random.Range(-300, 300); 
         coinRigidBody =  gameObject.GetComponent<Rigidbody2D>();
 
-        coinRigidBody.AddForce(new Vector2(horizontalRandomize, verticalRandomize ));
+        coinRigidBody.AddForce(new Vector2(horizontalRandomize, verticalRandomize));
 
         Destroy(gameObject, 5f);
 

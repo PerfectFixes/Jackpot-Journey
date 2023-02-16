@@ -9,10 +9,14 @@ using UnityEngine.SceneManagement;
 public class Settings : MonoBehaviour
 {
 
+
     [Header("GameObjects")]
 
+    [Tooltip("The Settings game object")]
     [SerializeField] private GameObject settingsGameObject;
 
+    [Tooltip("The Daily Login Bonus game object")]
+    [SerializeField] private GameObject dailyLoginBonus;
 
     [Header("Buttons")]
 
@@ -49,6 +53,12 @@ public class Settings : MonoBehaviour
     [Tooltip("The text under the Auto Gamble")]
     [SerializeField] private TMP_Text autoGambleUnlockLevelText;
 
+    [Tooltip("The text of Auto Gamble")]
+    [SerializeField] private TMP_Text streakRewardText;
+
+    [Tooltip("The text under the Auto Gamble")]
+    [SerializeField] private TMP_Text streakRewardUnlockLevelText;
+
     private void Awake()
     {
         settingsGameObject.SetActive(false);
@@ -73,7 +83,6 @@ public class Settings : MonoBehaviour
 
             afkModeButtonText.text = "????";
         }
-
         if (prestigeLevel >= 5)
         {
             //Enables the button to start auto gambling
@@ -89,6 +98,46 @@ public class Settings : MonoBehaviour
 
             //Hooks the player to make him want to know what is hiding beind level 5
             autoGambleOutsideText.text = "???? ????";
+        }
+        if(prestigeLevel >= 8)
+        {
+            dailyLoginBonus.SetActive(true);
+
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            {
+                streakRewardText.text = "Streak Reward: 2X";
+                PlayerPrefs.SetInt("StreakReward", 2);
+            }
+            else if ((PlayerPrefs.GetInt("LoginStreak") >= 10) && (PlayerPrefs.GetInt("LoginStreak") <= 29))
+            {
+                streakRewardText.text = "Streak Reward: 3X";
+                PlayerPrefs.SetInt("StreakReward", 3);
+            }
+            else if ((PlayerPrefs.GetInt("LoginStreak") >= 30) && (PlayerPrefs.GetInt("LoginStreak") <= 59))
+            {
+                streakRewardText.text = "Streak Reward: 5X";
+                PlayerPrefs.SetInt("StreakReward", 5);
+            }
+            else if (PlayerPrefs.GetInt("LoginStreak") >= 60)
+            {
+                streakRewardText.text = "Streak Reward: 10X";
+                PlayerPrefs.SetInt("StreakReward", 10);
+            }
+            if (PlayerPrefs.GetInt("LoginStreak") == 1)
+            {
+                streakRewardUnlockLevelText.text = "Your login streak is: 1 day";
+
+                streakRewardText.text = "Streak Reward: 1X";
+            }
+            else
+            {
+                streakRewardUnlockLevelText.text = "Your login streak is: " + PlayerPrefs.GetInt("LoginStreak") + " days";
+            }
+        }
+        else
+        {
+            //Hooks the player to make him want to know what is hiding beind level 5
+            streakRewardText.text = "???? ????";
         }
     }
 
