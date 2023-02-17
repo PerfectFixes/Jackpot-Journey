@@ -45,7 +45,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _HeadThickness: 0.01
-    - _Progress: 0.036410343
+    - _Progress: 0.036117367
     - _Segments: 20
     m_Colors:
     - _HeadColor: {r: 0.6675392, g: 0.07068062, b: 0, a: 1}

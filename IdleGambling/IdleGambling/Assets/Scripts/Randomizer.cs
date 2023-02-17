@@ -96,43 +96,7 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
-        int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
-        rewardAmount *= PlayerPrefs.GetInt("PrestigeLevel");
 
-        //If there is no money gained from being afk dont display a message
-        if (rewardAmount != 0)
-        {
-            //Display the message
-            afkRewardGameObject.SetActive(true);
-
-            //Different message for if you have different amount
-            if(rewardAmount == 1)
-            {
-                afkRewardText.text = "You've Got only 1 coin";
-            }
-            else
-            {
-                //Display an easteregg on selected numbers
-                if (rewardAmount == 69)
-                {
-                    afkRewardText.text = "You've Got 69 coins! Nice ;)";
-                }
-                else if(rewardAmount == 420)
-                {
-                    afkRewardText.text = "You've Got 420 coins! LIT :3";
-                }
-                else
-                {
-                    afkRewardText.text = "You've Got: " + rewardAmount + " Coins";
-                }
-                
-            }
-            
-        }
-        else
-        {
-            afkRewardGameObject.SetActive(false);
-        }
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
 
         playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0); 
@@ -204,6 +168,7 @@ public class Randomizer : MonoBehaviour
         //Setting the amount of clicks to 0 
         clickerCount = 0;
 
+        int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
         if (isStreakOn)
         {
             print("The multiplier is " + multiplierAmount);
@@ -212,6 +177,8 @@ public class Randomizer : MonoBehaviour
             smallWinReward = 3 * prestigeLevel * multiplierAmount;
             mediumWinReward = 6 * prestigeLevel * multiplierAmount;
             bigWinReward = 16 * prestigeLevel * multiplierAmount;
+
+            rewardAmount  = rewardAmount * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
         }
         else
         {
@@ -220,14 +187,54 @@ public class Randomizer : MonoBehaviour
             smallWinReward = 3 * prestigeLevel;
             mediumWinReward = 6 * prestigeLevel;
             bigWinReward = 16 * prestigeLevel;
+
+            //Setting the amount of coins the player will get for being afk
+            rewardAmount *= PlayerPrefs.GetInt("PrestigeLevel");
         }
-  
+
+        
+
+        //If there is no money gained from being afk dont display a message
+        if (rewardAmount != 0)
+        {
+            //Display the message
+            afkRewardGameObject.SetActive(true);
+
+            //Different message for if you have different amount
+            if (rewardAmount == 1)
+            {
+                afkRewardText.text = "You've Got only 1 coin";
+            }
+            else
+            {
+                //Display an easteregg on selected numbers
+                if (rewardAmount == 69)
+                {
+                    afkRewardText.text = "You've Got 69 coins! Nice ;)";
+                }
+                else if (rewardAmount == 420)
+                {
+                    afkRewardText.text = "You've Got 420 coins! LIT :3";
+                }
+                else
+                {
+                    afkRewardText.text = "You've Got: " + rewardAmount + " Coins";
+                }
+
+            }
+        }
+        else
+        {
+            afkRewardGameObject.SetActive(false);
+        }
+
     }
     void Start()
     {
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
+
     }
     void Update()
     {
@@ -365,11 +372,18 @@ public class Randomizer : MonoBehaviour
         }
           
     }
-    public void OpenOrCloseAFKRewardTab()
-    {     
-        //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
-        playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
-
+    public void CloseAFKRewardTab()
+    {
+        if (isStreakOn)
+        {
+            //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level and the streak amount
+            playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel * multiplierAmount;
+        }
+        else
+        {
+            //Sets the amount of money the player has got from being afk and multiply it by the Prestige Level
+            playerMoney += PlayerPrefs.GetInt("AFK Reward") * prestigeLevel;
+        }
         //Sets the reward value to 0
         PlayerPrefs.SetInt("AFK Reward", 0);
 
