@@ -8,6 +8,23 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 {
     private Randomizer updateMoney;
 
+
+    [Header("Sounds")]
+    [Tooltip("The SFX for losing the gamble")]
+    [SerializeField] private AudioSource gambleLosingSFX;
+
+    [Tooltip("The SFX for winning the gamble")]
+    [SerializeField] private AudioSource winningCoinsSFX;
+
+    [Tooltip("The SFX for the first slot")]
+    [SerializeField] private AudioSource firstSlotSFX;
+
+    [Tooltip("The SFX for the second slot")]
+    [SerializeField] private AudioSource secondSlotSFX;
+
+    [Tooltip("The SFX for the third slot")]
+    [SerializeField] private AudioSource thirdSlotSFX;
+
     [Header("Gameobject")]
     [SerializeField] private GameObject coinPrefab;
 
@@ -58,16 +75,29 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 firstSlotAnimator.enabled = false;
                 firstSlot.sprite = smallWin[selectRandomIcon];
+                if (firstSlotSFX.isActiveAndEnabled)
+                {
+                    firstSlotSFX.Play();
+                }
+                
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 secondSlotAnimator.enabled = false;
                 secondSlot.sprite = smallWin[selectRandomIcon];
+                if (secondSlotSFX.isActiveAndEnabled)
+                {
+                    secondSlotSFX.Play();
+                }
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = smallWin[selectRandomIcon];
+                if (thirdSlotSFX.isActiveAndEnabled)
+                {
+                    thirdSlotSFX.Play();
+                }
                 break;
             //-------------------------------------------------
             case 30:
@@ -75,16 +105,30 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 firstSlotAnimator.enabled = false;
                 firstSlot.sprite = mediumWin[selectRandomIcon];
+                if (firstSlotSFX.isActiveAndEnabled)
+                {
+                    firstSlotSFX.Play();
+                }
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 secondSlotAnimator.enabled = false;
                 secondSlot.sprite = mediumWin[selectRandomIcon];
+                if (secondSlotSFX.isActiveAndEnabled)
+                {
+                    secondSlotSFX.Play();
+                }
+                
+                
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = mediumWin[selectRandomIcon];
+                if (thirdSlotSFX.isActiveAndEnabled)
+                {
+                    thirdSlotSFX.Play();
+                }
                 break;
             //-------------------------------------------------
             case 10:
@@ -92,30 +136,50 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 yield return new WaitForSeconds(1);
                 firstSlotAnimator.enabled = false;
                 firstSlot.sprite = bigWin[selectRandomIcon];
+                if (firstSlotSFX.isActiveAndEnabled)
+                {
+                    firstSlotSFX.Play();
+                }
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 secondSlotAnimator.enabled = false;
                 secondSlot.sprite = bigWin[selectRandomIcon];
+                if (secondSlotSFX.isActiveAndEnabled)
+                {
+                    secondSlotSFX.Play();
+                }
 
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
                 thirdSlotAnimator.enabled = false;
                 thirdSlot.sprite = bigWin[selectRandomIcon];
+                if (thirdSlotSFX.isActiveAndEnabled)
+                {
+                    thirdSlotSFX.Play();
+                }
                 break;
         }
 
-        //Update the amount of money in the save file
+        //Update the amount of money in the save file and the game
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
         updateMoney.UpdatePlayerMoney();
 
+        //Enable the SFX To loop and plays it
+        winningCoinsSFX.loop = true;
+        if (winningCoinsSFX.isActiveAndEnabled)
+        {
+            winningCoinsSFX.Play();
+        }
         if (PlayerPrefs.GetInt("PrestigeLevel") >= 8)
         {
+            //Make it to not spawn alot of coins at level 8 or higher
             winningAmount = Mathf.RoundToInt(winningAmount / 5f);
         }
         else
         {
+            //Make it to not spawn alot of coins at level 7 or lower
             winningAmount = Mathf.RoundToInt(winningAmount / 2);
         }  
         for (int i = 0; i < winningAmount ; i++)
@@ -123,15 +187,16 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             yield return new WaitForEndOfFrame();
             Instantiate(coinPrefab, transform.position, Quaternion.identity);
         }
-        
+        //Stops the SFX
+        winningCoinsSFX.loop = false;
         yield return new WaitForSeconds(1f);
 
+        //Enables the gambling
         machineButton.interactable = true;
         ReadyToGamble();
     }
     public IEnumerator DisplayingTheLose()
     {
-
         //Reset the counter and cleaning the screen
         randomLoseCounter = 0;
         ReadyToGamble();
@@ -155,7 +220,10 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             //Checking which loop is it on and setting the images correctly
             if(i == 0)
             {
-                
+                if (firstSlotSFX.isActiveAndEnabled)
+                {
+                    firstSlotSFX.Play();
+                }
                 if(randomLoseChooser == 0)
                 {
                     firstSlotAnimator.enabled = false;
@@ -193,7 +261,10 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             //Checking which loop is it on and setting the images correctly
             else if (i == 1)
             {
-                
+                if (secondSlotSFX.isActiveAndEnabled)
+                {
+                    secondSlotSFX.Play();
+                }
                 if (randomLoseChooser == 0)
                 {
                     secondSlotAnimator.enabled = false;
@@ -325,6 +396,10 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                     }
                 }
             }
+        }
+        if (gambleLosingSFX.isActiveAndEnabled)
+        {
+            gambleLosingSFX.Play();
         }
         yield return new WaitForSeconds(1f);
         machineButton.interactable = true;

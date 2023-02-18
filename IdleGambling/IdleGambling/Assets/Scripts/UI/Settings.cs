@@ -10,10 +10,23 @@ public class Settings : MonoBehaviour
 {
 
 
+    [Header("SFX")]
+    [Tooltip("The SFX for pressing the buttons")]
+    [SerializeField] private AudioSource settingPressSFX;
+
     [Header("GameObjects")]
 
     [Tooltip("The Settings game object")]
     [SerializeField] private GameObject settingsGameObject;
+
+    [Tooltip("The SFX Control game object")]
+    [SerializeField] private GameObject sfxControl;
+
+    [Tooltip("The Music Control game object")]
+    [SerializeField] private GameObject musicControl;
+
+
+
 
     [Tooltip("The Daily Login Bonus game object")]
     [SerializeField] private GameObject dailyLoginBonus;
@@ -30,11 +43,7 @@ public class Settings : MonoBehaviour
     [Tooltip("The toggle button of the auto gambling mode in the settings")]
     [SerializeField] private Toggle autoGambleToggle;
 
-    [Tooltip("The toggle button of enabling/disabling Music in the settings")]
-    [SerializeField] private Toggle musicToggle;
 
-    [Tooltip("The toggle button of enabling/disabling SFX in the settings")]
-    [SerializeField] private Toggle sfxToggle;
 
     [Header("Text")]
 
@@ -123,7 +132,7 @@ public class Settings : MonoBehaviour
                 streakRewardText.text = "Streak Reward: 10X";
                 PlayerPrefs.SetInt("StreakReward", 10);
             }
-            if (PlayerPrefs.GetInt("LoginStreak") == 1)
+            if (PlayerPrefs.GetInt("LoginStreak") == 1 || PlayerPrefs.GetInt("LoginStreak") == 0)
             {
                 streakRewardUnlockLevelText.text = "Your login streak is: 1 day";
 
@@ -150,11 +159,19 @@ public class Settings : MonoBehaviour
     {
         if(settingsState == "Open")
         {
-            settingsGameObject.SetActive(true);
+            if (settingPressSFX.isActiveAndEnabled)
+            {
+                settingPressSFX.Play();
+            }
+            settingsGameObject.SetActive(true);        
         }
         else
         {
-            settingsGameObject.SetActive(false);
+            if (settingPressSFX.isActiveAndEnabled)
+            {
+                settingPressSFX.Play();
+            }
+            settingsGameObject.SetActive(false);      
         }
     }
 

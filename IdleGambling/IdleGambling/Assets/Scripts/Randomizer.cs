@@ -15,6 +15,7 @@ public class Randomizer : MonoBehaviour
     private bool isStreakOn;
     private int multiplierAmount;
 
+
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
     [SerializeField] private int randomNumberPicker = 0;
@@ -53,6 +54,10 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private int bettingAmount;
 
 
+    [Header("Sounds")]
+    [Tooltip("The SFX for pressing the buttons")]
+    [SerializeField] private AudioSource insertingCoinsSFX;
+
 
 
     [Header("Texts")]
@@ -88,7 +93,7 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
 
-   
+
 
     #endregion
 
@@ -96,6 +101,7 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+ 
 
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
 
@@ -171,9 +177,8 @@ public class Randomizer : MonoBehaviour
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
         if (isStreakOn)
         {
-            print("The multiplier is " + multiplierAmount);
             //Setting the amount of earning and losing
-            bettingAmount = -1 * prestigeLevel * multiplierAmount;
+            bettingAmount = -1 * prestigeLevel;
             smallWinReward = 3 * prestigeLevel * multiplierAmount;
             mediumWinReward = 6 * prestigeLevel * multiplierAmount;
             bigWinReward = 16 * prestigeLevel * multiplierAmount;
@@ -234,7 +239,6 @@ public class Randomizer : MonoBehaviour
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
-
     }
     void Update()
     {
@@ -309,6 +313,10 @@ public class Randomizer : MonoBehaviour
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         if (playerMoney >= 1)
         {
+            if (insertingCoinsSFX.isActiveAndEnabled)
+            {
+                insertingCoinsSFX.Play();
+            }
             //Lowering the money and starting the animation
             playerMoney += bettingAmount;
             PlayerPrefs.SetInt("PlayerMoney", playerMoney);
@@ -526,6 +534,7 @@ public class Randomizer : MonoBehaviour
         {
             //Starting to count the login streak and making sure it is reseted
             PlayerPrefs.SetInt("LoginStreak", 1);
+            PlayerPrefs.DeleteKey("LastLoginDate");
 
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;

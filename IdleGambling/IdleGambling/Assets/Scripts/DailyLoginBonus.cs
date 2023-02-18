@@ -17,6 +17,8 @@ public class DailyLoginBonus : MonoBehaviour
         //******************* FOR TESTING  *************************** //
         //currentDay = DateTime.Today.ToString("2023,02,17");
         //******************* FOR TESTING  *************************** //
+
+        //Checks to see if the player got to level 8 and only then starts the counting the streak
         if(PlayerPrefs.GetInt("PrestigeLevel") >= 8)
         {
             DailyStreakBonus();
@@ -30,14 +32,25 @@ public class DailyLoginBonus : MonoBehaviour
         
     }
     private void DailyStreakBonus()
-    {   
-        
+    {
+        //Setting the day as the current day
         currentDay = DateTime.Today.ToString("yyyy,MM,dd");
 
-        lastLogin = PlayerPrefs.GetString("LastLoginDate", currentDay);
+        //Setting the last login date and if it doesnt exists sets it as the current day
+        if (!PlayerPrefs.HasKey("LastLoginDate"))
+        {
+            lastLogin = currentDay;
+            PlayerPrefs.SetString("LastLoginDate", currentDay);
+        }
+        else
+        {
+            lastLogin = PlayerPrefs.GetString("LastLoginDate");
+        }
 
+        //Setting the login streak
         loginStreak = PlayerPrefs.GetInt("LoginStreak", 1);
 
+        //Parsing the last login date to be able to manipulate and check if there is a streak
         lastLoginDateTime = DateTime.ParseExact(lastLogin, "yyyy,MM,dd",CultureInfo.CurrentCulture);
         currentDateTime = DateTime.Today;
 
@@ -45,16 +58,20 @@ public class DailyLoginBonus : MonoBehaviour
         //currentDateTime = DateTime.ParseExact(currentDay, "yyyy,MM,dd", CultureInfo.CurrentCulture);
         //******************* FOR TESTING  *************************** //
 
+        //Check to see if the player has already logged in today
         if (lastLogin == currentDay)
         {
-            //Player has already logged in today
+            //If so do nothing and close the mathod
             return;
         }
+        //Checks to see if the player didnt log in for more then 1 day
         if (lastLoginDateTime.AddDays(1) < currentDateTime)
         {
+            //Reset the streak
             loginStreak = 0;
             PlayerPrefs.SetInt("StreakReward", 1);
         }
+        //Add 1 to the streak and save it
         loginStreak++;
         PlayerPrefs.SetInt("LoginStreak", loginStreak);
         PlayerPrefs.SetString("LastLoginDate", currentDay);
