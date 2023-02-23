@@ -11,6 +11,7 @@ public class Randomizer : MonoBehaviour
     #region Public Stats
 
     [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Transform coinSpawnerTransfom;
 
     private bool isStreakOn;
     private int multiplierAmount;
@@ -361,7 +362,7 @@ public class Randomizer : MonoBehaviour
                 }
                 for (int i = 0; i < prestigeLevel; i++)
                 {
-                    Instantiate(coinPrefab, transform.position, Quaternion.identity);
+                    Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
                 }
 
                 //Update the amount of money

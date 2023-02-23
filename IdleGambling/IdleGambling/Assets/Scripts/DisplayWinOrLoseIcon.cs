@@ -27,6 +27,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
     [Header("Gameobject")]
     [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private Transform coinSpawnerTransfom;
 
     [Header("---UI---")]
     [Tooltip("The buttons that is over the mechine which makes the player able to gamble")]
@@ -185,7 +186,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         for (int i = 0; i < winningAmount ; i++)
         {
             yield return new WaitForEndOfFrame();
-            Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
         }
         //Stops the SFX
         winningCoinsSFX.loop = false;
