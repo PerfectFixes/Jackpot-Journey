@@ -101,8 +101,6 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
- 
-
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
 
         playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0); 

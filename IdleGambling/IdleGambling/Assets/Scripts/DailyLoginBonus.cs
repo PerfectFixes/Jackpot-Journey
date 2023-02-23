@@ -44,6 +44,7 @@ public class DailyLoginBonus : MonoBehaviour
         }
         else
         {
+           
             lastLogin = PlayerPrefs.GetString("LastLoginDate");
         }
 
@@ -61,16 +62,19 @@ public class DailyLoginBonus : MonoBehaviour
         //Check to see if the player has already logged in today
         if (lastLogin == currentDay)
         {
+            print("Logged in today");
             //If so do nothing and close the mathod
             return;
         }
         //Checks to see if the player didnt log in for more then 1 day
         if (lastLoginDateTime.AddDays(1) < currentDateTime)
         {
+            print("Reset streak");
             //Reset the streak
             loginStreak = 0;
             PlayerPrefs.SetInt("StreakReward", 1);
         }
+        print("Add 1 to the streak");
         //Add 1 to the streak and save it
         loginStreak++;
         PlayerPrefs.SetInt("LoginStreak", loginStreak);
