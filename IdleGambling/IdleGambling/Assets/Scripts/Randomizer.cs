@@ -15,6 +15,7 @@ public class Randomizer : MonoBehaviour
 
     private bool isStreakOn;
     private int multiplierAmount;
+    private int prestigeGoal;
 
 
     [Header("Randomizing Number")]
@@ -75,6 +76,15 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The text of of target amount to achive the prestige unlock")]
     [SerializeField] private TMP_Text afkRewardText;
 
+    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [SerializeField] private TMP_Text smallRewardText;
+
+    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [SerializeField] private TMP_Text mediumRewardText;
+
+    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [SerializeField] private TMP_Text bigRewardText;
+
 
 
 
@@ -84,6 +94,9 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private Image coinButtonImage;
 
     [SerializeField] private Button machineButton;
+
+    [SerializeField] private Button prestigeButton;
+    [SerializeField] private Animator prestigeAnimator;
 
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
@@ -101,9 +114,10 @@ public class Randomizer : MonoBehaviour
     //Setting the animation of the winning/losing
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
-    {
-        //Checks to see if a playerPrefs exists if so set the correct amount of money or level
+    {  
+        prestigeButton.interactable = false;
 
+        //Checks to see if a playerPrefs exists if so set the correct amount of money or level
         playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0); 
 
         prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel", 1);
@@ -122,39 +136,40 @@ public class Randomizer : MonoBehaviour
         #region Setting the prestige goal
         if (prestigeLevel == 1)
         {
-            prestigeGoalText.text = " Target Coins: 200";
+            prestigeGoal = 20;
+            
         }
         else if (prestigeLevel == 2)
         {
-            prestigeGoalText.text = " Target Coins: 500";
+            prestigeGoal = 500;
         }
         else if (prestigeLevel == 3)
         {
-            prestigeGoalText.text = " Target Coins: 1,000";
+            prestigeGoal = 1000;
         }
         else if (prestigeLevel == 4)
         {
-            prestigeGoalText.text = " Target Coins: 2,500";
+            prestigeGoal = 2500;
         }
         else if (prestigeLevel == 5)
         {
-            prestigeGoalText.text = " Target Coins: 5,000";
+            prestigeGoal = 5000;
         }
         else if (prestigeLevel == 6)
         {
-            prestigeGoalText.text = " Target Coins: 25,000";
+            prestigeGoal = 25000;
         }
         else if (prestigeLevel == 7)
         {
-            prestigeGoalText.text = " Target Coins: 75,000";
+            prestigeGoal = 75000;
         }
         else if (prestigeLevel == 8)
         {
-            prestigeGoalText.text = " Target Coins: 250,000";
+            prestigeGoal = 250000;
         }
         else if (prestigeLevel == 9)
         {
-            prestigeGoalText.text = " Target Coins: 1,000,000";
+            prestigeGoal = 1000000;
         }
         else if (prestigeLevel == 10)
         {
@@ -162,6 +177,7 @@ public class Randomizer : MonoBehaviour
 
             //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
         }
+        prestigeGoalText.text = " Target Coins: " + prestigeGoal;
         #endregion
 
         //Get the game master component 
@@ -182,6 +198,10 @@ public class Randomizer : MonoBehaviour
             mediumWinReward = 6 * prestigeLevel * multiplierAmount;
             bigWinReward = 16 * prestigeLevel * multiplierAmount;
 
+            smallRewardText.text = "Reward Amount: " + smallWinReward;
+            mediumRewardText.text = "Reward Amount: " + mediumWinReward;
+            bigRewardText.text = "Reward Amount: " + bigWinReward;
+
             rewardAmount  = rewardAmount * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
         }
         else
@@ -192,11 +212,13 @@ public class Randomizer : MonoBehaviour
             mediumWinReward = 6 * prestigeLevel;
             bigWinReward = 16 * prestigeLevel;
 
+            smallRewardText.text = "Reward Amount: " + smallWinReward + " Coins";
+            mediumRewardText.text = "Reward Amount: " + mediumWinReward + " Coins"; ;
+            bigRewardText.text = "Reward Amount: " + bigWinReward + " Coins"; ;
+
             //Setting the amount of coins the player will get for being afk
             rewardAmount *= PlayerPrefs.GetInt("PrestigeLevel");
         }
-
-        
 
         //If there is no money gained from being afk dont display a message
         if (rewardAmount != 0)
@@ -245,6 +267,17 @@ public class Randomizer : MonoBehaviour
         {
             StartGambling();          
         }
+        if(playerMoney >= prestigeGoal && !prestigeButton.interactable)
+        {
+            prestigeButton.interactable = true;
+            prestigeAnimator.Play("Cycle_Prestige_Animation");
+        }
+        else if (playerMoney < prestigeGoal && prestigeButton.interactable)
+        {
+            prestigeAnimator.Play("Off_Prestige_Animation");
+            prestigeButton.interactable = false;
+        }
+
     }
     IEnumerator RandomizeNumber()
     {
@@ -406,11 +439,11 @@ public class Randomizer : MonoBehaviour
     }
     public void PrestigeLevelUp()
     {
-        if (playerMoney >= 200 && prestigeLevel == 1)
+        if (playerMoney >= prestigeGoal && prestigeLevel == 1)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 200;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -427,11 +460,11 @@ public class Randomizer : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (playerMoney >= 500 && prestigeLevel == 2)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 2)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 500;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -448,11 +481,11 @@ public class Randomizer : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (playerMoney >= 1000 && prestigeLevel == 3)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 3)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 1000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -469,11 +502,11 @@ public class Randomizer : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        else if (playerMoney >= 2500 && prestigeLevel == 4)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 4)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 2500;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -489,11 +522,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 5000 && prestigeLevel == 5)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 5)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 5000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -509,11 +542,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 25000 && prestigeLevel == 6)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 6)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 25000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -529,7 +562,7 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 75000 && prestigeLevel == 7)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 7)
         {
             //Starting to count the login streak and making sure it is reseted
             PlayerPrefs.SetInt("LoginStreak", 1);
@@ -537,7 +570,7 @@ public class Randomizer : MonoBehaviour
 
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 75000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -553,11 +586,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 250000 && prestigeLevel == 8)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 8)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 250000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
@@ -573,11 +606,11 @@ public class Randomizer : MonoBehaviour
             //Loading the same scene again to update the the game properties
             SceneManager.LoadScene(0);
         }
-        else if (playerMoney >= 1000000 && prestigeLevel == 9)
+        else if (playerMoney >= prestigeGoal && prestigeLevel == 9)
         {
             //Incase the loading takes a long time disable the option to gamble
             clickerCount = -69420;
-            playerMoney -= 1000000;
+            playerMoney -= prestigeGoal;
 
             //Update the amount of money and set it to minus so he wont be able to gamble again
             playerMoneyText.text = playerMoney.ToString();
