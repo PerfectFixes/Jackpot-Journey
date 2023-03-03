@@ -114,7 +114,11 @@ public class Randomizer : MonoBehaviour
     //Setting the animation of the winning/losing
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
-    {  
+    {
+        if (PlayerPrefs.GetString("TutorialComplete") == "False" || PlayerPrefs.GetString("TutorialComplete") == "")
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
         prestigeButton.interactable = false;
 
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
@@ -136,8 +140,7 @@ public class Randomizer : MonoBehaviour
         #region Setting the prestige goal
         if (prestigeLevel == 1)
         {
-            prestigeGoal = 20;
-            
+            prestigeGoal = 200;         
         }
         else if (prestigeLevel == 2)
         {

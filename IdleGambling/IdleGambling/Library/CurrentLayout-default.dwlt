@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Simulator
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -118,10 +118,10 @@ MonoBehaviour:
     y: 30
     width: 2560
     height: 1307
-  m_MinSize: {x: 878, y: 492}
-  m_MaxSize: {x: 18001, y: 14042}
+  m_MinSize: {x: 881, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 119
+  controlID: 75
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,10 +143,10 @@ MonoBehaviour:
     y: 0
     width: 2560
     height: 1307
-  m_MinSize: {x: 878, y: 492}
-  m_MaxSize: {x: 18001, y: 14042}
+  m_MinSize: {x: 881, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 120
+  controlID: 76
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,10 +168,10 @@ MonoBehaviour:
     y: 0
     width: 1941
     height: 1307
-  m_MinSize: {x: 603, y: 492}
-  m_MaxSize: {x: 14001, y: 14042}
+  m_MinSize: {x: 605, y: 492}
+  m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 153
+  controlID: 77
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,10 +194,10 @@ MonoBehaviour:
     y: 0
     width: 1941
     height: 796
-  m_MinSize: {x: 603, y: 221}
-  m_MaxSize: {x: 12003, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 94
+  controlID: 78
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,14 +243,14 @@ MonoBehaviour:
     y: 0
     width: 655
     height: 796
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 916
     height: 796
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 19}
@@ -299,10 +299,10 @@ MonoBehaviour:
     y: 796
     width: 1941
     height: 511
-  m_MinSize: {x: 331, y: 271}
-  m_MaxSize: {x: 14001, y: 10021}
+  m_MinSize: {x: 333, y: 271}
+  m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 154
+  controlID: 21
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -348,8 +348,8 @@ MonoBehaviour:
     y: 0
     width: 781
     height: 511
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -374,8 +374,8 @@ MonoBehaviour:
     y: 0
     width: 619
     height: 1307
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -412,7 +412,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 088cfeff949dfeffb2b6feff7cf9feffd4fcfeffa446ffff8eceffffb6f1ffff62fbffff324d0000284e0000704e0000fa4e00001a4f0000
+      m_ExpandedIDs: 6c49feff8c4cfeff60fbffff704d0000744d0000d44d0000884e0000a24e0000aa4e0000dc4e0000944f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -472,9 +472,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.3750856, y: -7.429978, z: -343.5347}
+    m_Target: {x: -7.6379123, y: -15.418684, z: -119.887726}
     speed: 2
-    m_Value: {x: -3.3750856, y: -7.429978, z: -343.5347}
+    m_Value: {x: -7.6379123, y: -15.418684, z: -119.887726}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -525,9 +525,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22.698381
+    m_Target: 32.4913
     speed: 2
-    m_Value: 22.698381
+    m_Value: 32.4913
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -583,6 +583,7 @@ MonoBehaviour:
     - {fileID: 1115093815060647044, guid: 5b2ce1d7f39bdeb40bef414b0e457cc0, type: 2}
     - {fileID: 6286517651035727690, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
     - {fileID: -2097200440154145161, guid: 41cb8475443f4974c8c878849dad96d5, type: 2}
+    - {fileID: 2540050356550236541, guid: e75297dcd228d5d4e90d7dd64516bbd0, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.614125
       e01: 0
@@ -632,14 +633,30 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.481214
+    - e00: 0.8836789
       e01: 0
       e02: 0
-      e03: 27.314465
+      e03: -132.78833
       e10: 0
-      e11: 0.481214
+      e11: 0.8836789
       e12: 0
-      e13: 264.28766
+      e13: 182.33499
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 1.3105495
+      e01: 0
+      e02: 0
+      e03: -257.74875
+      e10: 0
+      e11: 1.3105495
+      e12: 0
+      e13: 178.4857
       e20: 0
       e21: 0
       e22: 1
@@ -649,9 +666,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 41cb8475443f4974c8c878849dad96d5, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -2097200440154145161, guid: 41cb8475443f4974c8c878849dad96d5, type: 2}
+  - m_Target: {fileID: 6286517651035727690, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -661,7 +678,7 @@ MonoBehaviour:
   m_MiniTool: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_CurrentEditor: 0
+  m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
 --- !u!114 &19
@@ -691,7 +708,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -218426
+  m_LastSelectedObjectID: 19744
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -730,22 +747,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Winning Rewards/Big Win
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Sprites/Winning Rewards/Big Win
+  - Assets/Scenes
   m_LastFoldersGridSize: 96
   m_LastProjectPath: D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 106a0000
-    m_LastClickedID: 27152
-    m_ExpandedIDs: 00000000fe530000005400000254000004540000d25400005055000000ca9a3b
+    m_SelectedIDs: b0550000
+    m_LastClickedID: 21936
+    m_ExpandedIDs: 00000000e6540000e8540000ea540000ec540000ee540000be550000c055000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -773,7 +790,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe530000005400000254000004540000
+    m_ExpandedIDs: 00000000e6540000e8540000ea540000ec540000ee540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -801,7 +818,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000a24c0000903e0000b84000003c42ffffc641000094420000104100005c4e00007aa900006ca90000ee4b000000000000
+    m_ExpandedInstanceIDs: c6230000a24c0000903e0000b84000003c42ffffc641000094420000104100005c4e00007aa900006ca90000ee4b0000000000003a50000090500000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -944,12 +961,12 @@ MonoBehaviour:
   m_SerializedViewNames:
   - UnityEditor.GameView
   m_SerializedViewValues:
-  - D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Library\PlayModeViewStates\dbba61360cf05c545bba118ec634d938
+  - D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Library\PlayModeViewStates\e3873a53c004f3f4e8cc2e8be2d469b2
   m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 1200, y: 1920}
+  m_TargetSize: {x: 1080, y: 1920}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -965,11 +982,11 @@ MonoBehaviour:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 31
+    scale: 32
     fitToScreenEnabled: 1
     rotationDegree: 0
     highlightSafeAreaEnabled: 1
-    friendlyName: Sony Xperia Z2 Tablet
+    friendlyName: LG Nexus 5
     networkReachability: 1
     systemLanguage: 10
 --- !u!114 &25

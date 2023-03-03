@@ -61,6 +61,8 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     private void Awake()
     {
         updateMoney = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
+
+      
     }
     public IEnumerator DisplayTheWin(int result, int winningAmount)
     {

@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
 {
-
+    private bool tutorialAutoClose;
+    [SerializeField] private DialogueManager dialogueManager;
 
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
@@ -70,6 +71,7 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        tutorialAutoClose = true;
         settingsGameObject.SetActive(false);
 
         int prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
@@ -150,11 +152,6 @@ public class Settings : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-    
-      
-    }
     public void OpenOrCloseSettingsTab(string settingsState)
     {
         if(settingsState == "Open")
@@ -174,7 +171,43 @@ public class Settings : MonoBehaviour
             settingsGameObject.SetActive(false);      
         }
     }
+    public void TutorialOpenOrCloseSettingsTab(string settingsState)
+    {
+        if (settingsState == "Open")
+        {
+            if (settingPressSFX.isActiveAndEnabled)
+            {
+                settingPressSFX.Play();
+            }
+            settingsGameObject.SetActive(true);
+            if (tutorialAutoClose)
+            {
+                StartCoroutine(TutorialAutoCloseSetting());
+            }
+            
+        }
+        else
+        {
+            if (tutorialAutoClose)
+            {
+                dialogueManager.StartDialogue(dialogueManager.dialogueTrigger.dialogue);
+            }
+            StopAllCoroutines();
+            if (settingPressSFX.isActiveAndEnabled)
+            {
+                settingPressSFX.Play();
+            }
+            settingsGameObject.SetActive(false);
+        }
+    }
+    IEnumerator TutorialAutoCloseSetting()
+    {
+        
+        yield return new WaitForSeconds(5);
+        TutorialOpenOrCloseSettingsTab("Close");
+        tutorialAutoClose = false;
 
+    }
     public void SleepMode()
     {
         SceneManager.LoadScene("AFK_Scene");

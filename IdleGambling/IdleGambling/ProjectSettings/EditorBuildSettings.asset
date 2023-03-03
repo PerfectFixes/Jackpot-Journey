@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AFK_Scene.unity
     guid: 94ac197ba46efdd41bbdeaaa597975e6
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 700f7769197d1e947abc7c1363e42171
   m_configObjects: {}
