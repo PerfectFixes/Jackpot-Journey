@@ -72,28 +72,48 @@ public class DisplayWinOrLoseTutorial : MonoBehaviour
         {
             case 60:
 
+                //Waiting 1 second before starting to display the win
                 yield return new WaitForSeconds(1);
+
+                //Disabling the animator
                 firstSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 firstSlot.sprite = smallWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (firstSlotSFX.isActiveAndEnabled)
                 {
                     firstSlotSFX.Play();
                 }
 
-
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 secondSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 secondSlot.sprite = smallWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (secondSlotSFX.isActiveAndEnabled)
                 {
                     secondSlotSFX.Play();
                 }
 
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 thirdSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 thirdSlot.sprite = smallWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (thirdSlotSFX.isActiveAndEnabled)
                 {
                     thirdSlotSFX.Play();
@@ -102,29 +122,48 @@ public class DisplayWinOrLoseTutorial : MonoBehaviour
             //-------------------------------------------------
             case 30:
 
+                //Waiting 1 second before starting to display the win
                 yield return new WaitForSeconds(1);
+
+                //Disabling the animator
                 firstSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 firstSlot.sprite = mediumWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (firstSlotSFX.isActiveAndEnabled)
                 {
                     firstSlotSFX.Play();
                 }
 
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 secondSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 secondSlot.sprite = mediumWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (secondSlotSFX.isActiveAndEnabled)
                 {
                     secondSlotSFX.Play();
                 }
 
-
-
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 thirdSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 thirdSlot.sprite = mediumWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (thirdSlotSFX.isActiveAndEnabled)
                 {
                     thirdSlotSFX.Play();
@@ -133,27 +172,48 @@ public class DisplayWinOrLoseTutorial : MonoBehaviour
             //-------------------------------------------------
             case 10:
 
+                //Waiting 1 second before starting to display the win
                 yield return new WaitForSeconds(1);
+
+                //Disabling the animator
                 firstSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 firstSlot.sprite = bigWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (firstSlotSFX.isActiveAndEnabled)
                 {
                     firstSlotSFX.Play();
                 }
 
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 secondSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 secondSlot.sprite = bigWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (secondSlotSFX.isActiveAndEnabled)
                 {
                     secondSlotSFX.Play();
                 }
 
+                //Randomizing the amount of seconds before starting to display the win
                 selectingRandomTime = Random.Range(0.5f, 1.5f);
                 yield return new WaitForSeconds(selectingRandomTime);
+
+                //Disabling the animator
                 thirdSlotAnimator.enabled = false;
+
+                //Setting the correct icon
                 thirdSlot.sprite = bigWin[selectRandomIcon];
+
+                //Playing SFX if the player didnt disable it
                 if (thirdSlotSFX.isActiveAndEnabled)
                 {
                     thirdSlotSFX.Play();

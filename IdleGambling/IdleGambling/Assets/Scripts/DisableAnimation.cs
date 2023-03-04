@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DisableAnimation : MonoBehaviour
 { 
+    
     public void DisableSmokeAnimation()
     {
         gameObject.SetActive(false);

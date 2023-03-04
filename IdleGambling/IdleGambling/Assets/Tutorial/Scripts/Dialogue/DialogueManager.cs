@@ -112,12 +112,16 @@ public class DialogueManager : MonoBehaviour
                 slotTwoColor.color = lowAlpha;
                 slotThreeColor.color = lowAlpha;
                 machineButton.interactable = false;
+
+                //Disable the pointer
                 machinePointer.SetActive(false);
                 break;
 
             case 3:
                 //Disable the coin button
                 coinPointer.SetActive(false);
+
+                //Disable the pointer
                 coinButton.interactable = false;
                 foreach (string sentence in dialogue.thirdPart)
                 {
@@ -139,6 +143,8 @@ public class DialogueManager : MonoBehaviour
                 }
                 //Disable the settings button
                 settingsButton.interactable = false;
+
+                //Disable the pointer
                 prestigePointer.SetActive(true);
                 break;
         }
@@ -203,6 +209,8 @@ public class DialogueManager : MonoBehaviour
                 slotTwoColor.color = normalAlpha;
                 slotThreeColor.color = normalAlpha;
                 machineButton.interactable = true;
+
+                //Enable the pointer
                 machinePointer.SetActive(true);
                 //Give the player money
                 randomizerTutorial.GiveMoneyToPlayer();
@@ -210,15 +218,20 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case 2:
-                //Make the coin clickable
+
+                //Enable the pointer
                 coinPointer.SetActive(true);
+                //Make the coin clickable
                 coinButton.interactable = true;
                 
                 break;
 
             case 3:
-                //Make the settings interactable
+
+                //Enable the pointer
                 settingsPointer.SetActive(true);
+
+                //Make the settings interactable
                 settingsButton.interactable = true;
 
                 break;
@@ -237,6 +250,7 @@ public class DialogueManager : MonoBehaviour
                 coinButton.interactable = true;
                 settingsButton.interactable = true;
 
+                //Disable the pointer
                 prestigePointer.SetActive(false);
                 break;
 
@@ -245,6 +259,5 @@ public class DialogueManager : MonoBehaviour
         {
             print("Overflow");
         }
-        print("End of dialogue");
     }
 }

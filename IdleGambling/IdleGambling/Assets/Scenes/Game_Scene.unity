@@ -766,13 +766,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sentences:
-    - "Welcome to \u201CGAME NAME\u201D, Your goal is to earn TCoins and reach \rthe
-      highest Prestige Level!\rHere is 3 TCoins as a welcome gift :)"
-    - "The slot machine is the main way to earn TCoins!\rPress on the machine and
-      gamble your money."
-    - "Oh? you already lost all of your money?\rLuckly the TCoin button will give
-      you 2 TCoins after 10 presses!\rTry it now!"
+    firstPart: []
+    secondPart: []
+    thirdPart: []
+    fourhPart: []
 --- !u!1 &243322341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,10 +3111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38caaa6f11ddb374ba5866936e472ac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueManager: {fileID: 0}
   settingPressSFX: {fileID: 785280392}
   settingsGameObject: {fileID: 2010027133}
   sfxControl: {fileID: 425449330}
   musicControl: {fileID: 818709074}
+  tutorialSettingsPointer: {fileID: 0}
   dailyLoginBonus: {fileID: 576705489}
   sleepModeButton: {fileID: 1402048701}
   autoGambleToggle: {fileID: 920968562}
@@ -5075,7 +5074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930623224}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 17.210526, y: 0, z: 0}
+  m_LocalPosition: {x: 19.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8304,7 +8303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684350342}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: -17.210526, y: 0, z: 0}
+  m_LocalPosition: {x: -19.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
