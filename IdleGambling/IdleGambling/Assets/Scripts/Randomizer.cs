@@ -115,15 +115,20 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+
+        //Sends the player to the Tutorial Scene if he didnt complete it
         if (PlayerPrefs.GetString("TutorialComplete") == "False" || PlayerPrefs.GetString("TutorialComplete") == "")
         {
             SceneManager.LoadScene("Tutorial");
         }
+
+        //Disable the prestige button
         prestigeButton.interactable = false;
 
         //Checks to see if a playerPrefs exists if so set the correct amount of money or level
         playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0); 
 
+        //Sets the prestige level to 1 if the player has no level.
         prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel", 1);
      
         if(prestigeLevel >= 8)

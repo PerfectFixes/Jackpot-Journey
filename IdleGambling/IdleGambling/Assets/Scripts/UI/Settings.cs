@@ -26,6 +26,8 @@ public class Settings : MonoBehaviour
     [Tooltip("The Music Control game object")]
     [SerializeField] private GameObject musicControl;
 
+    [SerializeField] private GameObject tutorialSettingsPointer;
+
 
 
 
@@ -154,32 +156,43 @@ public class Settings : MonoBehaviour
 
     public void OpenOrCloseSettingsTab(string settingsState)
     {
+        //Open the settings
         if(settingsState == "Open")
         {
+            //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
+            //Open the settings
             settingsGameObject.SetActive(true);        
         }
         else
         {
+            //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
+            //Close the settings
             settingsGameObject.SetActive(false);      
         }
     }
     public void TutorialOpenOrCloseSettingsTab(string settingsState)
     {
+        //Play SFX if the player didnt disable the SFX
         if (settingsState == "Open")
         {
+            tutorialSettingsPointer.SetActive(false);
+            //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
+            //Open the settings
             settingsGameObject.SetActive(true);
+            
+            //Close automatically the settings for the first time after a few seconds
             if (tutorialAutoClose)
             {
                 StartCoroutine(TutorialAutoCloseSetting());
@@ -188,30 +201,37 @@ public class Settings : MonoBehaviour
         }
         else
         {
+            //When closing the settings starts the new dialogue
             if (tutorialAutoClose)
             {
                 dialogueManager.StartDialogue(dialogueManager.dialogueTrigger.dialogue);
             }
+            //Disable the automatic close
             StopAllCoroutines();
+            tutorialAutoClose = false;
+
+            //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
+            //Close the settings
             settingsGameObject.SetActive(false);
         }
     }
+    //Closing the settings automatically
     IEnumerator TutorialAutoCloseSetting()
-    {
-        
-        yield return new WaitForSeconds(5);
+    {     
+        yield return new WaitForSeconds(25);
         TutorialOpenOrCloseSettingsTab("Close");
         tutorialAutoClose = false;
-
     }
+    //Transfer to sleep mode scene
     public void SleepMode()
     {
         SceneManager.LoadScene("AFK_Scene");
     }
+    //Reset the game
     public void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();

@@ -20,6 +20,7 @@ public class RandomizerTutorial : MonoBehaviour
 
     private int prestigeGoal;
 
+    [SerializeField] private GameObject prestigePointer;
 
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
@@ -39,8 +40,6 @@ public class RandomizerTutorial : MonoBehaviour
     [Tooltip("Prestige is the level of the player and each time he achives the amount of money " +
         "needed to prestige the game resets and he gets a multiplier according to the level of the player ")]
     [SerializeField] private int prestigeLevel;
-
-
 
 
     [Header("Money and Winnings")]
@@ -179,11 +178,13 @@ public class RandomizerTutorial : MonoBehaviour
         {
             prestigeButton.interactable = true;
             prestigeAnimator.Play("Cycle_Prestige_Animation");
+            prestigePointer.SetActive(true);
         }
         else if (playerMoney < prestigeGoal && prestigeButton.interactable)
         {
             prestigeAnimator.Play("Off_Prestige_Animation");
             prestigeButton.interactable = false;
+            prestigePointer.SetActive(false);
         }
       
     }

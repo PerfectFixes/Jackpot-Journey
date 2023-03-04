@@ -6,6 +6,8 @@ ScriptsOnlyBuild:
     - CanvasHelper
     - CoinLogic
     - DailyLoginBonus
+    - DialogueManager
+    - DialogueTrigger
     - DisableAnimation
     - DisplayWinOrLoseIcon
     - DisplayWinOrLoseTutorial
@@ -22,6 +24,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -75,8 +79,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -296,19 +302,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6590}
     - Class: 114
-      Script: {instanceID: 6708}
+      Script: {instanceID: 6710}
     - Class: 114
-      Script: {instanceID: 6732}
+      Script: {instanceID: 6734}
     - Class: 114
-      Script: {instanceID: 6766}
+      Script: {instanceID: 6768}
     - Class: 114
-      Script: {instanceID: 7390}
+      Script: {instanceID: 7394}
     - Class: 114
-      Script: {instanceID: 7422}
+      Script: {instanceID: 7426}
     - Class: 114
-      Script: {instanceID: 7704}
+      Script: {instanceID: 7708}
     - Class: 114
-      Script: {instanceID: 7946}
+      Script: {instanceID: 7802}
+    - Class: 114
+      Script: {instanceID: 7952}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -401,9 +409,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6336}
     - Class: 114
-      Script: {instanceID: 7422}
+      Script: {instanceID: 6708}
     - Class: 114
-      Script: {instanceID: 7622}
+      Script: {instanceID: 7426}
+    - Class: 114
+      Script: {instanceID: 7626}
+    - Class: 114
+      Script: {instanceID: 7802}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1237,6 +1249,12 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
+      Hash: cc5870af860ac43678a653b592bc03fe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DialogueManager
+  - hash:
+      serializedVersion: 2
       Hash: 36025d42bf23fda83a55bf1429201821
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -1351,7 +1369,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 9852774dcd189f882f63c2c4410fe76b
+      Hash: 5909fd2540669c5bf62bc9e932cf12ab
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1369,7 +1387,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 46e78a12b0e4af1191f7d16cd02aa26e
+      Hash: e80836fb175c7792f7741a8f096ca58b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RandomizerTutorial
@@ -1397,6 +1415,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: CinemachineUniversalPixelPerfect
+  - hash:
+      serializedVersion: 2
+      Hash: 6845acef888b06c7eb8eb26aa1cb0389
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DialogueTrigger
   - hash:
       serializedVersion: 2
       Hash: 84e1b0a548d467bdaf3a16f89a2dbefd
@@ -1444,4 +1468,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Game_Scene.unity
   - Assets/Scenes/AFK_Scene.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling4.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling5.apk
