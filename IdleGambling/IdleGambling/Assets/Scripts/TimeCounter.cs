@@ -1,15 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.UI;
-using System;
+
 
 public class TimeCounter : MonoBehaviour
 {
-
+    private bool isMovingScene; 
+    [SerializeField] private Animator sceneLoader;
     //The amount of time the player is in the scene
     public float timeInScene;
 
@@ -39,6 +37,7 @@ public class TimeCounter : MonoBehaviour
 
     private void Awake()
     {
+        isMovingScene = false;
         //disable the smoke animation
         smokeAnimation.SetActive(false);
     }
@@ -70,18 +69,32 @@ public class TimeCounter : MonoBehaviour
 
             progress %= 1f;
         }
-
-
     }
+
     //When the button is pressed the scene will change back to the start
     public void LeaveScene()
     {
-        score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
+        StartCoroutine(SceneTransaction());
+    }
+    public IEnumerator SceneTransaction()
+    {
+        if (!isMovingScene)
+        {
+            isMovingScene = true;
 
-        //Update the reward in a playerprefs
-        PlayerPrefs.SetInt("AFK Reward", score);
+            sceneLoader.SetTrigger("Load_Scene");
 
-        SceneManager.LoadScene("Game_Scene");
+            yield return new WaitForSeconds(1f);
+
+            score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
+
+            //Update the reward in a playerprefs
+            PlayerPrefs.SetInt("AFK Reward", score);
+
+            yield return new WaitForSeconds(0.25f);
+            SceneManager.LoadScene("Game_Scene");
+        }
+       
     }
     IEnumerator UpdateTime()
     {
@@ -146,5 +159,6 @@ public class TimeCounter : MonoBehaviour
             print("Game resumed");
         }
     }
+
 
 }

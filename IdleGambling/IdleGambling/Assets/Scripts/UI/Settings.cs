@@ -11,6 +11,8 @@ public class Settings : MonoBehaviour
     private bool tutorialAutoClose;
     [SerializeField] private DialogueManager dialogueManager;
 
+    [SerializeField] private Animator sceneLoader;
+
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
     [SerializeField] private AudioSource settingPressSFX;
@@ -229,6 +231,12 @@ public class Settings : MonoBehaviour
     //Transfer to sleep mode scene
     public void SleepMode()
     {
+        StartCoroutine(SceneTransaction());
+    }
+    IEnumerator SceneTransaction()
+    {
+        sceneLoader.SetTrigger("Load_Scene");
+        yield return new WaitForSeconds(1.25f);
         SceneManager.LoadScene("AFK_Scene");
     }
     //Reset the game

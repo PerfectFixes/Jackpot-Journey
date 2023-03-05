@@ -13,6 +13,9 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform coinSpawnerTransfom;
 
+    [Tooltip("The AFK reward popup when you log in and get a reward")]
+    [SerializeField] private GameObject afkRewardGameObject;
+
     private bool isStreakOn;
     private int multiplierAmount;
     private int prestigeGoal;
@@ -86,9 +89,6 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private TMP_Text bigRewardText;
 
 
-
-
-
     [Header("Button")]
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
@@ -96,18 +96,21 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private Button machineButton;
 
     [SerializeField] private Button prestigeButton;
-    [SerializeField] private Animator prestigeAnimator;
 
-    [Tooltip("The AFK reward popup when you log in and get a reward")]
-    [SerializeField] private GameObject afkRewardGameObject;
 
+    [Header("Toggler")]
     [Tooltip("The toggle button of the auto gambling mode in the settings")]
     [SerializeField] private Toggle autoGambleToggle;
 
+
+
+    [Header("Animator")]
+    [SerializeField] private Animator prestigeAnimator;
+
+    [SerializeField] private Animator sceneLoader;
+
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
-
-
 
     #endregion
 
@@ -145,7 +148,7 @@ public class Randomizer : MonoBehaviour
         #region Setting the prestige goal
         if (prestigeLevel == 1)
         {
-            prestigeGoal = 200;         
+            prestigeGoal = 100;         
         }
         else if (prestigeLevel == 2)
         {
@@ -447,128 +450,39 @@ public class Randomizer : MonoBehaviour
     }
     public void PrestigeLevelUp()
     {
+        #region Prestige setting and saving
         if (playerMoney >= prestigeGoal && prestigeLevel == 1)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 2);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
 
         else if (playerMoney >= prestigeGoal && prestigeLevel == 2)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 3);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
 
         else if (playerMoney >= prestigeGoal && prestigeLevel == 3)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 4);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
 
         else if (playerMoney >= prestigeGoal && prestigeLevel == 4)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 5);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 5)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 6);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 6)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 7);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 7)
         {
@@ -576,67 +490,41 @@ public class Randomizer : MonoBehaviour
             PlayerPrefs.SetInt("LoginStreak", 1);
             PlayerPrefs.DeleteKey("LastLoginDate");
 
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 8);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 8)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 9);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 9)
         {
-            //Incase the loading takes a long time disable the option to gamble
-            clickerCount = -69420;
-            playerMoney -= prestigeGoal;
-
-            //Update the amount of money and set it to minus so he wont be able to gamble again
-            playerMoneyText.text = playerMoney.ToString();
-            playerMoneyText.text = $"{playerMoney:N0}";
-            playerMoney = -1000;
-
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 10);
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene(0);
         }
+        #endregion
 
+        //Incase the loading takes a long time disable the option to gamble
+        clickerCount = -69420;
+        playerMoney -= prestigeGoal;
+
+        //Update the amount of money and set it to minus so he wont be able to gamble again
+        playerMoneyText.text = playerMoney.ToString();
+        playerMoneyText.text = $"{playerMoney:N0}";
+        playerMoney = -1000;
+
+        //Reseting the amount of money the player has
+        PlayerPrefs.DeleteKey("PlayerMoney");
+
+        StartCoroutine(SceneTransaction());
     }
-
+    IEnumerator SceneTransaction()
+    {        
+        sceneLoader.SetTrigger("Load_Scene");
+        yield return new WaitForSeconds(1.25f);
+        SceneManager.LoadScene("Game_Scene");
+    }
 
 }
 

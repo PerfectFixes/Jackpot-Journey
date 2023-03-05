@@ -841,7 +841,7 @@ ScriptsOnlyBuild:
     className: ShadowsMidtonesHighlights
   - hash:
       serializedVersion: 2
-      Hash: 46e78a12b0e4af1191f7d16cd02aa26e
+      Hash: 5df65d06aeeb83b4f37718bf3eabbb3e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer
@@ -1387,7 +1387,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: e80836fb175c7792f7741a8f096ca58b
+      Hash: 59f1b08b618379c08d9b56b8a007fe2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RandomizerTutorial
@@ -1468,4 +1468,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Game_Scene.unity
   - Assets/Scenes/AFK_Scene.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling5.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling6.apk

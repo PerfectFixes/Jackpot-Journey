@@ -10,6 +10,9 @@ public class RandomizerTutorial : MonoBehaviour
 
     #region Public Stats
 
+
+    private int prestigeGoal;
+
     private bool isLostAllMoney;
     private bool isPressingOnCoin;
 
@@ -18,7 +21,12 @@ public class RandomizerTutorial : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform coinSpawnerTransfom;
 
-    private int prestigeGoal;
+
+    [Tooltip("The different states of the coin when pressed")]
+    [SerializeField] private Sprite[] coinSpriteAnimation;
+
+    [Tooltip("The AFK reward popup when you log in and get a reward")]
+    [SerializeField] private GameObject afkRewardGameObject;
 
     [SerializeField] private GameObject prestigePointer;
 
@@ -95,21 +103,19 @@ public class RandomizerTutorial : MonoBehaviour
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
 
-    //[SerializeField] private Button machineButton;
-
-
-
     [SerializeField] private Button prestigeButton;
-    [SerializeField] private Animator prestigeAnimator;
 
-    [Tooltip("The AFK reward popup when you log in and get a reward")]
-    [SerializeField] private GameObject afkRewardGameObject;
-
+    //[SerializeField] private Button machineButton;
+    [Header("Toggler")]
     [Tooltip("The toggle button of the auto gambling mode in the settings")]
     [SerializeField] private Toggle autoGambleToggle;
 
-    [Tooltip("The different states of the coin when pressed")]
-    [SerializeField] private Sprite[] coinSpriteAnimation;
+    [Header("Animator")]
+   
+    [SerializeField] private Animator prestigeAnimator;
+    [SerializeField] private Animator sceneLoader;
+
+
 
 
     #endregion
@@ -367,14 +373,17 @@ public class RandomizerTutorial : MonoBehaviour
             PlayerPrefs.SetInt("PrestigeLevel", 1);
 
             PlayerPrefs.SetString("TutorialComplete", "True");
-
-            //Loading the same scene again to update the the game properties
-            SceneManager.LoadScene("Game_Scene");
+            StartCoroutine(SceneTransaction());
         }
 
 
     }
-
+    IEnumerator SceneTransaction()
+    {
+        sceneLoader.SetTrigger("Load_Scene");
+        yield return new WaitForSeconds(1.25f);
+        SceneManager.LoadScene("Game_Scene");
+    }
 
 }
 
