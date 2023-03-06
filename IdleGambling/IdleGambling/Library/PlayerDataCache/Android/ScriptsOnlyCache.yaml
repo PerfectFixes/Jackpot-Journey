@@ -240,6 +240,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3636}
     - Class: 114
+      Script: {instanceID: 3692}
+    - Class: 114
       Script: {instanceID: 3950}
     - Class: 114
       Script: {instanceID: 4054}
@@ -390,6 +392,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3184}
     - Class: 114
       Script: {instanceID: 3252}
+    - Class: 114
+      Script: {instanceID: 3692}
     - Class: 114
       Script: {instanceID: 4058}
     - Class: 114
@@ -607,7 +611,7 @@ ScriptsOnlyBuild:
     className: XRSystemData
   - hash:
       serializedVersion: 2
-      Hash: 7b06fde92c0eb0158e3c43599a9004d9
+      Hash: aac543ec8e4c677ddca4383b0ef39605
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TimeCounter
@@ -1369,7 +1373,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 5909fd2540669c5bf62bc9e932cf12ab
+      Hash: fb5fa8914b558816dc976b5dbc4ed9b7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Settings
@@ -1468,4 +1472,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Game_Scene.unity
   - Assets/Scenes/AFK_Scene.unity
   - Assets/Scenes/Tutorial.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling6.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/IdleGambling7.apk

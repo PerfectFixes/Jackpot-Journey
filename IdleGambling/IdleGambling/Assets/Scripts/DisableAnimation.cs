@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DisableAnimation : MonoBehaviour
-{ 
-    
-    public void DisableSmokeAnimation()
+{
+    public void DisableGameObject()
     {
         gameObject.SetActive(false);
     }

@@ -118,7 +118,6 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
-
         //Sends the player to the Tutorial Scene if he didnt complete it
         if (PlayerPrefs.GetString("TutorialComplete") == "False" || PlayerPrefs.GetString("TutorialComplete") == "")
         {
@@ -271,6 +270,7 @@ public class Randomizer : MonoBehaviour
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
+     
     }
     void Update()
     {
@@ -345,7 +345,7 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = 0;
         randomNumberPicker = 0;
     }
-    public void UpdatePlayerMoney()
+    public void UpdatePlayerMoney(int tempAmount)
     {
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
@@ -394,8 +394,6 @@ public class Randomizer : MonoBehaviour
 
                 playerMoney = PlayerPrefs.GetInt("PlayerMoney");
 
-                
-
                 if (isStreakOn)
                 {
                     playerMoney += 2 * prestigeLevel * multiplierAmount;//Multiply by prestige level and streak to add more money
@@ -408,11 +406,10 @@ public class Randomizer : MonoBehaviour
                 {
                     Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
                 }
-
-                //Update the amount of money
+                //Update the player money in the UI
+                PlayerPrefs.SetInt("PlayerMoney", playerMoney);
                 playerMoneyText.text = playerMoney.ToString();
                 playerMoneyText.text = $"{playerMoney:N0}";
-                PlayerPrefs.SetInt("PlayerMoney", playerMoney);
             }
 
         }

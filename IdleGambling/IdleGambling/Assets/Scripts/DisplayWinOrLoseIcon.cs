@@ -167,7 +167,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         //Update the amount of money in the save file and the game
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
-        updateMoney.UpdatePlayerMoney();
+        updateMoney.UpdatePlayerMoney(winningAmount);
 
         //Enable the SFX To loop and plays it
         winningCoinsSFX.loop = true;

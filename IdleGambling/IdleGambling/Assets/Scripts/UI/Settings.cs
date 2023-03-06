@@ -11,7 +11,7 @@ public class Settings : MonoBehaviour
     private bool tutorialAutoClose;
     [SerializeField] private DialogueManager dialogueManager;
 
-    [SerializeField] private Animator sceneLoader;
+   
 
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
@@ -30,6 +30,13 @@ public class Settings : MonoBehaviour
 
     [SerializeField] private GameObject tutorialSettingsPointer;
 
+    [Header("Animator")]
+
+    [SerializeField] private Animator settingsButtonAnimator;
+
+    [SerializeField] private Animator settingsAnimator;
+
+    [SerializeField] private Animator sceneLoader;
 
 
 
@@ -161,24 +168,28 @@ public class Settings : MonoBehaviour
         //Open the settings
         if(settingsState == "Open")
         {
+            
             //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
             //Open the settings
-            settingsGameObject.SetActive(true);        
+            settingsGameObject.SetActive(true);
+            settingsAnimator.Play("Fade_In_General_Setting");
+            settingsButtonAnimator.Play("Setting_Pressing_Animation");
         }
         else
         {
+            settingsAnimator.Play("Fade_Out_General_Setting");
             //Play SFX if the player didnt disable the SFX
             if (settingPressSFX.isActiveAndEnabled)
             {
                 settingPressSFX.Play();
             }
-            //Close the settings
-            settingsGameObject.SetActive(false);      
+            settingsButtonAnimator.Play("Setting_Exit_Animation");
         }
+        
     }
     public void TutorialOpenOrCloseSettingsTab(string settingsState)
     {
@@ -199,7 +210,9 @@ public class Settings : MonoBehaviour
             {
                 StartCoroutine(TutorialAutoCloseSetting());
             }
-            
+            settingsAnimator.Play("Fade_In_General_Setting");
+            settingsButtonAnimator.Play("Setting_Pressing_Animation");
+
         }
         else
         {
@@ -217,9 +230,11 @@ public class Settings : MonoBehaviour
             {
                 settingPressSFX.Play();
             }
-            //Close the settings
-            settingsGameObject.SetActive(false);
+            settingsButtonAnimator.Play("Setting_Exit_Animation");
+            settingsAnimator.Play("Fade_Out_General_Setting");
         }
+       
+        
     }
     //Closing the settings automatically
     IEnumerator TutorialAutoCloseSetting()
@@ -243,6 +258,7 @@ public class Settings : MonoBehaviour
     public void ResetPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();
+        //PlayerPrefs.SetString("TutorialComplete", "True");
         SceneManager.LoadScene(0);
     }
     
