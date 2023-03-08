@@ -135,9 +135,26 @@ public class Randomizer : MonoBehaviour
      
         if(prestigeLevel >= 8)
         {
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            {
+                PlayerPrefs.SetInt("StreakReward", 2);
+            }
+            else if ((PlayerPrefs.GetInt("LoginStreak") >= 10) && (PlayerPrefs.GetInt("LoginStreak") <= 29))
+            {
+                PlayerPrefs.SetInt("StreakReward", 3);
+            }
+            else if ((PlayerPrefs.GetInt("LoginStreak") >= 30) && (PlayerPrefs.GetInt("LoginStreak") <= 59))
+            {
+                PlayerPrefs.SetInt("StreakReward", 5);
+            }
+            else if (PlayerPrefs.GetInt("LoginStreak") >= 60)
+            {
+                PlayerPrefs.SetInt("StreakReward", 10);
+            }
+
             isStreakOn = true;
 
-            multiplierAmount = PlayerPrefs.GetInt("StreakReward" , 1);
+            multiplierAmount = PlayerPrefs.GetInt("StreakReward",1);
         }
         else
         {
@@ -198,6 +215,7 @@ public class Randomizer : MonoBehaviour
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
+
 
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
         if (isStreakOn)
@@ -303,7 +321,7 @@ public class Randomizer : MonoBehaviour
 
         // ************** FOR TESTING ONLY **************** //
         //Test the logic
-        //isWinningNumber = 6;
+        //isWinningNumber = 3;
         // ************** FOR TESTING ONLY **************** //
 
         if (isWinningNumber >= 5)
@@ -312,7 +330,8 @@ public class Randomizer : MonoBehaviour
             randomNumberPicker = Random.Range(1, 11);
             // ************** FOR TESTING ONLY **************** //
             //Test the logic
-            //randomNumberPicker = 10;
+            //randomNumberPicker = 7;
+            //randomNumberPicker = Random.Range(1, 11);
             // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             {
@@ -402,7 +421,7 @@ public class Randomizer : MonoBehaviour
                 {
                     playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
                 }
-                for (int i = 0; i < prestigeLevel; i++)
+                for (int i = 0; i < prestigeLevel * 2; i++)
                 {
                     Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
                 }

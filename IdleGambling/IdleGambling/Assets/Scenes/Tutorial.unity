@@ -924,7 +924,7 @@ Animator:
   m_GameObject: {fileID: 234992901}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3177c7aeab7776740a11b67a21fcacc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -946,6 +946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5412fbbd95a37a44d836bd9e9a033c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStop: 0
+  isInCycle: 0
+  iconNumber: 0
+  firstSlotSFX: {fileID: 0}
+  secondSlotSFX: {fileID: 0}
+  thirdSlotSFX: {fileID: 683955526}
 --- !u!1 &237576373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,7 +3016,7 @@ Animator:
   m_GameObject: {fileID: 584106163}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3177c7aeab7776740a11b67a21fcacc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3032,6 +3038,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5412fbbd95a37a44d836bd9e9a033c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStop: 0
+  isInCycle: 0
+  iconNumber: 0
+  firstSlotSFX: {fileID: 1488374498}
+  secondSlotSFX: {fileID: 0}
+  thirdSlotSFX: {fileID: 0}
 --- !u!1 &592152440
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,40 +3527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f30c5104705443bc29dfb453b86db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gambleLosingSFX: {fileID: 485411921}
+  firstSlotControl: {fileID: 584106167}
+  secondSlotControl: {fileID: 1471992413}
+  thirdSlotControl: {fileID: 234992905}
   winningCoinsSFX: {fileID: 362830783}
-  firstSlotSFX: {fileID: 1488374498}
-  secondSlotSFX: {fileID: 815581573}
-  thirdSlotSFX: {fileID: 683955526}
   coinPrefab: {fileID: 6952706928182729126, guid: b9b002ca0564b0b49bb3618bf51f2c8a, type: 3}
   coinSpawnerTransfom: {fileID: 1716840621}
   machineButton: {fileID: 1018446520}
-  playerMoneyText: {fileID: 1020266243}
-  firstSlot: {fileID: 584106165}
-  secondSlot: {fileID: 1471992411}
-  thirdSlot: {fileID: 234992903}
-  firstSlotAnimator: {fileID: 584106166}
-  secondSlotAnimator: {fileID: 1471992412}
-  thirdSlotAnimator: {fileID: 234992904}
-  smallWin:
-  - {fileID: 21300000, guid: 0a600ca75df078148bfcce97ccdcadf1, type: 3}
-  - {fileID: 21300000, guid: 81fd5831bbf0add4fb0af87cf0a639d5, type: 3}
-  - {fileID: 21300000, guid: 479f72459b66a844c95de280051d6e23, type: 3}
-  - {fileID: 21300000, guid: 2bba50fbf11b76748a0c41c1a578689b, type: 3}
-  mediumWin:
-  - {fileID: 21300000, guid: 2f2ff22a92cb97f46987d65162eecd79, type: 3}
-  - {fileID: 21300000, guid: 9a2065ffb144fbd419c0bcf6b03c8c76, type: 3}
-  - {fileID: 21300000, guid: 76dd2c84e9aeb984e9789a3ffaaa685a, type: 3}
-  - {fileID: 21300000, guid: e6f76a74fb216b34cbf09c1eb202d9b4, type: 3}
-  bigWin:
-  - {fileID: 21300000, guid: b382150dc21cc2c4ab6e4637bb113331, type: 3}
-  - {fileID: 21300000, guid: 939e2f9cbaf73fb45851727add8af989, type: 3}
-  - {fileID: 21300000, guid: 199a732d3865f9043a5a38edb49d19c7, type: 3}
-  - {fileID: 21300000, guid: 4d3247cc656813741823b65410195588, type: 3}
-  selectRandomIcon: 0
-  selectingRandomTime: 0
-  randomLoseChooser: 0
-  randomLoseCounter: 0
 --- !u!1 &662251751
 GameObject:
   m_ObjectHideFlags: 0
@@ -5575,7 +5560,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930623224}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 19.866568, y: 0, z: 0}
+  m_LocalPosition: {x: 19.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7781,7 +7766,7 @@ Animator:
   m_GameObject: {fileID: 1471992409}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9f6512e1affc18e4c927f701194f886d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3177c7aeab7776740a11b67a21fcacc0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -7803,6 +7788,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5412fbbd95a37a44d836bd9e9a033c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStop: 0
+  isInCycle: 0
+  iconNumber: 0
+  firstSlotSFX: {fileID: 0}
+  secondSlotSFX: {fileID: 815581573}
+  thirdSlotSFX: {fileID: 0}
 --- !u!1 &1474738822
 GameObject:
   m_ObjectHideFlags: 0
@@ -8979,7 +8970,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684350342}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: -19.866568, y: 0, z: 0}
+  m_LocalPosition: {x: -19.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
