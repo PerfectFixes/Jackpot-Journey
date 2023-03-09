@@ -240,22 +240,28 @@ public class Settings : MonoBehaviour
         tutorialAutoClose = false;
     }
     //Transfer to sleep mode scene
-    public void SleepMode()
+    public void LoadScene(string scene)
     {
-        StartCoroutine(SceneTransaction());
+        StartCoroutine(SceneLoader(scene));
     }
-    IEnumerator SceneTransaction()
+    IEnumerator SceneLoader(string scene)
     {
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
-        SceneManager.LoadScene("AFK_Scene");
+        if (scene == "AFK")
+        {
+            SceneManager.LoadScene("AFK_Scene");
+        }
+        else if (scene == "Credits")
+        {
+            SceneManager.LoadScene("Credits");
+        }
+        else
+        {
+            SceneManager.LoadScene("Game_Scene");
+        }
+        
     }
-    //Reset the game
-    public void ResetPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-        //PlayerPrefs.SetString("TutorialComplete", "True");
-        SceneManager.LoadScene(0);
-    }
+
     
 }

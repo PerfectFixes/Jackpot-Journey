@@ -290,8 +290,27 @@ public class Randomizer : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
      
     }
+
+    // ********************** DELETE ME BEFORE FINAL BUILD **************************
+    public void ResetPlayerPrefs()
+    {
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+        PlayerPrefs.DeleteAll();
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+        //PlayerPrefs.SetString("TutorialComplete", "True");
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+        SceneManager.LoadScene(0);
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+    }
     void Update()
     {
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ResetPlayerPrefs();
+        }
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
             StartGambling();          

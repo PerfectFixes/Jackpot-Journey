@@ -152,7 +152,6 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         {
             yield return new WaitForEndOfFrame();
             Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
-            print("ran loop for");
         }
         sfxCalled--;
         //Stops only at the last time the function is called

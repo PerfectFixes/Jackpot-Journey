@@ -20,10 +20,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 762
+    x: 1186
     y: 73
-    width: 1177
-    height: 1015
+    width: 753
+    height: 802
   m_ViewDataDictionary: {fileID: 0}
   m_SerializedViewNames: []
   m_SerializedViewValues: []
@@ -67,23 +67,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
-      width: 1177
-      height: 994
-    m_Scale: {x: 0.51770836, y: 0.51770836}
-    m_Translation: {x: 588.5, y: 496.99997}
+      width: 753
+      height: 781
+    m_Scale: {x: 0.40677083, y: 0.40677083}
+    m_Translation: {x: 376.5, y: 390.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1136.7404
-      y: -959.9999
-      width: 2273.4807
-      height: 1919.9999
+      x: -925.5826
+      y: -960
+      width: 1851.1652
+      height: 1920
     m_MinimalGUI: 1
-  m_defaultScale: 0.51770836
-  m_LastWindowPixelSize: {x: 1177, y: 1015}
+  m_defaultScale: 0.40677083
+  m_LastWindowPixelSize: {x: 753, y: 802}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000001000000000000

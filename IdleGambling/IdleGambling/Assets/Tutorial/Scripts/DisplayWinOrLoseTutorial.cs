@@ -160,7 +160,7 @@ public class DisplayWinOrLoseTutorial : MonoBehaviour
         machineButton.interactable = false;
 
         //Choosing an icon to display when losing
-        selectRandomIcon = Random.Range(1, 13);
+        selectRandomIcon = 2;
         int randomOne = Random.Range(1, 13);
         int randomTwo = Random.Range(1, 13);
         int randomThree = Random.Range(1, 13);

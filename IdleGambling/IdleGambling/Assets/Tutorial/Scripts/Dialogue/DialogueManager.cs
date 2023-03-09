@@ -1,7 +1,6 @@
-using System;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -34,6 +33,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button machineButton;
     [SerializeField] private Button coinButton;
     [SerializeField] private Button settingsButton;
+
+    [Header("SFX")]
+    [SerializeField] private AudioSource typeSFX;
 
 
     //Dialogue logic
@@ -168,6 +170,7 @@ public class DialogueManager : MonoBehaviour
             //Printing 1 char at a time
             StartCoroutine(LoadCharInSentence(sentence));
         }
+     
     }
     IEnumerator LoadCharInSentence(string sentence)
     {
@@ -183,8 +186,12 @@ public class DialogueManager : MonoBehaviour
         //Each frame take 1 char from the string array and print it
         foreach (char letter in sentence.ToCharArray())
         {
+            if(letter.ToString() != " "  && !typeSFX.isPlaying)
+            {
+                    typeSFX.Play();
+            }
             dialogueText.text += letter;
-            yield return new WaitForEndOfFrame();     
+            yield return new WaitForSeconds(0.03f);     
         }
         //When its done enable the next button 
         isTyping = false;
