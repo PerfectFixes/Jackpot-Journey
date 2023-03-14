@@ -2518,7 +2518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to Idle & Gamble, Your goal is to earn TCoins and reach the highest
+  m_text: Welcome to Jackpot Journey, Your goal is to earn TCoins and reach the highest
     Prestige Level!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -3622,7 +3622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     firstPart:
-    - Welcome to Idle & Gamble! Your goal is to earn TCoins and reach the highest
+    - Welcome to Jackpot Journey! Your goal is to earn TCoins and reach the highest
       Prestige Level.
     - The Slot Machine is the main way of income. Give it a try by pressing on the
       Slot Machine.
