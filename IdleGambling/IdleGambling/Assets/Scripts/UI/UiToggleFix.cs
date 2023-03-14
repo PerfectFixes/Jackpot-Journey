@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class UiToggleFix : MonoBehaviour
 {
+    //delte in build
+    private int resetGame;
+
+
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
     [SerializeField] private AudioSource toggleSFX;
@@ -16,6 +20,7 @@ public class UiToggleFix : MonoBehaviour
 
     private void Awake()
     {
+        resetGame = 0;
         if (isToggleOn.isOn)
         {
             if (toggleSFX.isActiveAndEnabled)
@@ -37,8 +42,16 @@ public class UiToggleFix : MonoBehaviour
     {
         if(whatIsTheToggler == "Music")
         {
+            //Delete in build
+            resetGame++;
+            if (resetGame >= 10)
+            {
+                PlayerPrefs.DeleteAll();
+            }
+            //Delte in build
             if (isToggleOn.isOn)
             {
+               
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
@@ -57,6 +70,7 @@ public class UiToggleFix : MonoBehaviour
                 musicControl.SetActive(false);
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
+         
         }
         else if(whatIsTheToggler == "SFX")
         {

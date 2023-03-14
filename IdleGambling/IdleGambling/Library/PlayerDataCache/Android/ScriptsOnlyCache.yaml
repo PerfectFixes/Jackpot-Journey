@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - AnimatorController
+    - BackFromSettings
     - CameraAnchor
     - CanvasHelper
     - CoinLogic
@@ -24,6 +25,8 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKEditorManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
+    - UnityEditor.Tilemaps.GridPaletteBrushes
+    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
@@ -146,6 +149,63 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6020}
     - Class: 114
       Script: {instanceID: 6336}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Credits.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1628}
+    - Class: 114
+      Script: {instanceID: 1630}
+    - Class: 114
+      Script: {instanceID: 2702}
+    - Class: 114
+      Script: {instanceID: 3184}
+    - Class: 114
+      Script: {instanceID: 3252}
+    - Class: 114
+      Script: {instanceID: 5256}
+    - Class: 114
+      Script: {instanceID: 5874}
+    - Class: 114
+      Script: {instanceID: 6020}
+    - Class: 114
+      Script: {instanceID: 6336}
+    - Class: 114
+      Script: {instanceID: 7048}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -306,15 +366,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6768}
     - Class: 114
-      Script: {instanceID: 7394}
+      Script: {instanceID: 7396}
     - Class: 114
-      Script: {instanceID: 7426}
+      Script: {instanceID: 7428}
     - Class: 114
-      Script: {instanceID: 7708}
+      Script: {instanceID: 7710}
     - Class: 114
-      Script: {instanceID: 7802}
+      Script: {instanceID: 7804}
     - Class: 114
-      Script: {instanceID: 7952}
+      Script: {instanceID: 7954}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -411,11 +471,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6708}
     - Class: 114
-      Script: {instanceID: 7426}
+      Script: {instanceID: 7428}
     - Class: 114
-      Script: {instanceID: 7626}
+      Script: {instanceID: 7628}
     - Class: 114
-      Script: {instanceID: 7802}
+      Script: {instanceID: 7804}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1249,7 +1309,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: cc5870af860ac43678a653b592bc03fe
+      Hash: 63ebf7b8401a56207d153762647743b3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DialogueManager
@@ -1301,6 +1361,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 28d0016f3e59798f0a83fc2daca161d8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BackFromSettings
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1468,4 +1534,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Game_Scene.unity
   - Assets/Scenes/AFK_Scene.unity
   - Assets/Scenes/Tutorial.unity
+  - Assets/Scenes/Credits.unity
   playerPath: C:/Users/ttay2/Desktop/GameTesting/Idle&GambleTest.apk
