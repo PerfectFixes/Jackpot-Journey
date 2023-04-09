@@ -186,9 +186,9 @@ public class DialogueManager : MonoBehaviour
         //Each frame take 1 char from the string array and print it
         foreach (char letter in sentence.ToCharArray())
         {
-            if(letter.ToString() != " "  && !typeSFX.isPlaying && typeSFX.isActiveAndEnabled)
+            if(letter.ToString() != " "  && !typeSFX.isPlaying)
             {
-                typeSFX.Play();
+                    typeSFX.Play();
             }
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.02f);     

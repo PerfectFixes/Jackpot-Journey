@@ -117,7 +117,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         //Update the amount of money in the save file and the game
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
-        updateMoney.UpdatePlayerMoney(winningAmount);
+        updateMoney.UpdatePlayerMoney();
 
         //Disable the option to stop the sfx to early because of multiple wins
         sfxCalled++;

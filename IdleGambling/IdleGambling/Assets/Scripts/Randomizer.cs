@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Randomizer : MonoBehaviour
 {
-
+    
     #region Public Stats
 
     [SerializeField] private GameObject coinPrefab;
@@ -16,10 +16,11 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
 
+    private bool increasedLuck;
     private bool isStreakOn;
     private int multiplierAmount;
     private int prestigeGoal;
-
+    private int autoClickerAmount;
 
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
@@ -73,20 +74,23 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The text of the of the prestige button")]
     [SerializeField] private TMP_Text prestigeLevelText;
 
-    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [Tooltip("The text of the prestige current goal")]
     [SerializeField] private TMP_Text prestigeGoalText;
 
-    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [Tooltip("The text of the reward after being afk ")]
     [SerializeField] private TMP_Text afkRewardText;
 
-    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [Tooltip("The text of the small win in the settings")]
     [SerializeField] private TMP_Text smallRewardText;
 
-    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [Tooltip("The text of the medium win in the settings")]
     [SerializeField] private TMP_Text mediumRewardText;
 
-    [Tooltip("The text of of target amount to achive the prestige unlock")]
+    [Tooltip("The text of the big win in the settings")]
     [SerializeField] private TMP_Text bigRewardText;
+
+    [Tooltip("The text the amount of autoclicks left")]
+    [SerializeField] private TMP_Text buffCounterText;
 
 
     [Header("Button")]
@@ -105,12 +109,20 @@ public class Randomizer : MonoBehaviour
 
 
     [Header("Animator")]
+
+    [Tooltip("The animator that changes the colors or the prestige button")]
     [SerializeField] private Animator prestigeAnimator;
 
+    [Tooltip("The animator of the scene loader to load new scene")]
     [SerializeField] private Animator sceneLoader;
+
+    [Tooltip("The Auto clicker sprite that shows the auto clicking")]
+    [SerializeField] private GameObject autoClickerGameObject;
 
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
+
+
 
     #endregion
 
@@ -118,12 +130,17 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+        increasedLuck = false;
+        //Disabling the autoclicker text
+        buffCounterText.text = null;
+
         //Sends the player to the Tutorial Scene if he didnt complete it
         if (PlayerPrefs.GetString("TutorialComplete") == "False" || PlayerPrefs.GetString("TutorialComplete") == "")
         {
             SceneManager.LoadScene("Tutorial");
         }
 
+        autoClickerGameObject.SetActive(false);
         //Disable the prestige button
         prestigeButton.interactable = false;
 
@@ -307,7 +324,10 @@ public class Randomizer : MonoBehaviour
         // ********************** DELETE ME BEFORE FINAL BUILD **************************
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            ResetPlayerPrefs();
+            PlayerPrefs.SetInt("PlayerMoney", 0);
+            playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0);
+            print(1);
+            StartCoroutine(AutoClicker());
         }
         // ********************** DELETE ME BEFORE FINAL BUILD **************************
 
@@ -338,15 +358,29 @@ public class Randomizer : MonoBehaviour
         //Randomizing the number to know if the play can win a prize
         isWinningNumber = Random.Range(1, 11);
 
+        //If the ad of increasing luck has been activated the player has better odds of winning
+        if (increasedLuck)
+        {
+            isWinningNumber = Random.Range(3, 11);
+            print("SSS " + isWinningNumber);
+        }
+        
         // ************** FOR TESTING ONLY **************** //
         //Test the logic
         //isWinningNumber = 3;
         // ************** FOR TESTING ONLY **************** //
 
-        if (isWinningNumber >= 5)
+        if (isWinningNumber >= 6)
         {
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 11);
+            
+            //If the ad of increasing luck has been activated choose a better reward
+            if (increasedLuck)
+            {         
+                randomNumberPicker = Random.Range(3, 11);
+                print("SSS " + randomNumberPicker);
+            }
             // ************** FOR TESTING ONLY **************** //
             //Test the logic
             //randomNumberPicker = 7;
@@ -383,7 +417,18 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = 0;
         randomNumberPicker = 0;
     }
-    public void UpdatePlayerMoney(int tempAmount)
+    public void ToggleBetterLuck(bool isOn)
+    {
+        if (isOn)
+        {
+            increasedLuck = true;
+        }
+        else
+        {
+            increasedLuck = false;
+        }
+    }
+    public void UpdatePlayerMoney()
     {
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
@@ -411,6 +456,44 @@ public class Randomizer : MonoBehaviour
         }
   
     }
+    //Gives the player auto clicker
+    public IEnumerator AutoClicker()
+    {
+        //Decide how much clicks the player will gain
+        int randomClicks = Random.Range(1,4);
+        if (randomClicks == 1)
+        {
+            autoClickerAmount = 50;
+        }
+        else if (randomClicks == 2)
+        {
+            autoClickerAmount = 100;
+        }
+        else if (randomClicks == 3)
+        {
+            autoClickerAmount = 150;
+        }
+        //Set the "auto clicker hand" to active
+        autoClickerGameObject.SetActive(true);
+        
+        //Click until the amount of click is over
+        while(autoClickerAmount > 0)
+        {
+            //Lower the amount of clickss
+            autoClickerAmount--;
+            //Click the button
+            GainMoneyButton();
+            //Wait 0.1 seconds
+            yield return new WaitForSeconds(0.1f);
+            //Update the UI to display the amount of clicks left
+            buffCounterText.text = "Clicks: \n" + autoClickerAmount.ToString();
+        }
+        //Disable the UI text of the amount of clicks and the auto clicker hand
+        buffCounterText.text = null;
+        autoClickerGameObject.SetActive(false);
+
+    }
+
     public void GainMoneyButton()
     {
         if(clickerCount == -69420)
