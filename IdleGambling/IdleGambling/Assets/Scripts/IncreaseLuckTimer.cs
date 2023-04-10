@@ -11,6 +11,8 @@ public class IncreaseLuckTimer : MonoBehaviour
     [Tooltip("The text the amount of autoclicks left")]
     private TMP_Text buffCounterText;
 
+
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
