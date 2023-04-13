@@ -361,7 +361,7 @@ public class Randomizer : MonoBehaviour
         
         // ************** FOR TESTING ONLY **************** //
         //Test the logic
-        //isWinningNumber = 3;
+        isWinningNumber = 6;
         // ************** FOR TESTING ONLY **************** //
 
         if (isWinningNumber >= 6)
@@ -377,7 +377,7 @@ public class Randomizer : MonoBehaviour
             }
             // ************** FOR TESTING ONLY **************** //
             //Test the logic
-            //randomNumberPicker = 7;
+            randomNumberPicker = 11;
             //randomNumberPicker = Random.Range(1, 11);
             // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)

@@ -3,35 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinLogic : MonoBehaviour
-{
-
-    
-    private Rigidbody2D coinRigidBody;
+{  
+    private Rigidbody2D rigidBody;
     private int verticalRandomize;
     private int horizontalRandomize;
     private Vector3 rotateRandom;
+    private int spinDirection;
     private void Awake()
     {
+        spinDirection = Random.Range(1, 3);
         //Setting a random force of vertical and horizontal
-        verticalRandomize = Random.Range(200, 700); 
-        horizontalRandomize = Random.Range(-300, 300); 
 
+        if (gameObject.name == "Coin_Prefab(Clone)" || gameObject.name == "Coin_Prefab")
+        {
+            verticalRandomize = Random.Range(100, 300);
+            horizontalRandomize = Random.Range(-300, 300);
+        }
+        else
+        {
+            verticalRandomize = Random.Range(50, 350);
+            horizontalRandomize = Random.Range(-200, 200);
+        }
+     
         //Getting the rigidbody component
-        coinRigidBody =  gameObject.GetComponent<Rigidbody2D>();
+        rigidBody = gameObject.GetComponent<Rigidbody2D>();
 
         //Adding force in a random direction
-        coinRigidBody.AddForce(new Vector2(horizontalRandomize, verticalRandomize));
+        rigidBody.AddForce(new Vector2(horizontalRandomize, verticalRandomize));
 
         //Destroy the game object after 5 seoconds
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, 10f);
 
         //Give the coin a random rotation
         rotateRandom = new Vector3(Random.Range(2, 10), Random.Range(2, 10), Random.Range(2, 10));
     }
     private void FixedUpdate()
     {
-        //Rotate the coin in a random direction
-        gameObject.transform.Rotate(rotateRandom);
+        if(gameObject.name == "Coin_Prefab(Clone)" || gameObject.name == "Coin_Prefab")
+        {
+            //Rotate the coin in a random direction
+            gameObject.transform.Rotate(rotateRandom);
+        }
+        if (gameObject.name == "Clover_Prefab(Clone)" || gameObject.name == "Clover_Prefab")
+        {
+            if(spinDirection == 1)
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, 100) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
+            }
+            
+        }
+        if (gameObject.name == "Clicker_Prefab(Clone)" || gameObject.name == "Clicker_Prefab")
+        {
+            if (spinDirection == 1)
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, 100) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
+            }
+            
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

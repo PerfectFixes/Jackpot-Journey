@@ -77,19 +77,16 @@ public class IronSourceScript : MonoBehaviour
         yield return null;
         if (isLongCooldown)
         {
-            print("Ads are -----");
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
             yield return new WaitForSeconds(5);//Set time to 240
             if (!IronSource.Agent.isRewardedVideoAvailable())
             {
-                print("reste");
                 isFirstTime = false;
             }
             else
             {
                 isFirstTime = false;
-                print("Ads are +++++");
                 autoClickerAnimator.SetBool("isAdReady", true);
                 increaseLuckAnimator.SetBool("isAdReady", true);
                 yield return new WaitForSeconds(10);//Set time to 60
@@ -99,17 +96,12 @@ public class IronSourceScript : MonoBehaviour
         }      
         else
         {
-            print("Ads are ----- for the second time");
+
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
             yield return new WaitForSeconds(5);//Set time to 180
-            if (!IronSource.Agent.isRewardedVideoAvailable())
+            if (IronSource.Agent.isRewardedVideoAvailable())
             {
-                print("Second reset");
-            }
-            else
-            {
-                print("Ads are ++++++ for the second time");
                 autoClickerAnimator.SetBool("isAdReady", true);
                 increaseLuckAnimator.SetBool("isAdReady", true);
                 yield return new WaitForSeconds(10);//Set time to 60
@@ -162,6 +154,7 @@ public class IronSourceScript : MonoBehaviour
     {
         if (IronSource.Agent.isRewardedVideoAvailable())
         {
+            StopAllCoroutines();
             StartCoroutine(EnableAds(false));
             if (rewardName == "Auto Clicker")
             {
