@@ -21,7 +21,9 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
     [Header("Gameobject")]
     [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private Transform coinSpawnerTransfom;
+    [SerializeField] private EffectSpawner effectSpawnerRight;
+    [SerializeField] private EffectSpawner effectSpawnerMiddle;
+    [SerializeField] private EffectSpawner effectSpawnerLeft;
 
     [Header("Button")]
     [Tooltip("The buttons that is over the mechine which makes the player able to gamble")]
@@ -123,7 +125,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         sfxCalled++;
 
         //Spawn coins and play the SFX while continue the code
-        StartCoroutine(SpawnCoinsAndSFX(winningAmount));
+        StartCoroutine(SpawnCoinsAndSFX(result));
 
 
         //Waiting more and then resuming the animation
@@ -140,7 +142,25 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     }
     private IEnumerator SpawnCoinsAndSFX(int winningAmount)
     {
-        winningAmount = Mathf.RoundToInt(winningAmount / 2);
+        if (winningAmount == 60)
+        {
+            StartCoroutine(effectSpawnerRight.SpawnItems("SmallCoins",1));
+            StartCoroutine(effectSpawnerMiddle.SpawnItems("SmallCoins", 1));
+            StartCoroutine(effectSpawnerLeft.SpawnItems("SmallCoins", 1));
+        }
+        else if(winningAmount == 30)
+        {
+            StartCoroutine(effectSpawnerRight.SpawnItems("MediumCoins", 1));
+            StartCoroutine(effectSpawnerMiddle.SpawnItems("MediumCoins", 1));
+            StartCoroutine(effectSpawnerLeft.SpawnItems("MediumCoins", 1));
+        }
+        else
+        {
+            StartCoroutine(effectSpawnerRight.SpawnItems("BigCoins", 1));
+            StartCoroutine(effectSpawnerMiddle.SpawnItems("BigCoins", 1));
+            StartCoroutine(effectSpawnerLeft.SpawnItems("BigCoins", 1));
+        }
+        //winningAmount = Mathf.RoundToInt(winningAmount / 2);
 
         //Enable the SFX To loop and plays it
         winningCoinsSFX.loop = true;
@@ -148,11 +168,13 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         {
             winningCoinsSFX.Play();
         }
-        for (int i = 0; i < winningAmount; i++)
-        {
-            yield return new WaitForEndOfFrame();
-            Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
-        }
+        yield return null;
+        
+        /* for (int i = 0; i < winningAmount; i++)
+         {
+             yield return new WaitForEndOfFrame();
+             Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
+         }*/
         sfxCalled--;
         //Stops only at the last time the function is called
         if (sfxCalled == 0)

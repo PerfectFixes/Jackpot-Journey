@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.SymbolStore;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,6 +14,11 @@ public class IronSourceScript : MonoBehaviour
     private Randomizer randomizer;
     private IncreaseLuckTimer increaseLuckTimer;
     private GameObject bannerBackup;
+
+    private bool isFirstTime;
+    private Animator autoClickerAnimator;
+    private Animator increaseLuckAnimator;
+
 
     private void Awake()
     {
@@ -29,14 +35,88 @@ public class IronSourceScript : MonoBehaviour
         randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
         bannerBackup = GameObject.Find("AD_BANNER_PANEL");
         increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
+        autoClickerAnimator = GameObject.Find("Auto_Clicker").GetComponent<Animator>();
+        increaseLuckAnimator = GameObject.Find("Increase_Luck").GetComponent<Animator>();
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if (level == 0)
+        {
+            randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
+            bannerBackup = GameObject.Find("AD_BANNER_PANEL");
+            increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
+            autoClickerAnimator = GameObject.Find("Auto_Clicker").GetComponent<Animator>();
+            increaseLuckAnimator = GameObject.Find("Increase_Luck").GetComponent<Animator>();
+            if (isFirstTime)
+            {
+                StartCoroutine(EnableAds(true));
+            }
+            else
+            {
+                StartCoroutine(EnableAds(false));
+            }         
+        }
+        else
+        {
+            StopAllCoroutines();
+        }
+
     }
     // Start is called before the first frame update
     void Start()
     {
+        isFirstTime = true;
         autoClicker = false;
         IronSource.Agent.init(appKey, IronSourceAdUnits.REWARDED_VIDEO);
         IronSource.Agent.init(appKey, IronSourceAdUnits.REWARDED_VIDEO);
         IronSource.Agent.init(appKey, IronSourceAdUnits.BANNER);
+        StartCoroutine(EnableAds(true));
+    }
+    private IEnumerator EnableAds(bool isLongCooldown)
+    {
+        yield return null;
+        if (isLongCooldown)
+        {
+            print("Ads are -----");
+            autoClickerAnimator.SetBool("isAdReady", false);
+            increaseLuckAnimator.SetBool("isAdReady", false);
+            yield return new WaitForSeconds(5);//Set time to 240
+            if (!IronSource.Agent.isRewardedVideoAvailable())
+            {
+                print("reste");
+                isFirstTime = false;
+            }
+            else
+            {
+                isFirstTime = false;
+                print("Ads are +++++");
+                autoClickerAnimator.SetBool("isAdReady", true);
+                increaseLuckAnimator.SetBool("isAdReady", true);
+                yield return new WaitForSeconds(10);//Set time to 60
+
+            }
+            StartCoroutine(EnableAds(false));
+        }      
+        else
+        {
+            print("Ads are ----- for the second time");
+            autoClickerAnimator.SetBool("isAdReady", false);
+            increaseLuckAnimator.SetBool("isAdReady", false);
+            yield return new WaitForSeconds(5);//Set time to 180
+            if (!IronSource.Agent.isRewardedVideoAvailable())
+            {
+                print("Second reset");
+            }
+            else
+            {
+                print("Ads are ++++++ for the second time");
+                autoClickerAnimator.SetBool("isAdReady", true);
+                increaseLuckAnimator.SetBool("isAdReady", true);
+                yield return new WaitForSeconds(10);//Set time to 60
+            }
+            StartCoroutine(EnableAds(false));
+        }
+
     }
     private void OnEnable()
     {
@@ -60,16 +140,7 @@ public class IronSourceScript : MonoBehaviour
         IronSourceRewardedVideoEvents.onAdClickedEvent += RewardedVideoOnAdClickedEvent;
 
     }
-    private void OnLevelWasLoaded(int level)
-    {
-        if(level == 0)
-        {
-            randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
-            bannerBackup = GameObject.Find("AD_BANNER_PANEL");
-            increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
-        }
-        
-    }
+
     void OnApplicationPause(bool isPaused)
     {
         IronSource.Agent.onApplicationPause(isPaused);
@@ -91,6 +162,7 @@ public class IronSourceScript : MonoBehaviour
     {
         if (IronSource.Agent.isRewardedVideoAvailable())
         {
+            StartCoroutine(EnableAds(false));
             if (rewardName == "Auto Clicker")
             {
                 autoClicker = true;
@@ -168,6 +240,7 @@ public class IronSourceScript : MonoBehaviour
     // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
     {
+        
         if (autoClicker)
         {
             StartCoroutine(randomizer.AutoClicker());

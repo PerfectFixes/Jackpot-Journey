@@ -11,7 +11,10 @@ public class Randomizer : MonoBehaviour
     #region Public Stats
 
     [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private Transform coinSpawnerTransfom;
+    [SerializeField] private EffectSpawner effectSpawnerRight;
+    [SerializeField] private EffectSpawner effectSpawnerMiddle;
+    [SerializeField] private EffectSpawner effectSpawnerLeft;
+    //[SerializeField] private Transform coinSpawnerTransfom;
 
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
@@ -321,15 +324,6 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            PlayerPrefs.SetInt("PlayerMoney", 0);
-            playerMoney = PlayerPrefs.GetInt("PlayerMoney", 0);
-            print(1);
-            StartCoroutine(AutoClicker());
-        }
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
 
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
@@ -475,9 +469,13 @@ public class Randomizer : MonoBehaviour
         }
         //Set the "auto clicker hand" to active
         autoClickerGameObject.SetActive(true);
-        
+
+        StartCoroutine(effectSpawnerRight.SpawnItems("AutoClicker", randomClicks));
+        StartCoroutine(effectSpawnerMiddle.SpawnItems("AutoClicker", randomClicks));
+        StartCoroutine(effectSpawnerLeft.SpawnItems("AutoClicker", randomClicks));
+
         //Click until the amount of click is over
-        while(autoClickerAmount > 0)
+        while (autoClickerAmount > 0)
         {
             //Lower the amount of clickss
             autoClickerAmount--;
@@ -523,10 +521,13 @@ public class Randomizer : MonoBehaviour
                 {
                     playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
                 }
-                for (int i = 0; i < prestigeLevel * 2; i++)
-                {
-                    Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
-                }
+                StartCoroutine(effectSpawnerRight.SpawnItems("Coins", 1));
+                StartCoroutine(effectSpawnerMiddle.SpawnItems("Coins", 1));
+                StartCoroutine(effectSpawnerLeft.SpawnItems("Coins", 1));
+                /*                for (int i = 0; i < prestigeLevel * 2; i++)
+                                {
+                                    Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
+                                }*/
                 //Update the player money in the UI
                 PlayerPrefs.SetInt("PlayerMoney", playerMoney);
                 playerMoneyText.text = playerMoney.ToString();
