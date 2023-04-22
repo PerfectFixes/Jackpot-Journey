@@ -487,7 +487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 8!
+  m_text: Unlocks at prestige level 2!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 5!
+  m_text: Unlocks at prestige level 7!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -3583,6 +3583,7 @@ MonoBehaviour:
   machineButton: {fileID: 1018446520}
   coinButton: {fileID: 853806088}
   settingsButton: {fileID: 1575833989}
+  coinClickColor: {fileID: 853806089}
   typeSFX: {fileID: 1956240778}
   dialogueTrigger: {fileID: 662251754}
   dialogueText: {fileID: 507749392}
@@ -4850,7 +4851,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.40784314, g: 0.40784314, b: 0.40784314, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5254902}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4865,7 +4866,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 853806089}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -6995,7 +6996,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 2!
+  m_text: Unlocks at prestige level 4!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}

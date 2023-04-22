@@ -9,6 +9,7 @@ public class IronSourceScript : MonoBehaviour
 {
     private readonly string appKey = "193ffe21d";
     private bool autoClicker;
+    private bool isTutorial;
     private static IronSourceScript instance;
 
     private Randomizer randomizer;
@@ -42,6 +43,7 @@ public class IronSourceScript : MonoBehaviour
     {
         if (level == 0)
         {
+            isTutorial = false;
             randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
             bannerBackup = GameObject.Find("AD_BANNER_PANEL");
             increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
@@ -53,11 +55,14 @@ public class IronSourceScript : MonoBehaviour
             }
             else
             {
+
                 StartCoroutine(EnableAds(false));
-            }         
+            }     
+            
         }
         else
         {
+            isTutorial = true;
             StopAllCoroutines();
         }
 
@@ -70,7 +75,11 @@ public class IronSourceScript : MonoBehaviour
         IronSource.Agent.init(appKey, IronSourceAdUnits.REWARDED_VIDEO);
         IronSource.Agent.init(appKey, IronSourceAdUnits.REWARDED_VIDEO);
         IronSource.Agent.init(appKey, IronSourceAdUnits.BANNER);
-        StartCoroutine(EnableAds(true));
+        if (!isTutorial)
+        {
+            StartCoroutine(EnableAds(true));
+        }
+
     }
     public IEnumerator RestartAdTimer()
     {

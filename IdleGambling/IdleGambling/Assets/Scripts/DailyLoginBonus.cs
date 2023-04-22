@@ -18,8 +18,8 @@ public class DailyLoginBonus : MonoBehaviour
         //currentDay = DateTime.Today.ToString("2023,02,17");
         //******************* FOR TESTING  *************************** //
 
-        //Checks to see if the player got to level 8 and only then starts the counting the streak
-        if(PlayerPrefs.GetInt("PrestigeLevel") >= 8)
+        //Checks to see if the player got to level 2 and only then starts the counting the streak
+        if(PlayerPrefs.GetInt("PrestigeLevel") >= 2)
         {
             DailyStreakBonus();
         }

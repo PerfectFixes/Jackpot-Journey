@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button machineButton;
     [SerializeField] private Button coinButton;
     [SerializeField] private Button settingsButton;
+    [SerializeField] private Image coinClickColor;
 
     [Header("SFX")]
     [SerializeField] private AudioSource typeSFX;
@@ -59,7 +60,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-
         //Sets the correct values of the alphas
         lowAlpha = new Color(1, 1, 1, 0.5f);
         normalAlpha = new Color(1, 1, 1, 1);
@@ -71,6 +71,7 @@ public class DialogueManager : MonoBehaviour
         slotOneColor.color = lowAlpha;
         slotTwoColor.color = lowAlpha;
         slotThreeColor.color = lowAlpha;
+        coinClickColor.color = lowAlpha;
     }
     void Start()
     {   
@@ -125,6 +126,7 @@ public class DialogueManager : MonoBehaviour
 
                 //Disable the pointer
                 coinButton.interactable = false;
+                coinClickColor.color = lowAlpha;
                 foreach (string sentence in dialogue.thirdPart)
                 {
                     sentences.Enqueue(sentence);
@@ -230,7 +232,7 @@ public class DialogueManager : MonoBehaviour
                 coinPointer.SetActive(true);
                 //Make the coin clickable
                 coinButton.interactable = true;
-                
+                coinClickColor.color = normalAlpha;
                 break;
 
             case 3:
@@ -241,6 +243,7 @@ public class DialogueManager : MonoBehaviour
                 //Make the settings interactable
                 settingsButton.interactable = true;
 
+                coinClickColor.color = lowAlpha;
                 break;
 
             case 4:
@@ -255,7 +258,9 @@ public class DialogueManager : MonoBehaviour
                 slotThreeColor.color = normalAlpha;
                 machineButton.interactable = true;
                 coinButton.interactable = true;
+                coinClickColor.color = normalAlpha;
                 settingsButton.interactable = true;
+       
 
                 //Disable the pointer
                 prestigePointer.SetActive(false);

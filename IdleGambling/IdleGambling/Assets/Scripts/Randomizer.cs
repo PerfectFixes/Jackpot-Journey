@@ -105,6 +105,10 @@ public class Randomizer : MonoBehaviour
 
     [SerializeField] private Button prestigeButton;
 
+    [SerializeField] private Button sleepModeButton;
+
+    [SerializeField] private Button creditsSceneButton;
+
 
     [Header("Toggler")]
     [Tooltip("The toggle button of the auto gambling mode in the settings")]
@@ -156,7 +160,7 @@ public class Randomizer : MonoBehaviour
         //Sets the prestige level to 1 if the player has no level.
         prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel", 1);
      
-        if(prestigeLevel >= 8)
+        if(prestigeLevel >= 2)
         {
             if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
@@ -327,10 +331,13 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
         if (Input.GetKeyDown(KeyCode.K))
         {
             StartCoroutine(SceneTransaction());
         }
+        // ********************** DELETE ME BEFORE FINAL BUILD **************************
+
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
             StartGambling();          
@@ -421,11 +428,17 @@ public class Randomizer : MonoBehaviour
     {
         if (isOn)
         {
+            print("TTTT Luck on");
             increasedLuck = true;
+            sleepModeButton.interactable = false;
+            creditsSceneButton.interactable = false;
         }
         else
         {
+            print("TTTT Luck OFF");
             increasedLuck = false;
+            sleepModeButton.interactable = true;
+            creditsSceneButton.interactable = true;
         }
     }
     public void UpdatePlayerMoney()
@@ -459,6 +472,8 @@ public class Randomizer : MonoBehaviour
     //Gives the player auto clicker
     public IEnumerator AutoClicker()
     {
+        sleepModeButton.interactable = false;
+        creditsSceneButton.interactable = false;
         //Decide how much clicks the player will gain
         int randomClicks = Random.Range(1,4);
         if (randomClicks == 1)
@@ -492,10 +507,11 @@ public class Randomizer : MonoBehaviour
             //Update the UI to display the amount of clicks left
             buffCounterText.text = "Clicks: \n" + autoClickerAmount.ToString();
         }
+        sleepModeButton.interactable = true;
+        creditsSceneButton.interactable = true;
         //Disable the UI text of the amount of clicks and the auto clicker hand
         buffCounterText.text = null;
         autoClickerGameObject.SetActive(false);
-
     }
 
     public void GainMoneyButton()
@@ -578,6 +594,10 @@ public class Randomizer : MonoBehaviour
         #region Prestige setting and saving
         if (playerMoney >= prestigeGoal && prestigeLevel == 1)
         {
+            //Starting to count the login streak and making sure it is reseted
+            PlayerPrefs.SetInt("LoginStreak", 1);
+            PlayerPrefs.DeleteKey("LastLoginDate");
+
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 2);
         }
@@ -611,10 +631,6 @@ public class Randomizer : MonoBehaviour
         }
         else if (playerMoney >= prestigeGoal && prestigeLevel == 7)
         {
-            //Starting to count the login streak and making sure it is reseted
-            PlayerPrefs.SetInt("LoginStreak", 1);
-            PlayerPrefs.DeleteKey("LastLoginDate");
-
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 8);
         }

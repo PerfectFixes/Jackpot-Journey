@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 public class Settings : MonoBehaviour
 {
     private bool tutorialAutoClose;
+
+    private bool settingsCooldown;
+
     [SerializeField] private DialogueManager dialogueManager;
 
    
@@ -82,46 +85,13 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        settingsCooldown = false;
         tutorialAutoClose = true;
         settingsGameObject.SetActive(false);
 
         int prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
 
         if (prestigeLevel >= 2)
-        {
-            //Enables the button to go to the afk scene
-            sleepModeButton.interactable = true;
-
-            //Remove the requierment of what needed to make this unlocked
-            afkModeUnlockLevelText.enabled = false;     
-        }
-        else
-        {
-            //Disable the option of pressing the button until you reach Prestige level 2
-            sleepModeButton.interactable = false;
-
-            //Hooks the player to make him want to know what is hiding beind level 2
-            afkModeOutsideText.text = "???? ????";
-
-            afkModeButtonText.text = "????";
-        }
-        if (prestigeLevel >= 5)
-        {
-            //Enables the button to start auto gambling
-            autoGambleToggle.interactable = true;
-
-            //Remove the requierment of what needed to make this unlocked
-            autoGambleUnlockLevelText.enabled = false;
-        }
-        else
-        {
-            //Disable the option of pressing the button until you reach Prestige level 5
-            autoGambleToggle.interactable = false;
-
-            //Hooks the player to make him want to know what is hiding beind level 5
-            autoGambleOutsideText.text = "???? ????";
-        }
-        if(prestigeLevel >= 8)
         {
             dailyLoginBonus.SetActive(true);
 
@@ -157,85 +127,139 @@ public class Settings : MonoBehaviour
             //Hooks the player to make him want to know what is hiding beind level 5
             streakRewardText.text = "???? ????";
         }
-    }
-
-    public void OpenOrCloseSettingsTab(string settingsState)
-    {
-        //Open the settings
-        if(settingsState == "Open")
+        if (prestigeLevel >= 4)
         {
-            
-            //Play SFX if the player didnt disable the SFX
-            if (settingPressSFX.isActiveAndEnabled)
-            {
-                settingPressSFX.Play();
-            }
-            //Open the settings
-            settingsGameObject.SetActive(true);
-            settingsAnimator.Play("Fade_In_General_Setting");
-            settingsButtonAnimator.Play("Setting_Pressing_Animation");
+            //Enables the button to go to the afk scene
+            sleepModeButton.interactable = true;
+
+            //Remove the requierment of what needed to make this unlocked
+            afkModeUnlockLevelText.enabled = false;     
         }
         else
         {
-            settingsAnimator.Play("Fade_Out_General_Setting");
-            //Play SFX if the player didnt disable the SFX
-            if (settingPressSFX.isActiveAndEnabled)
+            //Disable the option of pressing the button until you reach Prestige level 2
+            sleepModeButton.interactable = false;
+
+            //Hooks the player to make him want to know what is hiding beind level 2
+            afkModeOutsideText.text = "???? ????";
+
+            afkModeButtonText.text = "????";
+        }
+        if (prestigeLevel >= 7)
+        {
+            //Enables the button to start auto gambling
+            autoGambleToggle.interactable = true;
+
+            //Remove the requierment of what needed to make this unlocked
+            autoGambleUnlockLevelText.enabled = false;
+        }
+        else
+        {
+            //Disable the option of pressing the button until you reach Prestige level 5
+            autoGambleToggle.interactable = false;
+
+            //Hooks the player to make him want to know what is hiding beind level 5
+            autoGambleOutsideText.text = "???? ????";
+        }
+
+    }
+    IEnumerator SettingsSpamDisable()
+    {
+        settingsCooldown = true;
+        yield return new WaitForSeconds(0.5f);
+        settingsCooldown = false;
+    }
+    public void OpenOrCloseSettingsTab(string settingsState)
+    {
+        if (!settingsCooldown)
+        {
+            StartCoroutine(SettingsSpamDisable());
+            //Open the settings
+            if (settingsState == "Open")
             {
-                settingPressSFX.Play();
+
+                //Play SFX if the player didnt disable the SFX
+                if (settingPressSFX.isActiveAndEnabled)
+                {
+                    settingPressSFX.Play();
+                }
+
+                
+                //Open the settings
+                settingsGameObject.SetActive(true);
+                settingsAnimator.Play("Fade_In_General_Setting");
+                settingsButtonAnimator.Play("Setting_Pressing_Animation");
+
+
             }
-            settingsButtonAnimator.Play("Setting_Exit_Animation");
+            else
+            {
+                if (settingsCooldown)
+                {
+                    settingsAnimator.Play("Fade_Out_General_Setting");
+                    //Play SFX if the player didnt disable the SFX
+                    if (settingPressSFX.isActiveAndEnabled)
+                    {
+                        settingPressSFX.Play();
+                    }
+                    settingsButtonAnimator.Play("Setting_Exit_Animation");
+                }
+            }
         }
         
     }
     public void TutorialOpenOrCloseSettingsTab(string settingsState)
     {
-        //Play SFX if the player didnt disable the SFX
-        if (settingsState == "Open")
+        if (!settingsCooldown)
         {
-            tutorialSettingsPointer.SetActive(false);
             //Play SFX if the player didnt disable the SFX
-            if (settingPressSFX.isActiveAndEnabled)
+            if (settingsState == "Open")
             {
-                settingPressSFX.Play();
+
+                tutorialSettingsPointer.SetActive(false);
+                //Play SFX if the player didnt disable the SFX
+                if (settingPressSFX.isActiveAndEnabled)
+                {
+                    settingPressSFX.Play();
+                }
+                //Open the settings
+                settingsGameObject.SetActive(true);
+
+                //Close automatically the settings for the first time after a few seconds
+                if (tutorialAutoClose)
+                {
+                    StartCoroutine(TutorialAutoCloseSetting());
+                }
+                settingsAnimator.Play("Fade_In_General_Setting");
+                settingsButtonAnimator.Play("Setting_Pressing_Animation");
+
             }
-            //Open the settings
-            settingsGameObject.SetActive(true);
-            
-            //Close automatically the settings for the first time after a few seconds
-            if (tutorialAutoClose)
+            else
             {
-                StartCoroutine(TutorialAutoCloseSetting());
+                //When closing the settings starts the new dialogue
+                if (tutorialAutoClose)
+                {
+                    dialogueManager.StartDialogue(dialogueManager.dialogueTrigger.dialogue);
+                }
+                //Disable the automatic close
+                StopAllCoroutines();
+                tutorialAutoClose = false;
+
+                //Play SFX if the player didnt disable the SFX
+                if (settingPressSFX.isActiveAndEnabled)
+                {
+                    settingPressSFX.Play();
+                }
+                settingsButtonAnimator.Play("Setting_Exit_Animation");
+                settingsAnimator.Play("Fade_Out_General_Setting");
             }
-            settingsAnimator.Play("Fade_In_General_Setting");
-            settingsButtonAnimator.Play("Setting_Pressing_Animation");
 
         }
-        else
-        {
-            //When closing the settings starts the new dialogue
-            if (tutorialAutoClose)
-            {
-                dialogueManager.StartDialogue(dialogueManager.dialogueTrigger.dialogue);
-            }
-            //Disable the automatic close
-            StopAllCoroutines();
-            tutorialAutoClose = false;
-
-            //Play SFX if the player didnt disable the SFX
-            if (settingPressSFX.isActiveAndEnabled)
-            {
-                settingPressSFX.Play();
-            }
-            settingsButtonAnimator.Play("Setting_Exit_Animation");
-            settingsAnimator.Play("Fade_Out_General_Setting");
-        }
-       
-        
     }
     //Closing the settings automatically
     IEnumerator TutorialAutoCloseSetting()
     {     
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(15);
         TutorialOpenOrCloseSettingsTab("Close");
         tutorialAutoClose = false;
     }

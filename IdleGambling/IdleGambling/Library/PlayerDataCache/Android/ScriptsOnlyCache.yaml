@@ -38,6 +38,8 @@ ScriptsOnlyBuild:
     Unity.DeviceSimulator.Editor.dll:
     - UnityEditor.DeviceSimulation.DeviceInfoAsset
     - UnityEditor.DeviceSimulation.SimulatorWindow
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -931,7 +933,7 @@ ScriptsOnlyBuild:
     className: ShadowsMidtonesHighlights
   - hash:
       serializedVersion: 2
-      Hash: a48fef283a21aa40bbf206728408be4b
+      Hash: 6705658d5502c028c26a10e2f2c26cf9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer

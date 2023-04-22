@@ -295,7 +295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 8!
+  m_text: Unlocks at prestige level 2!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -854,6 +854,8 @@ MonoBehaviour:
   coinButtonImage: {fileID: 853806089}
   machineButton: {fileID: 1018446520}
   prestigeButton: {fileID: 1069925424}
+  sleepModeButton: {fileID: 1402048701}
+  creditsSceneButton: {fileID: 1932527043}
   autoGambleToggle: {fileID: 920968562}
   prestigeAnimator: {fileID: 1069925427}
   sceneLoader: {fileID: 1118235518}
@@ -1236,7 +1238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 5!
+  m_text: Unlocks at prestige level 7!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -8145,7 +8147,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unlocks at prestige level 2!
+  m_text: Unlocks at prestige level 4!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -9936,7 +9938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -167.30002, y: 0}
+  m_AnchoredPosition: {x: -167.30005, y: 0}
   m_SizeDelta: {x: 250, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1599722571
@@ -11424,7 +11426,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 167.3, y: 0}
+  m_AnchoredPosition: {x: 167.29999, y: 0}
   m_SizeDelta: {x: 250, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928216569
@@ -12157,7 +12159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2010027134
 RectTransform:
   m_ObjectHideFlags: 0
