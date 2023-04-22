@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.Tay_Dev.JackpotJourney",
-        "processId": 15551,
+        "processId": 4396,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,43 +11,55 @@
         {
             "deviceId": "emulator-5554",
             "name": "com.bluestacks.launcher",
-            "processId": 2274,
+            "processId": 2283,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 9164,
+            "processId": 5779,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 10076,
+            "processId": 7426,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 11008,
+            "processId": 7969,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 12928,
+            "processId": 8490,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 13787,
+            "processId": 9055,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 15551,
+            "processId": 9584,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 10127,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 4396,
             "exited": false
         }
     ],
@@ -102,7 +114,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "11",
+        "m_Filter": "rrr",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

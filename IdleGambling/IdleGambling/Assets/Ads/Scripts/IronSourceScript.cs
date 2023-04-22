@@ -72,14 +72,22 @@ public class IronSourceScript : MonoBehaviour
         IronSource.Agent.init(appKey, IronSourceAdUnits.BANNER);
         StartCoroutine(EnableAds(true));
     }
+    public IEnumerator RestartAdTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        print("RRRRest");
+        isFirstTime = true;
+        StopAllCoroutines();
+    }
     private IEnumerator EnableAds(bool isLongCooldown)
     {
         yield return null;
         if (isLongCooldown)
         {
+            print("RRRR FIRSTTIME");
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
-            yield return new WaitForSeconds(5);//Set time to 240
+            yield return new WaitForSeconds(20);//Set time to 240
             if (!IronSource.Agent.isRewardedVideoAvailable())
             {
                 isFirstTime = false;
@@ -104,7 +112,7 @@ public class IronSourceScript : MonoBehaviour
             {
                 autoClickerAnimator.SetBool("isAdReady", true);
                 increaseLuckAnimator.SetBool("isAdReady", true);
-                yield return new WaitForSeconds(10);//Set time to 60
+                yield return new WaitForSeconds(5);//Set time to 60
             }
             StartCoroutine(EnableAds(false));
         }

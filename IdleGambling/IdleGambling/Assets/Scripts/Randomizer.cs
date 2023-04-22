@@ -24,6 +24,7 @@ public class Randomizer : MonoBehaviour
     private int multiplierAmount;
     private int prestigeGoal;
     private int autoClickerAmount;
+    private IronSourceScript ironSourceScript;
 
     [Header("Randomizing Number")]
     [Tooltip("Picks a number between 1 - 10 the higher the number the bigger the prize")]
@@ -133,6 +134,8 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+        ironSourceScript = GameObject.Find("IronSource").GetComponent<IronSourceScript>();
+
         increasedLuck = false;
         //Disabling the autoclicker text
         buffCounterText.text = null;
@@ -324,7 +327,10 @@ public class Randomizer : MonoBehaviour
     }
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            StartCoroutine(SceneTransaction());
+        }
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
             StartGambling();          
@@ -361,7 +367,7 @@ public class Randomizer : MonoBehaviour
         
         // ************** FOR TESTING ONLY **************** //
         //Test the logic
-        isWinningNumber = 6;
+        //isWinningNumber = 6;
         // ************** FOR TESTING ONLY **************** //
 
         if (isWinningNumber >= 6)
@@ -377,7 +383,7 @@ public class Randomizer : MonoBehaviour
             }
             // ************** FOR TESTING ONLY **************** //
             //Test the logic
-            randomNumberPicker = 11;
+            //randomNumberPicker = 11;
             //randomNumberPicker = Random.Range(1, 11);
             // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
@@ -639,7 +645,8 @@ public class Randomizer : MonoBehaviour
         StartCoroutine(SceneTransaction());
     }
     IEnumerator SceneTransaction()
-    {        
+    {
+        StartCoroutine(ironSourceScript.RestartAdTimer());
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
         SceneManager.LoadScene("Game_Scene");
