@@ -123,6 +123,9 @@ public class Randomizer : MonoBehaviour
 
     [Tooltip("The animator of the scene loader to load new scene")]
     [SerializeField] private Animator sceneLoader;
+    
+    [Tooltip("The animator of the scene loader to load new scene")]
+    [SerializeField] private Animator coinButtonAnimator;
 
     [Tooltip("The Auto clicker sprite that shows the auto clicking")]
     [SerializeField] private GameObject autoClickerGameObject;
@@ -321,6 +324,8 @@ public class Randomizer : MonoBehaviour
     // ********************** DELETE ME BEFORE FINAL BUILD **************************
     public void ResetPlayerPrefs()
     {
+        //REMEMBER TO DELETE in file UiToggleFix.CS there are more stuff to delete there
+
         // ********************** DELETE ME BEFORE FINAL BUILD **************************
         PlayerPrefs.DeleteAll();
         // ********************** DELETE ME BEFORE FINAL BUILD **************************
@@ -428,14 +433,12 @@ public class Randomizer : MonoBehaviour
     {
         if (isOn)
         {
-            print("TTTT Luck on");
             increasedLuck = true;
             sleepModeButton.interactable = false;
             creditsSceneButton.interactable = false;
         }
         else
         {
-            print("TTTT Luck OFF");
             increasedLuck = false;
             sleepModeButton.interactable = true;
             creditsSceneButton.interactable = true;
@@ -516,12 +519,14 @@ public class Randomizer : MonoBehaviour
 
     public void GainMoneyButton()
     {
-        if(clickerCount == -69420)
+        
+        if (clickerCount == -69420)
         {
             print("the player is Prestigins");
         }
         else if (clickerCount >= 0 && clickerCount <= 9)
         {
+            coinButtonAnimator.Play("Button_Press");
             //Adds a click
             clickerCount++;
 

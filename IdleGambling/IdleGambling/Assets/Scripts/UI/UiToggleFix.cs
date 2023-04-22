@@ -42,13 +42,14 @@ public class UiToggleFix : MonoBehaviour
     {
         if(whatIsTheToggler == "Music")
         {
-            //Delete in build
+            // ********************** DELETE ME BEFORE FINAL BUILD **************************
             resetGame++;
             if (resetGame >= 10)
             {
                 PlayerPrefs.DeleteAll();
             }
-            //Delte in build
+            // ********************** DELETE ME BEFORE FINAL BUILD **************************
+
             if (isToggleOn.isOn)
             {
                

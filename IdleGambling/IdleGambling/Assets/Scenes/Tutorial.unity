@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2176,6 +2176,7 @@ RectTransform:
   m_Children:
   - {fileID: 662251753}
   - {fileID: 1552415459}
+  - {fileID: 1716840621}
   - {fileID: 1003063203}
   - {fileID: 1575833988}
   - {fileID: 853806087}
@@ -2546,12 +2547,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 25.5
   m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 70
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 20
+  m_fontSizeMax: 25.5
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -2582,7 +2583,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.2306824, y: 0.0000001103321, z: 0, w: -0.8902967}
+  m_margin: {x: 3.2306824, y: 0.0000001103321, z: 0, w: 12.693993}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2898,7 +2899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.98039216}
+  m_Color: {r: 0.98039216, g: 0.80784315, b: 0.37254903, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3625,17 +3626,17 @@ MonoBehaviour:
     firstPart:
     - Welcome to Jackpot Journey! Your goal is to earn TCoins and reach the highest
       Prestige Level.
-    - The Slot Machine is the main way of income. Give it a try by pressing on the
-      Slot Machine.
+    - The Slot Machine is the main way of income. Give it a try by pressing the Slot
+      Machine.
     secondPart:
     - Oh? you already lost all of your TCoins? Luckly the TCoin button will give
       you 2 TCoins after 10 presses! Try it now!
     thirdPart:
-    - Great job! The next button is the Settings button. There you will find general
-      settings, extra features, and the prize table!
-    - The extra features are locked, and you will need to level up your Prestige
+    - Great job! In the Settings button you will find general settings, extra features,
+      and the prize table!
+    - Some features are locked, and you will need to level up your Prestige Level
       to discover what they are and start using them.
-    - Press on Settings button to check it out.
+    - Press the Settings button to check it out.
     fourhPart:
     - The last button is the Prestige Level. This displays your current level and
       the amount of TCoins needed to level up your Prestige
@@ -4036,7 +4037,7 @@ RectTransform:
   - {fileID: 507749391}
   - {fileID: 1103877569}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.44900003}
   m_AnchorMax: {x: 1, y: 0.58400005}
@@ -4684,7 +4685,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 470393942}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4819,7 +4820,7 @@ RectTransform:
   m_Children:
   - {fileID: 1626412160}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -5621,7 +5622,7 @@ RectTransform:
   - {fileID: 234992902}
   - {fileID: 32120811}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5829,8 +5830,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1716840621}
+  m_Children: []
   m_Father: {fileID: 1003063203}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6103,7 +6103,7 @@ RectTransform:
   - {fileID: 1972106629}
   - {fileID: 614332051}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -8181,7 +8181,7 @@ RectTransform:
   - {fileID: 1859039526}
   - {fileID: 1742278461}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -9079,14 +9079,14 @@ RectTransform:
   m_GameObject: {fileID: 1716840620}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.79999995, y: 0.79999995, z: 1}
   m_Children: []
-  m_Father: {fileID: 1018446519}
-  m_RootOrder: 0
+  m_Father: {fileID: 470393942}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 478}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1742278460
@@ -10021,7 +10021,7 @@ RectTransform:
   - {fileID: 896070912}
   - {fileID: 1997375006}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10458,7 +10458,7 @@ RectTransform:
   m_Children:
   - {fileID: 1498526259}
   m_Father: {fileID: 470393942}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.06068182}
