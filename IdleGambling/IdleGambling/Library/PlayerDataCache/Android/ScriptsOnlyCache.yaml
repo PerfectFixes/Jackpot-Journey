@@ -39,7 +39,6 @@ ScriptsOnlyBuild:
     - UnityEditor.DeviceSimulation.DeviceInfoAsset
     - UnityEditor.DeviceSimulation.SimulatorWindow
     Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -90,7 +89,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateEditor
     - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
@@ -1183,7 +1181,7 @@ ScriptsOnlyBuild:
     className: ChannelMixer
   - hash:
       serializedVersion: 2
-      Hash: 3d434d5b0a88a2fe22008cca23553624
+      Hash: 7f56fcf89539119d445854cf9c1f4ff2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PopupControl
@@ -1619,4 +1617,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/AFK_Scene.unity
   - Assets/Scenes/Tutorial.unity
   - Assets/Scenes/Credits.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/test2.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/test3.apk

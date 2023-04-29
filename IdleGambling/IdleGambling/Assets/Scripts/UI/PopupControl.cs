@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PopupControl : MonoBehaviour
@@ -7,6 +8,9 @@ public class PopupControl : MonoBehaviour
     private IronSourceScript ironSourceScript;
     [SerializeField] private GameObject autoClickerGameObject;
     [SerializeField] private GameObject increaseLuckGameObject;
+    [SerializeField] private Animator errorMessageAnimator;
+
+    private readonly TMP_Text errorMessageText;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,7 @@ public class PopupControl : MonoBehaviour
     {
         if (popupName == "Auto Clicker")
         {
+
             autoClickerGameObject.SetActive(true);
         }
         else 
@@ -29,6 +34,7 @@ public class PopupControl : MonoBehaviour
         if (popupName == "Auto Clicker")
         {
             autoClickerGameObject.SetActive(false);
+            
         }
         else
         {
@@ -37,8 +43,20 @@ public class PopupControl : MonoBehaviour
     }
     public void PlayAd(string adType)
     {
-        ironSourceScript.ShowRewardedAd(adType);
-        autoClickerGameObject.SetActive(false);
-        increaseLuckGameObject.SetActive(false);
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+
+            autoClickerGameObject.SetActive(false);
+            increaseLuckGameObject.SetActive(false);
+            errorMessageAnimator.Play("Error_Message_Display");
+            errorMessageText.text = "No internet connection";
+        }
+        else
+        {
+            ironSourceScript.ShowRewardedAd(adType);
+            autoClickerGameObject.SetActive(false);
+            increaseLuckGameObject.SetActive(false);
+        }
+
     }
 }

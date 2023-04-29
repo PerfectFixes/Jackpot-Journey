@@ -20,6 +20,8 @@ public class IronSourceScript : MonoBehaviour
     private Animator autoClickerAnimator;
     private Animator increaseLuckAnimator;
 
+    private TMP_Text errorMessageText;
+    private Animator errorMessageAnimator;
 
     private void Awake()
     {
@@ -33,17 +35,22 @@ public class IronSourceScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        errorMessageAnimator = GameObject.Find("Error_Message_Display").GetComponent<Animator>();
+        errorMessageText = GameObject.Find("Error_Message_Display").GetComponent<TMP_Text>();
         randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
         bannerBackup = GameObject.Find("AD_BANNER_PANEL");
         increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
         autoClickerAnimator = GameObject.Find("Auto_Clicker").GetComponent<Animator>();
         increaseLuckAnimator = GameObject.Find("Increase_Luck").GetComponent<Animator>();
+        
     }
     private void OnLevelWasLoaded(int level)
     {
         if (level == 0)
         {
             isTutorial = false;
+            errorMessageAnimator = GameObject.Find("Error_Message_Display").GetComponent<Animator>();
+            errorMessageText = GameObject.Find("Error_Message_Display").GetComponent<TMP_Text>();
             randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
             bannerBackup = GameObject.Find("AD_BANNER_PANEL");
             increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
@@ -79,7 +86,6 @@ public class IronSourceScript : MonoBehaviour
         {
             StartCoroutine(EnableAds(true));
         }
-
     }
     public IEnumerator RestartAdTimer()
     {
@@ -97,18 +103,12 @@ public class IronSourceScript : MonoBehaviour
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
             yield return new WaitForSeconds(20);//Set time to 240
-            if (!IronSource.Agent.isRewardedVideoAvailable())
-            {
-                isFirstTime = false;
-            }
-            else
-            {
-                isFirstTime = false;
-                autoClickerAnimator.SetBool("isAdReady", true);
-                increaseLuckAnimator.SetBool("isAdReady", true);
-                yield return new WaitForSeconds(10);//Set time to 60
 
-            }
+            isFirstTime = false;
+            autoClickerAnimator.SetBool("isAdReady", true);
+            increaseLuckAnimator.SetBool("isAdReady", true);
+            yield return new WaitForSeconds(10);//Set time to 60
+
             StartCoroutine(EnableAds(false));
         }      
         else
@@ -117,12 +117,11 @@ public class IronSourceScript : MonoBehaviour
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
             yield return new WaitForSeconds(5);//Set time to 180
-            if (IronSource.Agent.isRewardedVideoAvailable())
-            {
-                autoClickerAnimator.SetBool("isAdReady", true);
-                increaseLuckAnimator.SetBool("isAdReady", true);
-                yield return new WaitForSeconds(5);//Set time to 60
-            }
+
+            autoClickerAnimator.SetBool("isAdReady", true);
+            increaseLuckAnimator.SetBool("isAdReady", true);
+            yield return new WaitForSeconds(5);//Set time to 60
+
             StartCoroutine(EnableAds(false));
         }
 
@@ -181,7 +180,8 @@ public class IronSourceScript : MonoBehaviour
         }
         else
         {
-            print("Ad isn't ready");
+            errorMessageAnimator.Play("Error_Message_Display");
+            errorMessageText.text = "No ads currently available";
         }
     }
     /***************** Banner Callbacks *****************/
@@ -221,8 +221,6 @@ public class IronSourceScript : MonoBehaviour
         print("reloading");
     }
     /***************** Banner Callbacks *****************/
-
-
 
     /***************** Rewarded Callbacks *****************/
 
