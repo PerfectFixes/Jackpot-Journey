@@ -25,7 +25,6 @@ public class IronSourceScript : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (instance == null)
         {
             instance = this;
@@ -99,7 +98,6 @@ public class IronSourceScript : MonoBehaviour
         yield return null;
         if (isLongCooldown)
         {
-            print("RRRR FIRSTTIME");
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
             yield return new WaitForSeconds(20);//Set time to 240

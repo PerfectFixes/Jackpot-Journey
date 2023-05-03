@@ -68,6 +68,8 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The SFX for pressing the buttons")]
     [SerializeField] private AudioSource insertingCoinsSFX;
 
+    [SerializeField] private MusicLogic musicLogic;
+
 
 
     [Header("Texts")]
@@ -667,6 +669,7 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator SceneTransaction()
     {
+        StartCoroutine(musicLogic.FadeOut());
         StartCoroutine(ironSourceScript.RestartAdTimer());
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
@@ -674,25 +677,3 @@ public class Randomizer : MonoBehaviour
     }
 
 }
-
-
-//Animation the text of adding and subtracting amount from the player money
-/*    IEnumerator TextAnimation(int amount)
-    { 
-        if(amount > 0)
-        {
-            yield return new WaitForSeconds(1.2f);
-            rewardAndLoseText.text = "+ " + amount.ToString();
-            rewardAndLoseAnimator.Play("FloatingUp");
-            yield return new WaitForSeconds(0.3f);
-            rewardAndLoseText.text = null;
-        }
-        else
-        {
-            rewardAndLoseText.text = amount.ToString();
-            rewardAndLoseAnimator.Play("FloatingDown");
-            yield return new WaitForSeconds(0.5f);
-            rewardAndLoseText.text = null;
-        }
-
-    }*/

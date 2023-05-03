@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SFXAndSoundControl : MonoBehaviour
 {
     [SerializeField] private GameObject SfxControl;
-    [SerializeField] private GameObject musicControl;
+    [SerializeField] private MusicLogic musicLogic;
     [SerializeField] private Toggle musicToggle;
     [SerializeField] private Toggle SfxToggle;
     [SerializeField] private AudioSource muteSettings;
@@ -16,12 +17,15 @@ public class SFXAndSoundControl : MonoBehaviour
     {
         if (PlayerPrefs.GetString("MusicToggleState") == "True")
         {
-            musicControl.SetActive(true);
+            if(SceneManager.GetActiveScene().buildIndex == 0)
+            {
+                StartCoroutine(musicLogic.SelectRandomSong());
+            }           
             musicToggle.isOn = true;
         }
         else
         {
-            musicControl.SetActive(false);
+            //musicLogic.SetActive(false);
             musicToggle.isOn = false;
         }
         if (PlayerPrefs.GetString("SFXToggleState") == "True")

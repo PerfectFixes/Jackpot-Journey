@@ -985,6 +985,7 @@ MonoBehaviour:
   dialogueManager: {fileID: 662251752}
   coinPrefab: {fileID: 6952706928182729126, guid: b9b002ca0564b0b49bb3618bf51f2c8a, type: 3}
   coinSpawnerTransfom: {fileID: 1716840621}
+  manualFade: {fileID: 917297808}
   coinSpriteAnimation:
   - {fileID: 21300000, guid: de660073fc772254ca9bc626a0bc16a5, type: 3}
   - {fileID: 21300000, guid: c877b52d293b81445b96b5a6893190a0, type: 3}
@@ -3418,7 +3419,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 425449331}
-  - {fileID: 818709075}
+  - {fileID: 917297807}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3435,7 +3436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SfxControl: {fileID: 425449330}
-  musicControl: {fileID: 818709074}
+  musicLogic: {fileID: 0}
   musicToggle: {fileID: 708987613}
   SfxToggle: {fileID: 1747488001}
   muteSettings: {fileID: 785280392}
@@ -3500,9 +3501,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 662251752}
   settingPressSFX: {fileID: 785280392}
+  musicLogic: {fileID: 0}
   settingsGameObject: {fileID: 2010027133}
   sfxControl: {fileID: 425449330}
-  musicControl: {fileID: 818709074}
+  musicControl: {fileID: 0}
   tutorialSettingsPointer: {fileID: 1742278460}
   settingsButtonAnimator: {fileID: 1859039527}
   settingsAnimator: {fileID: 2010027138}
@@ -3964,7 +3966,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 675029944}
   toggleTransition: 1
   graphic: {fileID: 1222823440}
@@ -3981,10 +3983,10 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Music
+          m_StringArgument: TutorialMusic
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &708987614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,7 +4003,8 @@ MonoBehaviour:
   spriteColor: {fileID: 675029944}
   isToggleOn: {fileID: 708987613}
   sfxControl: {fileID: 0}
-  musicControl: {fileID: 818709074}
+  musicControl: {fileID: 0}
+  musicLogic: {fileID: 0}
 --- !u!1 &750511173
 GameObject:
   m_ObjectHideFlags: 0
@@ -4490,36 +4493,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &818709074
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 818709075}
-  m_Layer: 0
-  m_Name: Music_Control
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &818709075
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 818709074}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 631939842}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &828479895
 GameObject:
   m_ObjectHideFlags: 0
@@ -4866,7 +4839,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 853806089}
   m_OnClick:
     m_PersistentCalls:
@@ -5195,6 +5168,146 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896070911}
   m_CullTransparentMesh: 1
+--- !u!1 &917297806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 917297807}
+  - component: {fileID: 917297809}
+  - component: {fileID: 917297808}
+  m_Layer: 0
+  m_Name: Music_Control
+  m_TagString: Music
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &917297807
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917297806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 631939842}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &917297808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917297806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b1e183534902f44ac14c38d6ab63b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!82 &917297809
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917297806}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: cb49aebbb4cd3854896f9ef2fb2aa3a8, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &920968560
 GameObject:
   m_ObjectHideFlags: 0
@@ -5312,6 +5425,7 @@ MonoBehaviour:
   isToggleOn: {fileID: 920968562}
   sfxControl: {fileID: 0}
   musicControl: {fileID: 0}
+  musicLogic: {fileID: 0}
 --- !u!1 &930623224
 GameObject:
   m_ObjectHideFlags: 0
@@ -9263,7 +9377,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1999996086}
   toggleTransition: 1
   graphic: {fileID: 581022955}
@@ -9283,7 +9397,7 @@ MonoBehaviour:
           m_StringArgument: SFX
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!114 &1747488002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9301,6 +9415,7 @@ MonoBehaviour:
   isToggleOn: {fileID: 1747488001}
   sfxControl: {fileID: 425449330}
   musicControl: {fileID: 0}
+  musicLogic: {fileID: 0}
 --- !u!1 &1826305461
 GameObject:
   m_ObjectHideFlags: 0

@@ -734,9 +734,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Credits:\n\nDeveloper: Tay Ahuva\n\n\nGeneral Art: Tay Ahuva\n\n\nSmoke
-    effect: Unity asset \nstore : NYKNCK\n\n\nGeneral SFX: Tay Ahuva\n\n\nMachine
-    SFX: freesound.org:\nLukaso \n\n\nFont: Google Fonts:\nPress Start 2P\n\n\nAnd
-    thank you for \nplaying my game!"
+    effect: \nUnity asset store : NYKNCK\n\n\nGeneral SFX: Tay Ahuva\n\n\nMusic:
+    \nUnity asset store : WOW Sound\n\n\nMachine SFX: freesound.org:\nLukaso \n\n\nFont:
+    Google Fonts:\nPress Start 2P\n\n\nAnd thank you for \nplaying my game!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -763,12 +763,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 34.8
+  m_fontSize: 32.4
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 20
-  m_fontSizeMax: 50
+  m_fontSizeMax: 50.61
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

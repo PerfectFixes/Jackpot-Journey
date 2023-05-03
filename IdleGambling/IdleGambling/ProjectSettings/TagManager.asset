@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin Destroyer
   - AutoClickerPopup
+  - Music
   layers:
   - Default
   - TransparentFX

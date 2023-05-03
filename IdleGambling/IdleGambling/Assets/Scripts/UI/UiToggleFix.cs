@@ -8,6 +8,7 @@ public class UiToggleFix : MonoBehaviour
     //delte in build
     private int resetGame;
 
+    private bool musicState;
 
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
@@ -17,9 +18,11 @@ public class UiToggleFix : MonoBehaviour
     [SerializeField] private Toggle isToggleOn;
     [SerializeField] private GameObject sfxControl;
     [SerializeField] private GameObject musicControl;
+    [SerializeField] private AudioSource musicAudioSource;
 
     private void Awake()
     {
+
         resetGame = 0;
         if (isToggleOn.isOn)
         {
@@ -38,28 +41,37 @@ public class UiToggleFix : MonoBehaviour
             spriteColor.color = new Color(255, 255, 255, 255);
         }
     }
+    private void Update()
+    {
+ 
+    }
     public void ToggleIsOn(string whatIsTheToggler)
     {
         if(whatIsTheToggler == "Music")
         {
-            // ********************** DELETE ME BEFORE FINAL BUILD **************************
-            resetGame++;
-            if (resetGame >= 10)
-            {
-                PlayerPrefs.DeleteAll();
-            }
+            /*     // ********************** DELETE ME BEFORE FINAL BUILD **************************
+               resetGame++;
+               if (resetGame >= 10)
+               {
+                   PlayerPrefs.DeleteAll();
+               }*/
             // ********************** DELETE ME BEFORE FINAL BUILD **************************
 
             if (isToggleOn.isOn)
             {
-               
+
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
                 PlayerPrefs.SetString("MusicToggleState", "True");
-                musicControl.SetActive(true);
+
                 spriteColor.color = new Color(255, 255, 255, 0);
+                if (this.gameObject.activeInHierarchy)
+                {
+                    //StartCoroutine(musicLogic.SelectRandomSong());
+                }
+
             }
             else
             {
@@ -68,10 +80,9 @@ public class UiToggleFix : MonoBehaviour
                     toggleSFX.Play();
                 }
                 PlayerPrefs.SetString("MusicToggleState", "False");
-                musicControl.SetActive(false);
+                //StartCoroutine(musicLogic.FadeOut());
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
-         
         }
         else if(whatIsTheToggler == "SFX")
         {
@@ -96,7 +107,7 @@ public class UiToggleFix : MonoBehaviour
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }
-        else
+        if(whatIsTheToggler == "AutoGamble")
         {
             if (isToggleOn.isOn)
             {
@@ -112,6 +123,29 @@ public class UiToggleFix : MonoBehaviour
                 {
                     toggleSFX.Play();
                 }
+                spriteColor.color = new Color(255, 255, 255, 255);
+            }
+        }
+        else
+        {
+
+            if (isToggleOn.isOn)
+            {
+
+                if (toggleSFX.isActiveAndEnabled)
+                {
+                    toggleSFX.Play();
+                }
+                PlayerPrefs.SetString("MusicToggleState", "True");
+                spriteColor.color = new Color(255, 255, 255, 0);
+            }
+            else
+            {
+                if (toggleSFX.isActiveAndEnabled)
+                {
+                    toggleSFX.Play();
+                }
+                PlayerPrefs.SetString("MusicToggleState", "False");
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }

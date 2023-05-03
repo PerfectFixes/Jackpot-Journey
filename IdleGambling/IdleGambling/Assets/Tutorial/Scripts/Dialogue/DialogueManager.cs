@@ -72,14 +72,19 @@ public class DialogueManager : MonoBehaviour
         slotTwoColor.color = lowAlpha;
         slotThreeColor.color = lowAlpha;
         coinClickColor.color = lowAlpha;
+        coinButton.interactable = false;
     }
     void Start()
     {   
         //Starting the dialogue sequence
         partNumber = 0;
         sentences = new Queue<string>();
+        StartCoroutine(LoadDelay());
+    }
+    private IEnumerator LoadDelay()
+    {
+        yield return new WaitForSeconds(1.4f);
         StartDialogue(dialogueTrigger.dialogue);
-
     }
     public void StartDialogue(Dialogue dialogue)
     {
@@ -227,6 +232,8 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case 2:
+
+                machineButton.interactable = false;
 
                 //Enable the pointer
                 coinPointer.SetActive(true);

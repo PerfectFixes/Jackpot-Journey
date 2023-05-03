@@ -20,6 +20,8 @@ public class Settings : MonoBehaviour
     [Tooltip("The SFX for pressing the buttons")]
     [SerializeField] private AudioSource settingPressSFX;
 
+    [SerializeField] private MusicLogic musicLogic;
+
     [Header("GameObjects")]
 
     [Tooltip("The Settings game object")]
@@ -271,6 +273,7 @@ public class Settings : MonoBehaviour
     IEnumerator SceneLoader(string scene)
     {
         sceneLoader.SetTrigger("Load_Scene");
+        StartCoroutine(musicLogic.FadeOut());
         yield return new WaitForSeconds(1.25f);
         if (scene == "AFK")
         {

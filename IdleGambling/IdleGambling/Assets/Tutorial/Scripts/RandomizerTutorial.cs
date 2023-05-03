@@ -21,6 +21,8 @@ public class RandomizerTutorial : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private Transform coinSpawnerTransfom;
 
+    [SerializeField] private ManualFade manualFade;
+
 
     [Tooltip("The different states of the coin when pressed")]
     [SerializeField] private Sprite[] coinSpriteAnimation;
@@ -373,13 +375,15 @@ public class RandomizerTutorial : MonoBehaviour
             PlayerPrefs.SetInt("PrestigeLevel", 1);
 
             PlayerPrefs.SetString("TutorialComplete", "True");
+
+            PlayerPrefs.SetString("MusicToggleState", "True");
+
+            StartCoroutine(manualFade.FadeOut());
             StartCoroutine(SceneTransaction());
         }
-
-
     }
     IEnumerator SceneTransaction()
-    {
+    {      
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
         SceneManager.LoadScene("Game_Scene");
