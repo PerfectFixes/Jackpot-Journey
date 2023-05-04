@@ -4023,7 +4023,7 @@ MonoBehaviour:
   settingPressSFX: {fileID: 785280392}
   musicLogic: {fileID: 818709077}
   settingsGameObject: {fileID: 2010027133}
-  sfxControl: {fileID: 0}
+  sfxControl: {fileID: 425449330}
   musicControl: {fileID: 818709074}
   tutorialSettingsPointer: {fileID: 0}
   settingsButtonAnimator: {fileID: 504668055}
@@ -6553,7 +6553,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 264939282}
   toggleTransition: 1
   graphic: {fileID: 592152442}
@@ -9238,7 +9238,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1402048702}
   m_OnClick:
     m_PersistentCalls:
@@ -12538,7 +12538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2010027134
 RectTransform:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class DailyLoginBonus : MonoBehaviour
     private DateTime lastLoginDateTime;
     private DateTime currentDateTime;
 
-    void Start()
+    void Awake()
     {
         //******************* FOR TESTING  *************************** //
         //currentDay = DateTime.Today.ToString("2023,02,17");

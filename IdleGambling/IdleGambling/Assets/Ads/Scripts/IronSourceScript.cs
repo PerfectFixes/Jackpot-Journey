@@ -100,12 +100,12 @@ public class IronSourceScript : MonoBehaviour
         {
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
-            yield return new WaitForSeconds(20);//Set time to 240
+            yield return new WaitForSeconds(120);//Set time to 240
 
             isFirstTime = false;
             autoClickerAnimator.SetBool("isAdReady", true);
             increaseLuckAnimator.SetBool("isAdReady", true);
-            yield return new WaitForSeconds(10);//Set time to 60
+            yield return new WaitForSeconds(30);//Set time to 60
 
             StartCoroutine(EnableAds(false));
         }      
@@ -114,11 +114,11 @@ public class IronSourceScript : MonoBehaviour
 
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
-            yield return new WaitForSeconds(5);//Set time to 180
+            yield return new WaitForSeconds(60);//Set time to 180
 
             autoClickerAnimator.SetBool("isAdReady", true);
             increaseLuckAnimator.SetBool("isAdReady", true);
-            yield return new WaitForSeconds(5);//Set time to 60
+            yield return new WaitForSeconds(30);//Set time to 60
 
             StartCoroutine(EnableAds(false));
         }
