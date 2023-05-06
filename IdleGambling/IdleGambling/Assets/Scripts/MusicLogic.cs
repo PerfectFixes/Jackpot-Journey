@@ -38,6 +38,7 @@ public class MusicLogic : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(SelectRandomSong());
     }
     private void Update()
     {
@@ -60,7 +61,6 @@ public class MusicLogic : MonoBehaviour
     }
     public IEnumerator SelectRandomSong()
     {
-
         yield return new WaitForSeconds(0.2f);
         //audioSource.mute = false;
         if (!audioSource.isPlaying)

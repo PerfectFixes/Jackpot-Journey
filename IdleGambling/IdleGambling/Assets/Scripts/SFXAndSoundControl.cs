@@ -17,15 +17,14 @@ public class SFXAndSoundControl : MonoBehaviour
     {
         if (PlayerPrefs.GetString("MusicToggleState") == "True")
         {
-            if(SceneManager.GetActiveScene().buildIndex == 0)
+            if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                StartCoroutine(musicLogic.SelectRandomSong());
-            }           
-            musicToggle.isOn = true;
+                //StartCoroutine(musicLogic.SelectRandomSong());
+                musicToggle.isOn = true;
+            }      
         }
         else
         {
-            //musicLogic.SetActive(false);
             musicToggle.isOn = false;
         }
         if (PlayerPrefs.GetString("SFXToggleState") == "True")

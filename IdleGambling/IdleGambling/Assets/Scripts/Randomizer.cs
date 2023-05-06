@@ -164,34 +164,6 @@ public class Randomizer : MonoBehaviour
 
         //Sets the prestige level to 1 if the player has no level.
         prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel", 1);
-     
-        /*if(prestigeLevel >= 2)
-        {
-            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
-            {
-                PlayerPrefs.SetInt("StreakReward", 2);
-            }
-            else if ((PlayerPrefs.GetInt("LoginStreak") >= 10) && (PlayerPrefs.GetInt("LoginStreak") <= 29))
-            {
-                PlayerPrefs.SetInt("StreakReward", 3);
-            }
-            else if ((PlayerPrefs.GetInt("LoginStreak") >= 30) && (PlayerPrefs.GetInt("LoginStreak") <= 59))
-            {
-                PlayerPrefs.SetInt("StreakReward", 5);
-            }
-            else if (PlayerPrefs.GetInt("LoginStreak") >= 60)
-            {
-                PlayerPrefs.SetInt("StreakReward", 10);
-            }
-
-            isStreakOn = true;
-
-            multiplierAmount = PlayerPrefs.GetInt("StreakReward",1);
-        }
-        else
-        {
-            isStreakOn = false;
-        }*/
 
         #region Setting the prestige goal
         if (prestigeLevel == 1)
@@ -247,62 +219,6 @@ public class Randomizer : MonoBehaviour
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
-
-        /*int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
-        print(rewardAmount);
-        if (isStreakOn)
-        {
-            //Setting the amount of earning and losing
-            bettingAmount = -1 * prestigeLevel;
-            smallWinReward = 3 * prestigeLevel * multiplierAmount;
-            mediumWinReward = 6 * prestigeLevel * multiplierAmount;
-            bigWinReward = 16 * prestigeLevel * multiplierAmount;
-
-            smallRewardText.text = "Reward Amount: " + smallWinReward;
-            mediumRewardText.text = "Reward Amount: " + mediumWinReward;
-            bigRewardText.text = "Reward Amount: " + bigWinReward;
-
-            rewardAmount  = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
-        }
-        else
-        {
-            //Setting the amount of earning and losing
-            bettingAmount = -1 * prestigeLevel;
-            smallWinReward = 3 * prestigeLevel;
-            mediumWinReward = 6 * prestigeLevel;
-            bigWinReward = 16 * prestigeLevel;
-
-            smallRewardText.text = "Reward Amount: " + smallWinReward + " Coins";
-            mediumRewardText.text = "Reward Amount: " + mediumWinReward + " Coins"; ;
-            bigRewardText.text = "Reward Amount: " + bigWinReward + " Coins"; ;
-        }
-        print(rewardAmount);
-        //If there is no money gained from being afk dont display a message
-        if (rewardAmount != 0)
-        {
-            //Display the message
-            afkRewardGameObject.SetActive(true);
-
-            //Display an easteregg on selected numbers
-            if (rewardAmount == 69)
-            {
-                afkRewardText.text = "You've Got 69 coins! Nice ;)";
-            }
-            else if (rewardAmount == 420)
-            {
-                afkRewardText.text = "You've Got 420 coins! LIT :3";
-            }
-            else
-            {
-                afkRewardText.text = "You've Got: " + rewardAmount + " Coins";
-            }
-
-        }
-        else
-        {
-            afkRewardGameObject.SetActive(false);
-        }
-*/
     }
     void Start()
     {
@@ -335,7 +251,6 @@ public class Randomizer : MonoBehaviour
         }
 
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
-        print(rewardAmount);
         if (prestigeLevel >= 2)
         {
             //Setting the amount of earning and losing
@@ -536,6 +451,11 @@ public class Randomizer : MonoBehaviour
             playerMoney += bettingAmount;
             PlayerPrefs.SetInt("PlayerMoney", playerMoney);
 
+            //Updating stat of amount of coins lost from gamble
+            int statsTcoinUpdated = PlayerPrefs.GetInt("StatsTCoinsLost", 0);
+            statsTcoinUpdated += bettingAmount;
+            PlayerPrefs.SetInt("StatsTCoinsLost", statsTcoinUpdated);
+
             //StartCoroutine(TextAnimation(bettingAmount));
             StartCoroutine(RandomizeNumber());
         }
@@ -603,6 +523,11 @@ public class Randomizer : MonoBehaviour
             //Adds a click
             clickerCount++;
 
+            //Amount of clicks on the TCoin stat
+            int statsTcoinClickUpdated = PlayerPrefs.GetInt("StatsTCoinPresses", 0);
+            statsTcoinClickUpdated++;
+            PlayerPrefs.SetInt("StatsTCoinPresses", statsTcoinClickUpdated);
+
             //Set the sprite according to the click number
             coinButtonImage.sprite = coinSpriteAnimation[clickerCount];
 
@@ -616,18 +541,27 @@ public class Randomizer : MonoBehaviour
                 if (isStreakOn)
                 {
                     playerMoney += 2 * prestigeLevel * multiplierAmount;//Multiply by prestige level and streak to add more money
+
+                    //Amount of clicks on the TCoin stat
+                    int statsTcoinGained = PlayerPrefs.GetInt("StatsTCoinGained", 0);
+                    statsTcoinGained += 2 * prestigeLevel * multiplierAmount;
+                    PlayerPrefs.SetInt("StatsTCoinGained", statsTcoinGained);
                 }
                 else
                 {
                     playerMoney += 2 * prestigeLevel;//Multiply by prestige level to add more money
+
+                    //Amount of clicks on the TCoin stat
+                    int statsTcoinGained = PlayerPrefs.GetInt("StatsTCoinGained", 0);
+                    statsTcoinGained += 2 * prestigeLevel;
+                    PlayerPrefs.SetInt("StatsTCoinGained", statsTcoinGained);
                 }
+               
+
                 StartCoroutine(effectSpawnerRight.SpawnItems("Coins", 1));
                 StartCoroutine(effectSpawnerMiddle.SpawnItems("Coins", 1));
                 StartCoroutine(effectSpawnerLeft.SpawnItems("Coins", 1));
-                /*                for (int i = 0; i < prestigeLevel * 2; i++)
-                                {
-                                    Instantiate(coinPrefab, coinSpawnerTransfom.position, Quaternion.identity);
-                                }*/
+
                 //Update the player money in the UI
                 PlayerPrefs.SetInt("PlayerMoney", playerMoney);
                 playerMoneyText.text = playerMoney.ToString();

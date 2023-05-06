@@ -223,7 +223,7 @@ public class RandomizerTutorial : MonoBehaviour
         if (isWinningNumber >= 5)
         {
             //Randomizing the prize that the player will get 
-            randomNumberPicker = Random.Range(3, 11);
+            randomNumberPicker = Random.Range(4, 13);
             // ************** FOR TESTING ONLY **************** //
             //Test the logic
             //randomNumberPicker = 10;

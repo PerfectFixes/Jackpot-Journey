@@ -116,6 +116,19 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
         }
 
+        //***** Update stats *****
+
+        //Winning coins from the machine stat
+        int statsTcoinUpdated = PlayerPrefs.GetInt("StatsTCoinsWon", 0);
+        statsTcoinUpdated += winningAmount;
+        PlayerPrefs.SetInt("StatsTCoinsWon", statsTcoinUpdated);
+
+        //Amount of time the player won stat
+        int statsMachineWins = PlayerPrefs.GetInt("StatsMachineWins", 0);
+        statsMachineWins++;
+        PlayerPrefs.SetInt("StatsMachineWins", statsMachineWins);
+
+
         //Update the amount of money in the save file and the game
         int updatePlayerMoney = PlayerPrefs.GetInt("PlayerMoney") + winningAmount;
         PlayerPrefs.SetInt("PlayerMoney", updatePlayerMoney);
@@ -238,6 +251,11 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         thirdSlotControl.StopAnimation(true);
         yield return new WaitForSeconds(1f);
 
+        //Amount of time the player lost stat
+        int statsMachineLoses = PlayerPrefs.GetInt("StatsMachineLoses", 0);
+        statsMachineLoses++;
+        PlayerPrefs.SetInt("StatsMachineLoses", statsMachineLoses);
+
 
         //resuming the slot machine
         firstSlotControl.StopAnimation(false);
@@ -247,6 +265,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
 
         thirdSlotControl.StopAnimation(false);
+
         
         //enable the gambling
         machineButton.interactable = true;

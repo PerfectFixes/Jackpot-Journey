@@ -283,6 +283,10 @@ public class Settings : MonoBehaviour
         {
             SceneManager.LoadScene("Credits");
         }
+        else if (scene == "Stats")
+        {
+            SceneManager.LoadScene("Stats_Scene");
+        }
         else
         {
             SceneManager.LoadScene("Game_Scene");

@@ -84,7 +84,8 @@ public class UiToggleFix : MonoBehaviour
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }
-        else if(whatIsTheToggler == "SFX")
+
+        if(whatIsTheToggler == "SFX")
         {
             if (isToggleOn.isOn)
             {
@@ -107,6 +108,7 @@ public class UiToggleFix : MonoBehaviour
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }
+
         if(whatIsTheToggler == "AutoGamble")
         {
             if (isToggleOn.isOn)
@@ -126,29 +128,7 @@ public class UiToggleFix : MonoBehaviour
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }
-        else
-        {
-
-            if (isToggleOn.isOn)
-            {
-
-                if (toggleSFX.isActiveAndEnabled)
-                {
-                    toggleSFX.Play();
-                }
-                PlayerPrefs.SetString("MusicToggleState", "True");
-                spriteColor.color = new Color(255, 255, 255, 0);
-            }
-            else
-            {
-                if (toggleSFX.isActiveAndEnabled)
-                {
-                    toggleSFX.Play();
-                }
-                PlayerPrefs.SetString("MusicToggleState", "False");
-                spriteColor.color = new Color(255, 255, 255, 255);
-            }
-        }
+       
         
     }
 }

@@ -89,7 +89,6 @@ public class IronSourceScript : MonoBehaviour
     public IEnumerator RestartAdTimer()
     {
         yield return new WaitForSeconds(0.5f);
-        print("RRRRest");
         isFirstTime = true;
         StopAllCoroutines();
     }
