@@ -66,8 +66,8 @@ public class DailyLoginBonus : MonoBehaviour
             //If so do nothing and close the mathod
             return;
         }
-        //Checks to see if the player didnt log in for more then 1 day
-        if (lastLoginDateTime.AddDays(1) < currentDateTime)
+        //Checks to see if the player didnt log in for more then 1 day or less
+        if (lastLoginDateTime.AddDays(1) < currentDateTime || lastLoginDateTime.AddDays(-1) >= currentDateTime)
         {
             print("Reset streak");
             //Reset the streak

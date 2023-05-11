@@ -117,6 +117,9 @@ public class RandomizerTutorial : MonoBehaviour
     [SerializeField] private Animator prestigeAnimator;
     [SerializeField] private Animator sceneLoader;
 
+    [Tooltip("The animator of the Coin when pressing the button")]
+    [SerializeField] private Animator coinButtonAnimator;
+
 
 
 
@@ -317,6 +320,7 @@ public class RandomizerTutorial : MonoBehaviour
         }
         else if (clickerCount >= 0 && clickerCount <= 9)
         {
+            coinButtonAnimator.Play("Button_Press");
             //machineButton.interactable = false;
             //Adds a click
             clickerCount++;
@@ -386,6 +390,8 @@ public class RandomizerTutorial : MonoBehaviour
     {      
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
+        //Reseting the amount of money the player has
+        PlayerPrefs.DeleteKey("PlayerMoney");
         SceneManager.LoadScene("Game_Scene");
     }
 

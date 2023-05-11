@@ -3,51 +3,87 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.Tay_Dev.JackpotJourney",
-        "processId": 13172,
+        "processId": 23583,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 4334,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 7253,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 8346,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 9753,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
             "name": "com.bluestacks.launcher",
-            "processId": 2283,
+            "processId": 2331,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 11436,
+            "processId": 12712,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 14285,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 16125,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 16550,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 17877,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 13172,
+            "processId": 18635,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 19278,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 19921,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 21284,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 22152,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 22993,
+            "exited": false
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 23583,
             "exited": false
         }
     ],

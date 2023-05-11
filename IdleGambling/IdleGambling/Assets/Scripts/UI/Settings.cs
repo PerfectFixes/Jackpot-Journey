@@ -97,7 +97,7 @@ public class Settings : MonoBehaviour
         {
             dailyLoginBonus.SetActive(true);
 
-            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
                 streakRewardText.text = "Streak Reward: 2X";
             }
@@ -119,6 +119,11 @@ public class Settings : MonoBehaviour
 
                 streakRewardText.text = "Streak Reward: 1X";
             }
+            else if (PlayerPrefs.GetInt("LoginStreak") > 1 && (PlayerPrefs.GetInt("LoginStreak") < 3))
+            {
+                streakRewardText.text = "Streak Reward: 1X";
+                streakRewardUnlockLevelText.text = "Your login streak is: " + PlayerPrefs.GetInt("LoginStreak") + " days";
+            }
             else
             {
                 streakRewardUnlockLevelText.text = "Your login streak is: " + PlayerPrefs.GetInt("LoginStreak") + " days";
@@ -126,7 +131,7 @@ public class Settings : MonoBehaviour
         }
         else
         {
-            //Hooks the player to make him want to know what is hiding beind level 5
+            //Hooks the player to make him want to know what is hiding beind level 2
             streakRewardText.text = "???? ????";
         }
         if (prestigeLevel >= 4)

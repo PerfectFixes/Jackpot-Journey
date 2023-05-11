@@ -126,7 +126,7 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The animator of the scene loader to load new scene")]
     [SerializeField] private Animator sceneLoader;
     
-    [Tooltip("The animator of the scene loader to load new scene")]
+    [Tooltip("The animator of the Coin when pressing the button")]
     [SerializeField] private Animator coinButtonAnimator;
 
     [Tooltip("The Auto clicker sprite that shows the auto clicking")]
@@ -224,7 +224,7 @@ public class Randomizer : MonoBehaviour
     {
         if (prestigeLevel >= 2)
         {
-            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
                 PlayerPrefs.SetInt("StreakReward", 2);
             }
@@ -674,6 +674,8 @@ public class Randomizer : MonoBehaviour
         StartCoroutine(ironSourceScript.RestartAdTimer());
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
+        //Reseting the amount of money the player has
+        PlayerPrefs.DeleteKey("PlayerMoney");
         SceneManager.LoadScene("Game_Scene");
     }
 
