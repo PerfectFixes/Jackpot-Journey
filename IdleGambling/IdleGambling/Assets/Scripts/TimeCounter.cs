@@ -38,6 +38,7 @@ public class TimeCounter : MonoBehaviour
     private void Awake()
     {
         isMovingScene = false;
+
         //disable the smoke animation
         smokeAnimation.SetActive(false);
     }
@@ -78,6 +79,7 @@ public class TimeCounter : MonoBehaviour
     }
     public IEnumerator SceneTransaction()
     {
+        //If the scene is moving start to calculate the amount and save it
         if (!isMovingScene)
         {
             isMovingScene = true;
@@ -140,6 +142,7 @@ public class TimeCounter : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
+        //Save the amount if the player quits in AFK mode
         score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
 
         //Update the reward in a playerprefs
@@ -147,16 +150,13 @@ public class TimeCounter : MonoBehaviour
     }
     private void OnApplicationPause(bool pause)
     {
+        //Save the amount if the player quits in AFK mode
         if (pause)
         {
             score = Mathf.FloorToInt(Time.timeSinceLevelLoad / 30);
 
             //Update the reward in a playerprefs
             PlayerPrefs.SetInt("AFK Reward", score);
-        }
-        else
-        {
-            print("Game resumed");
         }
     }
 

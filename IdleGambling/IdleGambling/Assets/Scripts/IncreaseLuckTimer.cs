@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class IncreaseLuckTimer : MonoBehaviour
 {
-    private static IncreaseLuckTimer instance;
     private Randomizer randomizer;
 
     [Tooltip("The text the amount of autoclicks left")]
@@ -24,21 +23,28 @@ public class IncreaseLuckTimer : MonoBehaviour
         effectSpawnerMiddle = GameObject.Find("Effect_Spawner_Middle").GetComponent<EffectSpawner>();
         effectSpawnerLeft = GameObject.Find("Effect_Spawner_Left").GetComponent<EffectSpawner>();
     }
-
+    //Display the amount of time left for the buff of luck
     public IEnumerator LuckTimer()
     {
+        //Change the odds of winning
         randomizer.ToggleBetterLuck(true);
 
+        //Spawning the clovers
         StartCoroutine(effectSpawnerRight.SpawnItems("IncreaseLuck",1));
         StartCoroutine(effectSpawnerMiddle.SpawnItems("IncreaseLuck", 1));
         StartCoroutine(effectSpawnerLeft.SpawnItems("IncreaseLuck", 1));
 
+        //Counts 60 seconds
         for (int i = 60; i > 0; i--)
         {
+            //Display the seconds in the UI
             buffCounterText.text = "Seconds: \n" + i.ToString();
             yield return new WaitForSeconds(1);
         }
+        //Change back the odds
         randomizer.ToggleBetterLuck(false);
+
+        //Disable the UI
         buffCounterText.text = null;
     }
 }

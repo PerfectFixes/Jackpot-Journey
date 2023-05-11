@@ -111,6 +111,8 @@ public class Randomizer : MonoBehaviour
 
     [SerializeField] private Button creditsSceneButton;
 
+    [SerializeField] private Button statsSceneButton;
+
 
     [Header("Toggler")]
     [Tooltip("The toggle button of the auto gambling mode in the settings")]
@@ -222,6 +224,7 @@ public class Randomizer : MonoBehaviour
     }
     void Start()
     {
+        //Sets the login streak reward and gives the correct buff according to the amount of days logged in
         if (prestigeLevel >= 2)
         {
             if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
@@ -250,7 +253,10 @@ public class Randomizer : MonoBehaviour
             isStreakOn = false;
         }
 
+        //Sets the amount of coins the player needs to get from being afk
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
+
+        //if the player is level 2 enable the multiplier 
         if (prestigeLevel >= 2)
         {
             //Setting the amount of earning and losing
@@ -263,6 +269,7 @@ public class Randomizer : MonoBehaviour
             mediumRewardText.text = "Reward Amount: " + mediumWinReward;
             bigRewardText.text = "Reward Amount: " + bigWinReward;
 
+            //Gives the correct amount of coins from being afk
             rewardAmount = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
         }
         else
@@ -277,6 +284,7 @@ public class Randomizer : MonoBehaviour
             mediumRewardText.text = "Reward Amount: " + mediumWinReward + " Coins"; ;
             bigRewardText.text = "Reward Amount: " + bigWinReward + " Coins"; ;
         }
+
         //If there is no money gained from being afk dont display a message
         if (rewardAmount != 0)
         {
@@ -308,33 +316,15 @@ public class Randomizer : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
      
     }
-
-    // ********************** DELETE ME BEFORE FINAL BUILD **************************
-    public void ResetPlayerPrefs()
-    {
-        //REMEMBER TO DELETE in file UiToggleFix.CS there are more stuff to delete there
-
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-        PlayerPrefs.DeleteAll();
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-        //PlayerPrefs.SetString("TutorialComplete", "True");
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-        SceneManager.LoadScene(0);
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-    }
     void Update()
     {
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            StartCoroutine(SceneTransaction());
-        }
-        // ********************** DELETE ME BEFORE FINAL BUILD **************************
-
+        //If the autogamble is on and the player has money
         if (autoGambleToggle.isOn && machineButton.interactable && playerMoney >= 1)
         {
             StartGambling();          
         }
+
+        //Cycle the animation when getting to the prestige goal
         if(playerMoney >= prestigeGoal && !prestigeButton.interactable)
         {
             prestigeButton.interactable = true;
@@ -362,14 +352,7 @@ public class Randomizer : MonoBehaviour
         if (increasedLuck)
         {
             isWinningNumber = Random.Range(3, 11);
-            print("SSS " + isWinningNumber);
         }
-        
-        // ************** FOR TESTING ONLY **************** //
-        //Test the logic
-        //isWinningNumber = 6;
-        // ************** FOR TESTING ONLY **************** //
-
         if (isWinningNumber >= 6)
         {
             //Randomizing the prize that the player will get 
@@ -379,37 +362,27 @@ public class Randomizer : MonoBehaviour
             if (increasedLuck)
             {         
                 randomNumberPicker = Random.Range(3, 11);
-                print("SSS " + randomNumberPicker);
             }
-            // ************** FOR TESTING ONLY **************** //
-            //Test the logic
-            //randomNumberPicker = 11;
-            //randomNumberPicker = Random.Range(1, 11);
-            // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             {
                 winningAmount = smallWinReward;
-                print("The player got " + smallWinReward + " Coins");
                 StartCoroutine(displayingResult.DisplayTheWin(60, winningAmount));
             }
             else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
             {
                 winningAmount = mediumWinReward;
-                print("The player got " + mediumWinReward + " Coins");
                 StartCoroutine(displayingResult.DisplayTheWin(30, winningAmount));
                 
             }
             else
             {
                 winningAmount = bigWinReward;
-                print("The player got " + bigWinReward + " Coins");
                 StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));              
             }
         }
         else
         {
             //When the player rolls a bad number he loses
-            print("Lost the bet");
             StartCoroutine(displayingResult.DisplayingTheLose());
         }
         //Waiting 1 second before reseting the stats of the gambling number
@@ -417,6 +390,7 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = 0;
         randomNumberPicker = 0;
     }
+    //Activate the better luck when the player watch a video
     public void ToggleBetterLuck(bool isOn)
     {
         if (isOn)
@@ -432,17 +406,21 @@ public class Randomizer : MonoBehaviour
             creditsSceneButton.interactable = true;
         }
     }
+    //A function to update the player money
     public void UpdatePlayerMoney()
     {
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         playerMoneyText.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
         playerMoneyText.text = $"{PlayerPrefs.GetInt("PlayerMoney"):N0}";
     }
+    //Gamble machine logic
     public void StartGambling()
     {
+        //Updates the amount of money the player has before starting to gamble
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         if (playerMoney >= 1)
         {
+            //Play SFX if can
             if (insertingCoinsSFX.isActiveAndEnabled)
             {
                 insertingCoinsSFX.Play();
@@ -459,17 +437,15 @@ public class Randomizer : MonoBehaviour
             //StartCoroutine(TextAnimation(bettingAmount));
             StartCoroutine(RandomizeNumber());
         }
-        else
-        {
-            print("The player has no money");
-        }
-  
     }
     //Gives the player auto clicker
     public IEnumerator AutoClicker()
     {
+        //Disable the sleep mode scene & credit & stats
         sleepModeButton.interactable = false;
         creditsSceneButton.interactable = false;
+        statsSceneButton.interactable = false;
+
         //Decide how much clicks the player will gain
         int randomClicks = Random.Range(1,4);
         if (randomClicks == 1)
@@ -503,22 +479,22 @@ public class Randomizer : MonoBehaviour
             //Update the UI to display the amount of clicks left
             buffCounterText.text = "Clicks: \n" + autoClickerAmount.ToString();
         }
+        //Reanble the buttons
         sleepModeButton.interactable = true;
         creditsSceneButton.interactable = true;
+        statsSceneButton.interactable = true;
+
         //Disable the UI text of the amount of clicks and the auto clicker hand
         buffCounterText.text = null;
         autoClickerGameObject.SetActive(false);
     }
-
+    //The TCoin button logic
     public void GainMoneyButton()
     {
-        
-        if (clickerCount == -69420)
+        //playes the animation of the TCoin that is filling up
+        if (clickerCount >= 0 && clickerCount <= 9 && clickerCount != -69420)
         {
-            print("the player is Prestigins");
-        }
-        else if (clickerCount >= 0 && clickerCount <= 9)
-        {
+            //Make the button smaller then bigger animation
             coinButtonAnimator.Play("Button_Press");
             //Adds a click
             clickerCount++;
@@ -557,7 +533,7 @@ public class Randomizer : MonoBehaviour
                     PlayerPrefs.SetInt("StatsTCoinGained", statsTcoinGained);
                 }
                
-
+                //Spawn coins
                 StartCoroutine(effectSpawnerRight.SpawnItems("Coins", 1));
                 StartCoroutine(effectSpawnerMiddle.SpawnItems("Coins", 1));
                 StartCoroutine(effectSpawnerLeft.SpawnItems("Coins", 1));
@@ -571,17 +547,20 @@ public class Randomizer : MonoBehaviour
         }
         else
         {
-            print("Error, Resetting scene");
+            //If there is an error in the animation restart the scene
             SceneManager.LoadScene(0);
         }
           
     }
     public void CloseAFKRewardTab()
     {
+        //Get the amount of reward
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
 
+        //Multiple the amount of reward to be biger
         rewardAmount = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
 
+        //Add the amount to the player money
         playerMoney += rewardAmount;
 
         //Sets the reward value to 0
@@ -670,12 +649,21 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator SceneTransaction()
     {
+        //Fade out the music 
         StartCoroutine(musicLogic.FadeOut());
+
+        //Reset the timer of the ads
         StartCoroutine(ironSourceScript.RestartAdTimer());
+
+        //Play the animation to change scene
         sceneLoader.SetTrigger("Load_Scene");
+
         yield return new WaitForSeconds(1.25f);
+
         //Reseting the amount of money the player has
         PlayerPrefs.DeleteKey("PlayerMoney");
+
+        //Reload the scene
         SceneManager.LoadScene("Game_Scene");
     }
 

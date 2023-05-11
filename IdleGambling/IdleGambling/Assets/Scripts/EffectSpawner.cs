@@ -10,42 +10,43 @@ public class EffectSpawner : MonoBehaviour
 
     public IEnumerator SpawnItems(string item, int amount)
     {
+        //Checks to see if the game object to spawn is Coins
         if (item == "Coins")
         {
+            //Spawn coins in the spawner
             Instantiate(coinsGameObject, transform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.2f);
             Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-            //print("111 Spawning 2 coins");
         }
+        //spawn coins corresponds to the amount of coins the player won (Fixed number)
         else if (item == "SmallCoins")
         {
-            for (int i = 0; i < 8; i++)
-            {
-                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.1f);
-            }
-            //print("111 Spawning 5 coins");
-        }
-        else if (item == "MediumCoins")
-        {
-            for (int i = 0; i < 2; i++)
-            {
-                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.1f);
-            }
-            //print("111 Spawning 10 coins");
-        }
-        else if (item == "BigCoins")
-        {
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.05f);
             }
-            //print("111 Spawning 20 coins");
         }
+        else if (item == "MediumCoins")
+        {
+            for (int i = 0; i < 40; i++)
+            {
+                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+        else if (item == "BigCoins")
+        {
+            for (int i = 0; i < 80; i++)
+            {
+                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
+        //Checks to see if the game object to spawn is the clicker
         else if (item == "AutoClicker")
         {
+            //Spawn the amount of clickers according to the amount that the player got
             if(amount == 1)
             {
                 for (int i = 0; i < 5; i++)
@@ -53,7 +54,6 @@ public class EffectSpawner : MonoBehaviour
                     Instantiate(ClickerGameObject, transform.position, Quaternion.identity);
                     yield return new WaitForSeconds(1f);
                 }
-                print("111 Spawning 1 autoclicker");
             }
             else if (amount == 2)
             {
@@ -62,7 +62,6 @@ public class EffectSpawner : MonoBehaviour
                     Instantiate(ClickerGameObject, transform.position, Quaternion.identity);
                     yield return new WaitForSeconds(1f);
                 }
-                print("111 Spawning 2 autoclicker");
             }
             else
             {
@@ -71,18 +70,18 @@ public class EffectSpawner : MonoBehaviour
                     Instantiate(ClickerGameObject, transform.position, Quaternion.identity);
                     yield return new WaitForSeconds(1f);
                 }
-                print("111 Spawning 3 autoclicker");
             }
             
         }
-        else if(item == "IncreaseLuck")
+        //Checks to see if the game object to spawn is the Clover
+        else if (item == "IncreaseLuck")
         {
+            //Spawn for the duration of the buff
             for (int i = 0; i < 55; i++)
             {
                 Instantiate(cloverGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(1f);
             }
-            print("111 Spawning 1 clover");
         }
     }
 }

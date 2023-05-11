@@ -7,10 +7,12 @@ public class BackFromSettings : MonoBehaviour
 {
     [SerializeField] private Animator sceneLoader;
 
+    //Load scene
     public void LoadScene()
     {
         StartCoroutine(SceneLoader());
     }
+    //Load the game scene
     IEnumerator SceneLoader()
     {
         sceneLoader.SetTrigger("Load_Scene");

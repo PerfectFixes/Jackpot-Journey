@@ -15,11 +15,11 @@ public class SFXAndSoundControl : MonoBehaviour
 
     private void Awake()
     {
+        //Sets the togglers to the currect state depends on how the player left them when he last logged in
         if (PlayerPrefs.GetString("MusicToggleState") == "True")
         {
             if (SceneManager.GetActiveScene().buildIndex == 0)
             {
-                //StartCoroutine(musicLogic.SelectRandomSong());
                 musicToggle.isOn = true;
             }      
         }

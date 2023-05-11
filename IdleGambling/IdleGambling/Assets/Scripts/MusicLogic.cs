@@ -16,8 +16,10 @@ public class MusicLogic : MonoBehaviour
     {
         isFadingSong = false;
         audioSource = this.gameObject.GetComponent<AudioSource>();
+        //Set the 4 in random order each time the level is loaded
         ListMaker();
     }
+    //Stupid and useless logic for setting the order of the songs
     private void ListMaker()
     {
         for (int i = 0; i < clipArray.Length; i++)
@@ -38,51 +40,51 @@ public class MusicLogic : MonoBehaviour
                 }
             }
         }
+        //Starts the playing the song
         StartCoroutine(SelectRandomSong());
     }
     private void Update()
     {
+        //Lower or higher the volume of music manager according to the direction
         if (musicToggle.isOn && audioSource.volume < 0.25f && !isFadingSong)
         {
-            print("Volume Up");
             audioSource.volume += 0.15f * Time.deltaTime;
         }
         else if (!musicToggle.isOn && audioSource.volume > 0 && !isFadingSong)
         {
-            print("Volume Down");
             audioSource.volume -= 0.15f * Time.deltaTime;
         }
         
     }
     private void OnDisable()
     {
-        //StopAllCoroutines();
         audioSource.volume = 0;
     }
+    //Playing the song
     public IEnumerator SelectRandomSong()
     {
+        //Playing the songs if the music isnt playing
         yield return new WaitForSeconds(0.2f);
-        //audioSource.mute = false;
         if (!audioSource.isPlaying)
         {
-            print("new clip");
             audioSource.PlayOneShot(musicQueue[clipArray[clipCounter]]);
         }
-
+        //Checks to see if there is still a song playing
         while (audioSource.isPlaying)
         {
-            print("Playing");
             yield return new WaitForSeconds(0.5f);
         }
 
+        //Pass to the next song
         clipCounter++;
+        //if it got to the max reset the list
         if(clipCounter == clipArray.Length)
         {
             clipCounter = 0;
         }
-        print("Done");
         StartCoroutine(SelectRandomSong());
     }
+    //Fading out when moving to another scene
     public IEnumerator FadeOut()
     {
         isFadingSong = true;
@@ -92,6 +94,5 @@ public class MusicLogic : MonoBehaviour
             audioSource.volume -= 0.01f;
         }
         audioSource.mute = true;
-        print("volumeLowered");
     }
 }

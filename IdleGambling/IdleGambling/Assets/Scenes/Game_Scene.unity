@@ -895,6 +895,7 @@ MonoBehaviour:
   prestigeButton: {fileID: 1069925424}
   sleepModeButton: {fileID: 1402048701}
   creditsSceneButton: {fileID: 1932527043}
+  statsSceneButton: {fileID: 1231587267}
   autoGambleToggle: {fileID: 920968562}
   prestigeAnimator: {fileID: 1069925427}
   sceneLoader: {fileID: 1118235518}

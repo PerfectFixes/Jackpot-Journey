@@ -132,7 +132,7 @@ public class RandomizerTutorial : MonoBehaviour
         PlayerPrefs.SetString("SFXToggleState", "True");
 
         PlayerPrefs.SetString("MusicToggleState", "True");
-        //dialogueManager.StartDialogue(dialogueTrigger.dialogue);
+
         PlayerPrefs.SetInt("PrestigeLevel", 1);
         prestigeButton.interactable = false;
 
@@ -159,16 +159,16 @@ public class RandomizerTutorial : MonoBehaviour
 
         //Setting the amount of clicks to 0 
         clickerCount = 0;
-        
-            //Setting the amount of earning and losing
-            bettingAmount = -1 * prestigeLevel;
-            smallWinReward = 3 * prestigeLevel;
-            mediumWinReward = 6 * prestigeLevel;
-            bigWinReward = 16 * prestigeLevel;
 
-            smallRewardText.text = "Reward Amount: " + smallWinReward + " TCoins";
-            mediumRewardText.text = "Reward Amount: " + mediumWinReward + " TCoins"; ;
-            bigRewardText.text = "Reward Amount: " + bigWinReward + " TCoins"; ;
+        //Setting the amount of earning and losing
+        bettingAmount = -1 * prestigeLevel;
+        smallWinReward = 3 * prestigeLevel;
+        mediumWinReward = 6 * prestigeLevel;
+        bigWinReward = 16 * prestigeLevel;
+
+        smallRewardText.text = "Reward Amount: " + smallWinReward + " TCoins";
+        mediumRewardText.text = "Reward Amount: " + mediumWinReward + " TCoins";
+        bigRewardText.text = "Reward Amount: " + bigWinReward + " TCoins";
 
         isLostAllMoney = false;
         isPressingOnCoin = false;
@@ -177,14 +177,11 @@ public class RandomizerTutorial : MonoBehaviour
     {
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
-        playerMoneyText.text = $"{playerMoney:N0}";
-        
-        //coinButton.interactable = false;
-        //settingsButton.interactable = false;
-        
+        playerMoneyText.text = $"{playerMoney:N0}";      
     }
     void Update()
     {  
+        //Flash the prestige level if the goal is met
         if (playerMoney >= prestigeGoal && !prestigeButton.interactable)
         {
             prestigeButton.interactable = true;
@@ -208,8 +205,7 @@ public class RandomizerTutorial : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
 
         //Randomizing the number to know if the play can win a prize
-        
-
+        //Rig the lose for the first part of the tutorial
         if (!isLostAllMoney)
         {
             isWinningNumber = 0;
@@ -218,43 +214,31 @@ public class RandomizerTutorial : MonoBehaviour
         {
             isWinningNumber = Random.Range(4, 11);
         }
-        // ************** FOR TESTING ONLY **************** //
-        //Test the logic
-        //isWinningNumber = 6;
-        // ************** FOR TESTING ONLY **************** //
 
         if (isWinningNumber >= 5)
         {
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(4, 13);
-            // ************** FOR TESTING ONLY **************** //
-            //Test the logic
-            //randomNumberPicker = 10;
-            // ************** FOR TESTING ONLY **************** //
             if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
             {
                 winningAmount = smallWinReward;
-                print("The player got " + smallWinReward + " TCoins");
                 StartCoroutine(displayingResult.DisplayTheWin(60, winningAmount));
             }
             else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
             {
                 winningAmount = mediumWinReward;
-                print("The player got " + mediumWinReward + " TCoins");
                 StartCoroutine(displayingResult.DisplayTheWin(30, winningAmount));
 
             }
             else
             {
                 winningAmount = bigWinReward;
-                print("The player got " + bigWinReward + " TCoins");
                 StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));
             }
         }
         else
         {
             //When the player rolls a bad number he loses
-            print("Lost the bet");
             StartCoroutine(displayingResult.DisplayingTheLose());
         }
         //Waiting 1 second before reseting the stats of the gambling number
@@ -264,6 +248,7 @@ public class RandomizerTutorial : MonoBehaviour
 
       
     }
+    //As the name suggests
     public void UpdatePlayerMoney(int money)
     {   
         playerMoney += money;
@@ -272,14 +257,17 @@ public class RandomizerTutorial : MonoBehaviour
     }
     public void UpdatePlayerMoneyOnLost()
     {
+        //Update only the text
         playerMoneyText.text = playerMoney.ToString();
+
+        //Making sure the player lost all of his money and then continue the tutorial
         if (playerMoney == 0 && !isLostAllMoney)
         {
-            //coinButton.interactable = true;
             isLostAllMoney = true;
             dialogueManager.StartDialogue(dialogueManager.dialogueTrigger.dialogue);
         }
     }
+    //give the player 3 coins at the start
     public void GiveMoneyToPlayer()
     {
         if (playerMoney != 3)
@@ -292,10 +280,13 @@ public class RandomizerTutorial : MonoBehaviour
         playerMoney = 3;
         playerMoneyText.text = playerMoney.ToString();    
     }
+    //Start the gambling process
     public void StartGambling()
     {
+        //Checks if the player has money
         if (playerMoney >= 1)
         {
+            //Play SFX
             if (insertingCoinsSFX.isActiveAndEnabled)
             {
                 insertingCoinsSFX.Play();
@@ -306,11 +297,6 @@ public class RandomizerTutorial : MonoBehaviour
             //StartCoroutine(TextAnimation(bettingAmount));
             StartCoroutine(RandomizeNumber());
         }
-        else
-        {
-            print("The player has no money");
-        }
-
     }
     public void GainMoneyButton()
     {
@@ -355,7 +341,6 @@ public class RandomizerTutorial : MonoBehaviour
         }
         else
         {
-            print("Error, Resetting scene");
             SceneManager.LoadScene(0);
         }
     }

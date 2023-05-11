@@ -89,10 +89,14 @@ public class Settings : MonoBehaviour
     {
         settingsCooldown = false;
         tutorialAutoClose = true;
+
+        //Disable the settings incase it was left open
         settingsGameObject.SetActive(false);
 
+        //Get the player level
         int prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
 
+        //Display the amount of days the player has logged consecutively
         if (prestigeLevel >= 2)
         {
             dailyLoginBonus.SetActive(true);
@@ -170,6 +174,7 @@ public class Settings : MonoBehaviour
         }
 
     }
+    //As the name suggests
     IEnumerator SettingsSpamDisable()
     {
         settingsCooldown = true;
@@ -178,9 +183,12 @@ public class Settings : MonoBehaviour
     }
     public void OpenOrCloseSettingsTab(string settingsState)
     {
+        //Open or close the settings after the cooldown is met
         if (!settingsCooldown)
         {
+            //Start cooldown timer
             StartCoroutine(SettingsSpamDisable());
+
             //Open the settings
             if (settingsState == "Open")
             {
@@ -270,11 +278,12 @@ public class Settings : MonoBehaviour
         TutorialOpenOrCloseSettingsTab("Close");
         tutorialAutoClose = false;
     }
-    //Transfer to sleep mode scene
+    //Transfer to another scene
     public void LoadScene(string scene)
     {
         StartCoroutine(SceneLoader(scene));
     }
+    //Load new scene according to the button name
     IEnumerator SceneLoader(string scene)
     {
         sceneLoader.SetTrigger("Load_Scene");

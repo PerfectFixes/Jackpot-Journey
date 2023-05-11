@@ -11,14 +11,16 @@ public class PopupControl : MonoBehaviour
     [SerializeField] private Animator errorMessageAnimator;
 
     private readonly TMP_Text errorMessageText;
-    // Start is called before the first frame update
+
     void Start()
     {
         ironSourceScript = GameObject.Find("IronSource").GetComponent<IronSourceScript>();
     }
 
+    //Open the popup
     public void PopupOpen(string popupName)
     {
+        //Checks to see which popup it is
         if (popupName == "Auto Clicker")
         {
 
@@ -29,8 +31,10 @@ public class PopupControl : MonoBehaviour
             increaseLuckGameObject.SetActive(true);
         }
     }
+    //Close the popup
     public void PopupClose(string popupName)
     {
+        //Checks to see which popup it is
         if (popupName == "Auto Clicker")
         {
             autoClickerGameObject.SetActive(false);
@@ -41,11 +45,12 @@ public class PopupControl : MonoBehaviour
             increaseLuckGameObject.SetActive(false);
         }
     }
+    //Play the ad if there is internet
     public void PlayAd(string adType)
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-
+            //if there is no internet display the no internet error
             autoClickerGameObject.SetActive(false);
             increaseLuckGameObject.SetActive(false);
             errorMessageAnimator.Play("Error_Message_Display");
@@ -53,6 +58,7 @@ public class PopupControl : MonoBehaviour
         }
         else
         {
+            //Play the ad if there is internet
             ironSourceScript.ShowRewardedAd(adType);
             autoClickerGameObject.SetActive(false);
             increaseLuckGameObject.SetActive(false);

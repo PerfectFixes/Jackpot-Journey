@@ -22,8 +22,10 @@ public class StatsDisplay : MonoBehaviour
    
     private void Awake()
     {
+        //Get the updated results of the stats
         UpdateStats();
-
+        
+        //Display the stats
         statsText.text = "Stats:\n \n" + "Gamble machine pressed: " + gambleMachineBettingAmount + "\nGamble machine won: " + gambleMachineWins + "\nTCoins won from the gamble machine: " + gambleMachineTCoinWins + 
             "\nGamble machine lost: " + gambleMachineLoses + "\nTCoins Lost from the gamble machine: " + gambleMachineTCoinLoses + "\nTCoins button times pressed: " + TcoinClickAmount + "\nTCoins earned from TCoin button: " + TcoinGainedAmount;
     }

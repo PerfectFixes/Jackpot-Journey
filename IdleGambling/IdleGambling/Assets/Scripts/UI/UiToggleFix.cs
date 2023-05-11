@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class UiToggleFix : MonoBehaviour
 {
-    //delte in build
-    private int resetGame;
-
-    private bool musicState;
-
     [Header("SFX")]
     [Tooltip("The SFX for pressing the buttons")]
     [SerializeField] private AudioSource toggleSFX;
@@ -22,8 +17,7 @@ public class UiToggleFix : MonoBehaviour
 
     private void Awake()
     {
-
-        resetGame = 0;
+        //Setts the currect game object (On/Off)
         if (isToggleOn.isOn)
         {
             if (toggleSFX.isActiveAndEnabled)
@@ -41,46 +35,36 @@ public class UiToggleFix : MonoBehaviour
             spriteColor.color = new Color(255, 255, 255, 255);
         }
     }
-    private void Update()
-    {
- 
-    }
     public void ToggleIsOn(string whatIsTheToggler)
     {
+        //Checks what is the toggler
         if(whatIsTheToggler == "Music")
         {
-            // ********************** DELETE ME BEFORE FINAL BUILD **************************
-            resetGame++;
-            if (resetGame >= 10)
-            {
-                PlayerPrefs.DeleteAll();
-            }
-            // ********************** DELETE ME BEFORE FINAL BUILD **************************
-
+            //Sets the correct game object
             if (isToggleOn.isOn)
             {
-
+                //Player SFX if can
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Save the state for next load
                 PlayerPrefs.SetString("MusicToggleState", "True");
 
+                //Hide the game object thats in the background
                 spriteColor.color = new Color(255, 255, 255, 0);
-                if (this.gameObject.activeInHierarchy)
-                {
-                    //StartCoroutine(musicLogic.SelectRandomSong());
-                }
-
             }
             else
             {
+                //Plays the SFX
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Save the state for next load
                 PlayerPrefs.SetString("MusicToggleState", "False");
-                //StartCoroutine(musicLogic.FadeOut());
+
+                //Display the game object thats in the background
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }
@@ -89,21 +73,29 @@ public class UiToggleFix : MonoBehaviour
         {
             if (isToggleOn.isOn)
             {
+                //Plays the SFX
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Save the state for next load
                 PlayerPrefs.SetString("SFXToggleState","True");
+
+                //Display and activate the game object thats in the background
                 sfxControl.SetActive(true);
                 spriteColor.color = new Color(255, 255, 255, 0);
             }
             else
             {
+                //Plays the SFX
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Save the state for next load
                 PlayerPrefs.SetString("SFXToggleState", "False");
+
+                //Hide and deactivate the game object thats in the background
                 sfxControl.SetActive(false);    
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
@@ -113,18 +105,22 @@ public class UiToggleFix : MonoBehaviour
         {
             if (isToggleOn.isOn)
             {
+                //Plays the SFX
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Hide the game object thats in the background
                 spriteColor.color = new Color(255, 255, 255, 0);
             }
             else
             {
+                //Plays the SFX
                 if (toggleSFX.isActiveAndEnabled)
                 {
                     toggleSFX.Play();
                 }
+                //Display the game object thats in the background
                 spriteColor.color = new Color(255, 255, 255, 255);
             }
         }

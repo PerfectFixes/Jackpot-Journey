@@ -84,7 +84,6 @@ public class CanvasHelper : MonoBehaviour
 
     private static void OrientationChanged()
     {
-        //Debug.Log("Orientation changed from " + lastOrientation + " to " + Screen.orientation + " at " + Time.time);
 
         lastOrientation = Screen.orientation;
         lastResolution.x = Screen.width;
@@ -95,8 +94,6 @@ public class CanvasHelper : MonoBehaviour
 
     private static void ResolutionChanged()
     {
-        //Debug.Log("Resolution changed from " + lastResolution + " to (" + Screen.width + ", " + Screen.height + ") at " + Time.time);
-
         lastResolution.x = Screen.width;
         lastResolution.y = Screen.height;
 
@@ -105,7 +102,6 @@ public class CanvasHelper : MonoBehaviour
 
     private static void SafeAreaChanged()
     {
-        // Debug.Log("Safe Area changed from " + lastSafeArea + " to " + Screen.safeArea.size + " at " + Time.time);
 
         lastSafeArea = Screen.safeArea;
 
