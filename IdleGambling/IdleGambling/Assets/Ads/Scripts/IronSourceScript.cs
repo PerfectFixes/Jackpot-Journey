@@ -41,7 +41,7 @@ public class IronSourceScript : MonoBehaviour
         increaseLuckTimer = GameObject.Find("Increase_Luck_Timer").GetComponent<IncreaseLuckTimer>();
         autoClickerAnimator = GameObject.Find("Auto_Clicker").GetComponent<Animator>();
         increaseLuckAnimator = GameObject.Find("Increase_Luck").GetComponent<Animator>();
-        
+        bannerBackup.SetActive(false); 
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -186,18 +186,18 @@ public class IronSourceScript : MonoBehaviour
     //Invoked once the banner has loaded
     void BannerOnAdLoadedEvent(IronSourceAdInfo adInfo)
     {
-        print("Banner Loaded");     
+ 
     }
     //Invoked when the banner loading process has failed.
     void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
     {
+        print("Backup banner online");
         bannerBackup.SetActive(true);
-        print("Failed to load the banner");
-        StartCoroutine(ReloadBanner());
     }
     // Invoked when end user clicks on the banner ad
     void BannerOnAdClickedEvent(IronSourceAdInfo adInfo)
     {
+
     }
     //Notifies the presentation of a full screen content following user click
     void BannerOnAdScreenPresentedEvent(IronSourceAdInfo adInfo)
@@ -210,12 +210,6 @@ public class IronSourceScript : MonoBehaviour
     //Invoked when the user leaves the app
     void BannerOnAdLeftApplicationEvent(IronSourceAdInfo adInfo)
     {
-    }
-    IEnumerator ReloadBanner()
-    {
-        LoadBanner();
-        yield return new WaitForSeconds(0.5f);
-        print("reloading");
     }
     /***************** Banner Callbacks *****************/
 
