@@ -42,7 +42,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         //Set which group of icon to display according to the win amount
         switch (result)
         {
-            case 60:
+            case 55:
 
                 //Choose an icon from the small win category 
                 selectRandomIcon = Random.Range(1, 5);
@@ -65,7 +65,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
                 break;
             //-------------------------------------------------
-            case 30:
+            case 33:
 
                 //Choose an icon from the medium win category 
                 selectRandomIcon = Random.Range(5, 9);
@@ -88,7 +88,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
                 break;
             //-------------------------------------------------
-            case 10:
+            case 11:
 
                 //Choose an icon from the big win category 
                 selectRandomIcon = Random.Range(9, 13);
@@ -109,6 +109,29 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
                 thirdSlotControl.StopAnimation(true);
                 break;
+
+                case 1:
+                //Choose an icon from the big win category 
+                selectRandomIcon = 13;
+                firstSlotControl.iconNumber = selectRandomIcon;
+                secondSlotControl.iconNumber = selectRandomIcon;
+                thirdSlotControl.iconNumber = selectRandomIcon;
+
+                //Waiting 1 second and then stopping 1 slot at a time
+                yield return new WaitForSeconds(1);
+                firstSlotControl.StopAnimation(true);
+
+
+                yield return new WaitForSeconds(1);
+
+                secondSlotControl.StopAnimation(true);
+
+                yield return new WaitForSeconds(1);
+
+                thirdSlotControl.StopAnimation(true);
+
+                break;
+
         }
 
         //Waiting 0.75s to start saving and playing SFX
@@ -157,23 +180,29 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     private IEnumerator SpawnCoinsAndSFX(int winningAmount)
     {
         //Spawn the amount of coins related to the win
-        if (winningAmount == 60)
+        if (winningAmount == 55)
         {
             StartCoroutine(effectSpawnerRight.SpawnItems("SmallCoins", 1));
             StartCoroutine(effectSpawnerMiddle.SpawnItems("SmallCoins", 1));
             StartCoroutine(effectSpawnerLeft.SpawnItems("SmallCoins", 1));
         }
-        else if (winningAmount == 30)
+        else if (winningAmount == 33)
         {
             StartCoroutine(effectSpawnerRight.SpawnItems("MediumCoins", 1));
             StartCoroutine(effectSpawnerMiddle.SpawnItems("MediumCoins", 1));
             StartCoroutine(effectSpawnerLeft.SpawnItems("MediumCoins", 1));
         }
-        else
+        else if(winningAmount == 11)
         {
             StartCoroutine(effectSpawnerRight.SpawnItems("BigCoins", 1));
             StartCoroutine(effectSpawnerMiddle.SpawnItems("BigCoins", 1));
             StartCoroutine(effectSpawnerLeft.SpawnItems("BigCoins", 1));
+        }
+        else if (winningAmount == 1)
+        {
+            StartCoroutine(effectSpawnerRight.SpawnItems("JackpotCoins", 1));
+            StartCoroutine(effectSpawnerMiddle.SpawnItems("JackpotCoins", 1));
+            StartCoroutine(effectSpawnerLeft.SpawnItems("JackpotCoins", 1));
         }
         //Enable the SFX To loop and plays it
         winningCoinsSFX.loop = true;
@@ -196,10 +225,10 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         machineButton.interactable = false;
 
         //Choosing an icon to display when losing
-        selectRandomIcon = Random.Range(1, 13);
-        int randomOne = Random.Range(1, 13);
-        int randomTwo = Random.Range(1, 13);
-        int randomThree = Random.Range(1, 13);
+        selectRandomIcon = Random.Range(1, 14);
+        int randomOne = Random.Range(1, 14);
+        int randomTwo = Random.Range(1, 14);
+        int randomThree = Random.Range(1, 14);
 
 
         //Choosing to bait or not to bait the player
@@ -209,7 +238,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             while (randomTwo == randomOne)
             {
                 yield return null;
-                randomOne = Random.Range(1, 13);
+                randomOne = Random.Range(1, 14);
             }
             //Setting 2 images that are the same and 1 that is different
             firstSlotControl.iconNumber = randomTwo;
@@ -222,7 +251,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
             while (randomOne == randomTwo)
             {
                 yield return null;
-                randomTwo = Random.Range(1, 13);
+                randomTwo = Random.Range(1, 14);
             }
             //Setting 3 random images
             firstSlotControl.iconNumber = randomOne;

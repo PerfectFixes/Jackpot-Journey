@@ -52,6 +52,9 @@ public class Randomizer : MonoBehaviour
     [Space(15)]
 
     [Tooltip("The amout of money the player will get from a BIG WIN")]
+    [SerializeField] private int JackpotReward;
+
+    [Tooltip("The amout of money the player will get from a BIG WIN")]
     [SerializeField] private int bigWinReward;
 
     [Tooltip("The amout of money the player will get from a MEDIUM WIN")]
@@ -94,6 +97,9 @@ public class Randomizer : MonoBehaviour
 
     [Tooltip("The text of the big win in the settings")]
     [SerializeField] private TMP_Text bigRewardText;
+
+    [Tooltip("The text of the Jackpot win in the settings")]
+    [SerializeField] private TMP_Text JackpotText;
 
     [Tooltip("The text the amount of autoclicks left")]
     [SerializeField] private TMP_Text buffCounterText;
@@ -206,7 +212,7 @@ public class Randomizer : MonoBehaviour
         }
         else if (prestigeLevel == 10)
         {
-            prestigeGoalText.text = " Target Coins: ??????";
+            prestigeGoalText.text = " Target TCoins: ??????";
 
             //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
         }
@@ -225,7 +231,7 @@ public class Randomizer : MonoBehaviour
     void Start()
     {
         //Sets the login streak reward and gives the correct buff according to the amount of days logged in
-        if (prestigeLevel >= 2)
+        if (prestigeLevel >= 4)
         {
             if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
@@ -256,18 +262,20 @@ public class Randomizer : MonoBehaviour
         //Sets the amount of coins the player needs to get from being afk
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
 
-        //if the player is level 2 enable the multiplier 
-        if (prestigeLevel >= 2)
+        //if the player is level 4 enable the multiplier 
+        if (prestigeLevel >= 4)
         {
             //Setting the amount of earning and losing
             bettingAmount = -1 * prestigeLevel;
-            smallWinReward = 3 * prestigeLevel * multiplierAmount;
-            mediumWinReward = 6 * prestigeLevel * multiplierAmount;
-            bigWinReward = 16 * prestigeLevel * multiplierAmount;
+            smallWinReward = 5 * prestigeLevel * multiplierAmount;
+            mediumWinReward = 10 * prestigeLevel * multiplierAmount;
+            bigWinReward = 25 * prestigeLevel * multiplierAmount;
+            JackpotReward = 150 * prestigeLevel * multiplierAmount;
 
-            smallRewardText.text = "Reward Amount: " + smallWinReward;
-            mediumRewardText.text = "Reward Amount: " + mediumWinReward;
-            bigRewardText.text = "Reward Amount: " + bigWinReward;
+            smallRewardText.text = "Reward Amount:" + smallWinReward + " TCoins";
+            mediumRewardText.text = "Reward Amount:" + mediumWinReward + " TCoins";
+            bigRewardText.text = "Reward Amount:" + bigWinReward + " TCoins";
+            JackpotText.text = "Reward Amount:" + JackpotReward + " TCoins";
 
             //Gives the correct amount of coins from being afk
             rewardAmount = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
@@ -276,13 +284,15 @@ public class Randomizer : MonoBehaviour
         {
             //Setting the amount of earning and losing
             bettingAmount = -1 * prestigeLevel;
-            smallWinReward = 3 * prestigeLevel;
-            mediumWinReward = 6 * prestigeLevel;
-            bigWinReward = 16 * prestigeLevel;
+            smallWinReward = 5 * prestigeLevel;
+            mediumWinReward = 10 * prestigeLevel;
+            bigWinReward = 25 * prestigeLevel;
+            JackpotReward = 150 * prestigeLevel;
 
-            smallRewardText.text = "Reward Amount: " + smallWinReward + " Coins";
-            mediumRewardText.text = "Reward Amount: " + mediumWinReward + " Coins"; ;
-            bigRewardText.text = "Reward Amount: " + bigWinReward + " Coins"; ;
+            smallRewardText.text = "Reward Amount:" + smallWinReward + " TCoins";
+            mediumRewardText.text = "Reward Amount:" + mediumWinReward + " TCoins";
+            bigRewardText.text = "Reward Amount:" + bigWinReward + " TCoins";
+            JackpotText.text = "Reward Amount:" + JackpotReward + " TCoins";
         }
 
         //If there is no money gained from being afk dont display a message
@@ -314,7 +324,6 @@ public class Randomizer : MonoBehaviour
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
-     
     }
     void Update()
     {
@@ -346,38 +355,56 @@ public class Randomizer : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
 
         //Randomizing the number to know if the play can win a prize
-        isWinningNumber = Random.Range(1, 11);
+        isWinningNumber = Random.Range(1, 101);
+
+/*        // ******** FOR TESTING ********
+        isWinningNumber = Random.Range(98, 101);
+        // ******** FOR TESTING *********/
 
         //If the ad of increasing luck has been activated the player has better odds of winning
         if (increasedLuck)
         {
-            isWinningNumber = Random.Range(3, 11);
+            isWinningNumber = Random.Range(20, 101);
         }
-        if (isWinningNumber >= 6)
+        if (isWinningNumber >= 66)
         {
             //Randomizing the prize that the player will get 
-            randomNumberPicker = Random.Range(1, 11);
-            
+            randomNumberPicker = Random.Range(1, 101);
+
+/*            // ******** FOR TESTING ********
+            randomNumberPicker = Random.Range(98, 101);
+            // ******** FOR TESTING *********/
+
             //If the ad of increasing luck has been activated choose a better reward
             if (increasedLuck)
             {         
-                randomNumberPicker = Random.Range(3, 11);
+                randomNumberPicker = Random.Range(20, 101);
             }
-            if (randomNumberPicker >= 1 && randomNumberPicker <= 6)
+            if (randomNumberPicker >= 1 && randomNumberPicker <= 55)
             {
                 winningAmount = smallWinReward;
-                StartCoroutine(displayingResult.DisplayTheWin(60, winningAmount));
+                StartCoroutine(displayingResult.DisplayTheWin(55, winningAmount));
             }
-            else if (randomNumberPicker >= 7 && randomNumberPicker <= 9)
+            else if (randomNumberPicker >= 56 && randomNumberPicker <= 88)
             {
                 winningAmount = mediumWinReward;
-                StartCoroutine(displayingResult.DisplayTheWin(30, winningAmount));
+                StartCoroutine(displayingResult.DisplayTheWin(33, winningAmount));
                 
+            }
+            else if(randomNumberPicker >= 89 && randomNumberPicker <= 99)
+            {
+                winningAmount = bigWinReward;
+                StartCoroutine(displayingResult.DisplayTheWin(11, winningAmount));              
+            }
+            else if(randomNumberPicker == 100)
+            {
+                winningAmount = JackpotReward;
+                StartCoroutine(displayingResult.DisplayTheWin(1, winningAmount));
             }
             else
             {
-                winningAmount = bigWinReward;
-                StartCoroutine(displayingResult.DisplayTheWin(10, winningAmount));              
+                winningAmount = smallWinReward;
+                StartCoroutine(displayingResult.DisplayTheWin(55, winningAmount));
             }
         }
         else
@@ -557,9 +584,18 @@ public class Randomizer : MonoBehaviour
         //Get the amount of reward
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
 
-        //Multiple the amount of reward to be biger
-        rewardAmount = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
 
+        if (isStreakOn)
+        {
+            //Multiple the amount of reward to be biger
+            rewardAmount = rewardAmount * 2 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
+        }
+        else
+        {
+            //Multiple the amount of reward to be biger
+            rewardAmount = rewardAmount * 2 * PlayerPrefs.GetInt("PrestigeLevel");
+        }
+        
         //Add the amount to the player money
         playerMoney += rewardAmount;
 

@@ -97,6 +97,9 @@ public class RandomizerTutorial : MonoBehaviour
     [Tooltip("The text of of target amount to achive the prestige unlock")]
     [SerializeField] private TMP_Text bigRewardText;
 
+    [Tooltip("The text of the Jackpot win in the settings")]
+    [SerializeField] private TMP_Text JackpotText;
+
 
 
 
@@ -162,13 +165,14 @@ public class RandomizerTutorial : MonoBehaviour
 
         //Setting the amount of earning and losing
         bettingAmount = -1 * prestigeLevel;
-        smallWinReward = 3 * prestigeLevel;
-        mediumWinReward = 6 * prestigeLevel;
-        bigWinReward = 16 * prestigeLevel;
+        smallWinReward = 5 * prestigeLevel;
+        mediumWinReward = 10 * prestigeLevel;
+        bigWinReward = 25 * prestigeLevel;
 
-        smallRewardText.text = "Reward Amount: " + smallWinReward + " TCoins";
-        mediumRewardText.text = "Reward Amount: " + mediumWinReward + " TCoins";
-        bigRewardText.text = "Reward Amount: " + bigWinReward + " TCoins";
+        smallRewardText.text = "Reward Amount:" + smallWinReward + " TCoins";
+        mediumRewardText.text = "Reward Amount:" + mediumWinReward + " TCoins";
+        bigRewardText.text = "Reward Amount:" + bigWinReward + " TCoins";
+        JackpotText.text = "Reward Amount:150 Coins";
 
         isLostAllMoney = false;
         isPressingOnCoin = false;

@@ -97,7 +97,7 @@ public class Settings : MonoBehaviour
         int prestigeLevel = PlayerPrefs.GetInt("PrestigeLevel");
 
         //Display the amount of days the player has logged consecutively
-        if (prestigeLevel >= 2)
+        if (prestigeLevel >= 4)
         {
             dailyLoginBonus.SetActive(true);
 
@@ -138,7 +138,7 @@ public class Settings : MonoBehaviour
             //Hooks the player to make him want to know what is hiding beind level 2
             streakRewardText.text = "???? ????";
         }
-        if (prestigeLevel >= 4)
+        if (prestigeLevel >= 2)
         {
             //Enables the button to go to the afk scene
             sleepModeButton.interactable = true;

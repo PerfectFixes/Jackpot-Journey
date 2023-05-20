@@ -24,7 +24,7 @@ public class EffectSpawner : MonoBehaviour
             for (int i = 0; i < 20; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.03f);
             }
         }
         else if (item == "MediumCoins")
@@ -32,7 +32,7 @@ public class EffectSpawner : MonoBehaviour
             for (int i = 0; i < 40; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.03f);
             }
         }
         else if (item == "BigCoins")
@@ -40,7 +40,15 @@ public class EffectSpawner : MonoBehaviour
             for (int i = 0; i < 80; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.03f);
+            }
+        }
+        else if (item == "JackpotCoins")
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
+                yield return new WaitForSeconds(0.03f);
             }
         }
         //Checks to see if the game object to spawn is the clicker

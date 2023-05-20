@@ -42,7 +42,7 @@ public class AnimatorController : MonoBehaviour
                 isInCycle = false;
 
                 //Randomizing an animation to play
-                int nextAnimation = Random.Range(1, 13);
+                int nextAnimation = Random.Range(1, 14);
                 spinningAnimator.Play(nextAnimation.ToString());
             }            
             
