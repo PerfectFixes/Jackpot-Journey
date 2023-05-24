@@ -147,10 +147,14 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         statsTcoinUpdated += winningAmount;
         PlayerPrefs.SetInt("StatsTCoinsWon", statsTcoinUpdated);
 
-        //Amount of time the player won stat
-        int statsMachineWins = PlayerPrefs.GetInt("StatsMachineWins", 0);
-        statsMachineWins++;
-        PlayerPrefs.SetInt("StatsMachineWins", statsMachineWins);
+        if(result != 1)
+        {
+            //Amount of time the player won stat
+            int statsMachineWins = PlayerPrefs.GetInt("StatsMachineWins", 0);
+            statsMachineWins++;
+            PlayerPrefs.SetInt("StatsMachineWins", statsMachineWins);
+        }
+       
 
 
         //Update the amount of money in the save file and the game

@@ -42,7 +42,6 @@ ScriptsOnlyBuild:
     - UnityEditor.DeviceSimulation.DeviceInfoAsset
     - UnityEditor.DeviceSimulation.SimulatorWindow
     Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -1012,7 +1011,7 @@ ScriptsOnlyBuild:
     className: ShadowsMidtonesHighlights
   - hash:
       serializedVersion: 2
-      Hash: e9da3f0412d450e7955a3d7ab3393ff7
+      Hash: b0ca9d7841849e19129deb70a86cc3cd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Randomizer
@@ -1606,7 +1605,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: a6f2f98acf2733bfef38053f03117953
+      Hash: 3cc9c1cd299f6345dd864397b484ec61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: RandomizerTutorial
@@ -1695,4 +1694,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Tutorial.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/Stats_Scene.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/Jackpot Journy Test 0.11.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/Jackpot Journy Test 0.12.apk

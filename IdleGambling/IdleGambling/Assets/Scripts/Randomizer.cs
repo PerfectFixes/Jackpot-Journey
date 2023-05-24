@@ -261,7 +261,6 @@ public class Randomizer : MonoBehaviour
 
         //Sets the amount of coins the player needs to get from being afk
         int rewardAmount = PlayerPrefs.GetInt("AFK Reward");
-
         //if the player is level 4 enable the multiplier 
         if (prestigeLevel >= 4)
         {
@@ -278,7 +277,9 @@ public class Randomizer : MonoBehaviour
             JackpotText.text = "Reward Amount:" + JackpotReward + " TCoins";
 
             //Gives the correct amount of coins from being afk
-            rewardAmount = rewardAmount * 4 * PlayerPrefs.GetInt("PrestigeLevel") * multiplierAmount;
+            rewardAmount = rewardAmount * 2 * prestigeLevel * multiplierAmount;
+
+
         }
         else
         {
@@ -293,8 +294,11 @@ public class Randomizer : MonoBehaviour
             mediumRewardText.text = "Reward Amount:" + mediumWinReward + " TCoins";
             bigRewardText.text = "Reward Amount:" + bigWinReward + " TCoins";
             JackpotText.text = "Reward Amount:" + JackpotReward + " TCoins";
-        }
 
+            //Gives the correct amount of coins from being afk
+            rewardAmount = rewardAmount * 2 * prestigeLevel;
+        }
+        
         //If there is no money gained from being afk dont display a message
         if (rewardAmount != 0)
         {
@@ -372,7 +376,7 @@ public class Randomizer : MonoBehaviour
             randomNumberPicker = Random.Range(1, 101);
 
 /*            // ******** FOR TESTING ********
-            randomNumberPicker = Random.Range(98, 101);
+            randomNumberPicker = Random.Range(99, 101);
             // ******** FOR TESTING *********/
 
             //If the ad of increasing luck has been activated choose a better reward
@@ -400,6 +404,11 @@ public class Randomizer : MonoBehaviour
             {
                 winningAmount = JackpotReward;
                 StartCoroutine(displayingResult.DisplayTheWin(1, winningAmount));
+
+                //Amount of time the player won stat
+                int statsJackpotWins = PlayerPrefs.GetInt("StatsMachineJackpotWins", 0);
+                statsJackpotWins++;
+                PlayerPrefs.SetInt("StatsMachineJackpotWins", statsJackpotWins);
             }
             else
             {
@@ -519,7 +528,7 @@ public class Randomizer : MonoBehaviour
     public void GainMoneyButton()
     {
         //playes the animation of the TCoin that is filling up
-        if (clickerCount >= 0 && clickerCount <= 9 && clickerCount != -69420)
+        if (clickerCount >= 0 && clickerCount <= 14 && clickerCount != -69420)
         {
             //Make the button smaller then bigger animation
             coinButtonAnimator.Play("Button_Press");
@@ -535,7 +544,7 @@ public class Randomizer : MonoBehaviour
             coinButtonImage.sprite = coinSpriteAnimation[clickerCount];
 
             //Reset the amount of clicks and gives money
-            if (clickerCount >= 10)
+            if (clickerCount >= 15)
             {
                 clickerCount = 0;
 
@@ -598,6 +607,8 @@ public class Randomizer : MonoBehaviour
         
         //Add the amount to the player money
         playerMoney += rewardAmount;
+
+        PlayerPrefs.SetInt("StatsTCoinGainedFromAFK", rewardAmount);
 
         //Sets the reward value to 0
         PlayerPrefs.SetInt("AFK Reward", 0);

@@ -733,10 +733,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Stats:\n \nGamble machine pressed: 0\nGamble machine won: 0\nTCoins won
-    from the gamble machine: 0\nGamble machine lost: 0\nTCoins Lost from the gamble
-    machine: 0\nTCoins button times pressed: 0\nTCoins earned from TCoin button:
-    0"
+  m_text: 'Stats:
+
+
+    Gamble machine pressed: 0
+
+    Gamble machine regular wins:
+    0
+
+    Gamble machine Jackpot wins: 0
+
+    TCoins won from the gamble machine:
+    0
+
+    Gamble machine lost: 0
+
+    TCoins Lost from the gamble machine: 0
+
+    TCoins
+    button times pressed: 0
+
+    TCoins earned from TCoin button: 0
+
+    TCoins gained
+    from being AFK: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}

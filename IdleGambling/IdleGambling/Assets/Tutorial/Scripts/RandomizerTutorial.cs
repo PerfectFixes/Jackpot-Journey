@@ -308,7 +308,7 @@ public class RandomizerTutorial : MonoBehaviour
         {
             print("the player is Prestigins");
         }
-        else if (clickerCount >= 0 && clickerCount <= 9)
+        else if (clickerCount >= 0 && clickerCount <= 14)
         {
             coinButtonAnimator.Play("Button_Press");
             //machineButton.interactable = false;
@@ -319,7 +319,7 @@ public class RandomizerTutorial : MonoBehaviour
             coinButtonImage.sprite = coinSpriteAnimation[clickerCount];
 
             //Reset the amount of clicks and gives money
-            if (clickerCount >= 10)
+            if (clickerCount >= 15)
             {
 
                 //coinButton.interactable = false;
@@ -361,8 +361,7 @@ public class RandomizerTutorial : MonoBehaviour
             playerMoneyText.text = $"{playerMoney:N0}";
             playerMoney = -1000;
 
-            //Reseting the amount of money the player has
-            PlayerPrefs.DeleteKey("PlayerMoney");
+            PlayerPrefs.DeleteAll();
 
             //Leveling up the player
             PlayerPrefs.SetInt("PrestigeLevel", 1);
@@ -370,6 +369,8 @@ public class RandomizerTutorial : MonoBehaviour
             PlayerPrefs.SetString("TutorialComplete", "True");
 
             PlayerPrefs.SetString("MusicToggleState", "True");
+
+            PlayerPrefs.SetString("SFXToggleState", "True");
 
             StartCoroutine(manualFade.FadeOut());
             StartCoroutine(SceneTransaction());

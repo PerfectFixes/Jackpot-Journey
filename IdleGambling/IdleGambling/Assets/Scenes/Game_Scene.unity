@@ -943,17 +943,22 @@ MonoBehaviour:
   coinButtonAnimator: {fileID: 853806091}
   autoClickerGameObject: {fileID: 395761048}
   coinSpriteAnimation:
-  - {fileID: 21300000, guid: de660073fc772254ca9bc626a0bc16a5, type: 3}
-  - {fileID: 21300000, guid: c877b52d293b81445b96b5a6893190a0, type: 3}
-  - {fileID: 21300000, guid: ebaeeea12bf499444bb40cd8774eadc0, type: 3}
-  - {fileID: 21300000, guid: 50497a42d20352341b2e6af123bc582f, type: 3}
-  - {fileID: 21300000, guid: 05f6c8ef9be8cad448fffd8c2b0498e6, type: 3}
-  - {fileID: 21300000, guid: f3e90ca85583e474b8292caa0c7e4d2b, type: 3}
-  - {fileID: 21300000, guid: 4b0085530fd123b469d15323cf387920, type: 3}
-  - {fileID: 21300000, guid: a607a2b400b28894a86b0e9da483fd3c, type: 3}
-  - {fileID: 21300000, guid: 0639318e87c27bf4aa1ca60cf88e6a4a, type: 3}
-  - {fileID: 21300000, guid: 15ea72d7f0fb6574c8a8e5aca1321448, type: 3}
-  - {fileID: 21300000, guid: de660073fc772254ca9bc626a0bc16a5, type: 3}
+  - {fileID: 21300000, guid: dd809babcce04ac42b4af58102a27563, type: 3}
+  - {fileID: 21300000, guid: e4b1b558df6b9fe45a2f08dd1ad4caed, type: 3}
+  - {fileID: 21300000, guid: dda6cb3fe0a5dda418b7d1fbdd9ca98b, type: 3}
+  - {fileID: 21300000, guid: 63500c258dfaed04d990077de3695516, type: 3}
+  - {fileID: 21300000, guid: 5576fc19906e7564ba627662e60df925, type: 3}
+  - {fileID: 21300000, guid: d47e8a23af7894e4386175e909a656b7, type: 3}
+  - {fileID: 21300000, guid: 79b1c5797ab089846baf622ef6fd5d3c, type: 3}
+  - {fileID: 21300000, guid: 051d16792ebd5cf42b20f488c9101d37, type: 3}
+  - {fileID: 21300000, guid: 2a71f164a69fe1341bb99a6db3626a38, type: 3}
+  - {fileID: 21300000, guid: d31db3151dedd6242ac51f5dcf77046f, type: 3}
+  - {fileID: 21300000, guid: 854a512584cbd484b9a56445d2f49888, type: 3}
+  - {fileID: 21300000, guid: 9a127210d84cb6949a320cb9d863af6f, type: 3}
+  - {fileID: 21300000, guid: 6018983c8cf8125499a77e4c481c0b74, type: 3}
+  - {fileID: 21300000, guid: dad086da39f599d46a2f2bb8de710db8, type: 3}
+  - {fileID: 21300000, guid: bd775a4269a111341ac64959d30c08ba, type: 3}
+  - {fileID: 21300000, guid: dd809babcce04ac42b4af58102a27563, type: 3}
 --- !u!4 &237576375
 Transform:
   m_ObjectHideFlags: 0
