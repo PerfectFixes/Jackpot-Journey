@@ -210,13 +210,13 @@ public class Randomizer : MonoBehaviour
         {
             prestigeGoal = 1000000;
         }
-        else if (prestigeLevel == 10)
-        {
-            prestigeGoalText.text = " Target TCoins: ??????";
-
-            //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
-        }
         prestigeGoalText.text = " Target Coins: " + prestigeGoal;
+        if (prestigeLevel == 10)
+        {
+            prestigeGoalText.text = " Target TCoins: INT OVERFLOW";
+            //maybe add text like break the game and let hell loss (multiplier by a lot and stuff like this)
+            prestigeGoal = 2147483640;
+        }      
         #endregion
 
         //Get the game master component 
@@ -230,6 +230,7 @@ public class Randomizer : MonoBehaviour
     }
     void Start()
     {
+        
         //Sets the login streak reward and gives the correct buff according to the amount of days logged in
         if (prestigeLevel >= 4)
         {
@@ -278,8 +279,6 @@ public class Randomizer : MonoBehaviour
 
             //Gives the correct amount of coins from being afk
             rewardAmount = rewardAmount * 2 * prestigeLevel * multiplierAmount;
-
-
         }
         else
         {
@@ -348,7 +347,6 @@ public class Randomizer : MonoBehaviour
             prestigeAnimator.Play("Off_Prestige_Animation");
             prestigeButton.interactable = false;
         }
-
     }
     IEnumerator RandomizeNumber()
     {
