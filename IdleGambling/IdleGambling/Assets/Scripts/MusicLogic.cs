@@ -46,13 +46,13 @@ public class MusicLogic : MonoBehaviour
     private void Update()
     {
         //Lower or higher the volume of music manager according to the direction
-        if (musicToggle.isOn && audioSource.volume < 0.25f && !isFadingSong)
+        if (musicToggle.isOn && audioSource.volume < 0.80f && !isFadingSong)
         {
-            audioSource.volume += 0.15f * Time.deltaTime;
+            audioSource.volume += 0.3f * Time.deltaTime;
         }
         else if (!musicToggle.isOn && audioSource.volume > 0 && !isFadingSong)
         {
-            audioSource.volume -= 0.15f * Time.deltaTime;
+            audioSource.volume -= 0.3f * Time.deltaTime;
         }
         
     }
@@ -88,9 +88,9 @@ public class MusicLogic : MonoBehaviour
     public IEnumerator FadeOut()
     {
         isFadingSong = true;
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 80; i++)
         {
-            yield return new WaitForSeconds(0.04f);
+            yield return new WaitForSeconds(0.01f);
             audioSource.volume -= 0.01f;
         }
         audioSource.mute = true;
