@@ -5,6 +5,7 @@ using UnityEngine;
 public class EffectSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject coinsGameObject;
+    [SerializeField] private GameObject jackpotGameObject;
     [SerializeField] private GameObject cloverGameObject;
     [SerializeField] private GameObject ClickerGameObject;
 
@@ -45,9 +46,10 @@ public class EffectSpawner : MonoBehaviour
         }
         else if (item == "JackpotCoins")
         {
-            for (int i = 0; i < 200; i++)
+            
+            for (int i = 0; i < 100; i++)
             {
-                Instantiate(coinsGameObject, transform.position, Quaternion.identity);
+                Instantiate(jackpotGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.03f);
             }
         }

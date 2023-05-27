@@ -19,8 +19,13 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
     [Tooltip("The SFX for winning the gamble")]
     [SerializeField] private AudioSource winningCoinsSFX;
 
+    [Tooltip("The SFX for winning the gamble")]
+    [SerializeField] private AudioSource jackpotSFX;
+
     [Header("Gameobject")]
     [SerializeField] private GameObject coinPrefab;
+    [SerializeField] private GameObject jackpotGameObject;
+    [SerializeField] private Animator jackpotAnimator;
     [SerializeField] private EffectSpawner effectSpawnerRight;
     [SerializeField] private EffectSpawner effectSpawnerMiddle;
     [SerializeField] private EffectSpawner effectSpawnerLeft;
@@ -33,6 +38,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         //Counts the amount of times that the SFX need to be played
         sfxCalled = 0;
         updateMoney = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
+        jackpotGameObject.SetActive(false);
     }
     public IEnumerator DisplayTheWin(int result, int winningAmount)
     {
@@ -111,7 +117,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
                 break;
 
                 case 1:
-                //Choose an icon from the big win category 
+                //Choose an icon from the Jackpot win 
                 selectRandomIcon = 13;
                 firstSlotControl.iconNumber = selectRandomIcon;
                 secondSlotControl.iconNumber = selectRandomIcon;
@@ -130,6 +136,7 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
                 thirdSlotControl.StopAnimation(true);
 
+
                 break;
 
         }
@@ -139,6 +146,16 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         {
             yield return new WaitForSeconds(0.75f);
         }
+        if (!jackpotGameObject.activeInHierarchy && result == 1)
+        {
+            jackpotGameObject.SetActive(true);
+        }
+        if(result == 1)
+        {
+            jackpotAnimator.Play("Jackpot_Fade_In");
+            jackpotSFX.Play();
+        }
+        
 
         //***** Update stats *****
 
@@ -170,13 +187,18 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
 
 
         //Waiting more and then resuming the animation
-        yield return new WaitForSeconds(1.25f);
+        yield return new WaitForSeconds(1.3f);
 
         firstSlotControl.StopAnimation(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         secondSlotControl.StopAnimation(false);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.15f);
         thirdSlotControl.StopAnimation(false);
+
+        if(result == 1)
+        {
+            jackpotAnimator.Play("Jackpot_Fade_out");
+        }
 
         //Enables the gambling
         machineButton.interactable = true;

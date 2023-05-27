@@ -359,9 +359,9 @@ public class Randomizer : MonoBehaviour
         //Randomizing the number to know if the play can win a prize
         isWinningNumber = Random.Range(1, 101);
 
-/*        // ******** FOR TESTING ********
+        // ******** FOR TESTING ********
         isWinningNumber = Random.Range(98, 101);
-        // ******** FOR TESTING *********/
+        // ******** FOR TESTING ********
 
         //If the ad of increasing luck has been activated the player has better odds of winning
         if (increasedLuck)
@@ -373,9 +373,9 @@ public class Randomizer : MonoBehaviour
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 101);
 
-/*            // ******** FOR TESTING ********
-            randomNumberPicker = Random.Range(99, 101);
-            // ******** FOR TESTING *********/
+            // ******** FOR TESTING ********
+            randomNumberPicker = Random.Range(100, 101);
+            // ******** FOR TESTING ********
 
             //If the ad of increasing luck has been activated choose a better reward
             if (increasedLuck)

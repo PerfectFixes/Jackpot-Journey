@@ -47,7 +47,18 @@ public class CoinLogic : MonoBehaviour
             //Rotate the coin in a random direction
             gameObject.transform.Rotate(rotateRandom);
         }
-        //If the gameobject is a clover 
+        else
+        {
+            if (spinDirection == 1)
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, 100) * Time.fixedDeltaTime);
+            }
+            else
+            {
+                gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
+            }
+        }
+/*        //If the gameobject is a clover 
         if (gameObject.name == "Clover_Prefab(Clone)" || gameObject.name == "Clover_Prefab")
         {
             if(spinDirection == 1)
@@ -72,7 +83,7 @@ public class CoinLogic : MonoBehaviour
                 gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
             }
             
-        }
+        }*/
         
     }
     private void OnTriggerEnter2D(Collider2D collision)
