@@ -153,10 +153,12 @@ public class DisplayWinOrLoseIcon : MonoBehaviour
         if(result == 1)
         {
             jackpotAnimator.Play("Jackpot_Fade_In");
-            jackpotSFX.Play();
+            if (jackpotSFX.isActiveAndEnabled)
+            {
+                jackpotSFX.Play();
+            }
         }
-        
-
+       
         //***** Update stats *****
 
         //Winning coins from the machine stat

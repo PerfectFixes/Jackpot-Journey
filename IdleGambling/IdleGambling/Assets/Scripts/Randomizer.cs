@@ -19,6 +19,7 @@ public class Randomizer : MonoBehaviour
     [Tooltip("The AFK reward popup when you log in and get a reward")]
     [SerializeField] private GameObject afkRewardGameObject;
 
+    private bool isPrestiging;
     private bool increasedLuck;
     private bool isStreakOn;
     private int multiplierAmount;
@@ -153,6 +154,7 @@ public class Randomizer : MonoBehaviour
     {
         ironSourceScript = GameObject.Find("IronSource").GetComponent<IronSourceScript>();
 
+        isPrestiging = false;
         increasedLuck = false;
         //Disabling the autoclicker text
         buffCounterText.text = null;
@@ -162,6 +164,11 @@ public class Randomizer : MonoBehaviour
         {
             SceneManager.LoadScene("Tutorial");
         }
+
+        // ********** FOR TESTING ************ //
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("TutorialComplete", "True");
+        // ********** FOR TESTING ************ //
 
         autoClickerGameObject.SetActive(false);
         //Disable the prestige button
@@ -526,7 +533,7 @@ public class Randomizer : MonoBehaviour
     public void GainMoneyButton()
     {
         //playes the animation of the TCoin that is filling up
-        if (clickerCount >= 0 && clickerCount <= 14 && clickerCount != -69420)
+        if (clickerCount >= 0 && clickerCount <= 14 && !isPrestiging)
         {
             //Make the button smaller then bigger animation
             coinButtonAnimator.Play("Button_Press");
@@ -578,6 +585,10 @@ public class Randomizer : MonoBehaviour
                 playerMoneyText.text = $"{playerMoney:N0}";
             }
 
+        }
+        else if (isPrestiging)
+        {
+            return;
         }
         else
         {
@@ -679,16 +690,16 @@ public class Randomizer : MonoBehaviour
         #endregion
 
         //Incase the loading takes a long time disable the option to gamble
-        clickerCount = -69420;
+        isPrestiging = true;
         playerMoney -= prestigeGoal;
+
+        //Saves the amount of coins
+        PlayerPrefs.SetInt("PlayerMoney", playerMoney);
 
         //Update the amount of money and set it to minus so he wont be able to gamble again
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
         playerMoney = -1000;
-
-        //Reseting the amount of money the player has
-        PlayerPrefs.DeleteKey("PlayerMoney");
 
         StartCoroutine(SceneTransaction());
     }
@@ -704,9 +715,6 @@ public class Randomizer : MonoBehaviour
         sceneLoader.SetTrigger("Load_Scene");
 
         yield return new WaitForSeconds(1.25f);
-
-        //Reseting the amount of money the player has
-        PlayerPrefs.DeleteKey("PlayerMoney");
 
         //Reload the scene
         SceneManager.LoadScene("Game_Scene");
