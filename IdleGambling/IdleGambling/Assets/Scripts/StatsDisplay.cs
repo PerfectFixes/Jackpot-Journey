@@ -35,13 +35,13 @@ public class StatsDisplay : MonoBehaviour
         //Display the stats
         if (PlayerPrefs.GetInt("PrestigeLevel") >= 2)
         {
-            statsText.text = "Stats:\n \n" + "Gamble machine pressed: " + gambleMachineBettingAmount + "\nGamble machine regular wins: " + gambleMachineRegularWins + "\nGamble machine Jackpot wins: " + gambleMachineJackpotWins + "\nTCoins won from the gamble machine: " + gambleMachineTCoinWins +
-           "\nGamble machine lost: " + gambleMachineLoses + "\nTCoins Lost from the gamble machine: " + gambleMachineTCoinLoses + "\nTCoins button times pressed: " + TcoinClickAmount + "\nTCoins earned from TCoin button: " + TcoinGainedAmount + "\nTCoins gained from being AFK: " + TcoinGainedFromAFK;
+            statsText.text = "Stats:\n \n" + "Gamble Machine:\n" + "Times pressed: " + gambleMachineBettingAmount + "\nRegular wins: " + gambleMachineRegularWins + "\nJackpot wins: " + gambleMachineJackpotWins + "\nTCoins earned: " + gambleMachineTCoinWins +
+           "\nTimes lost: " + gambleMachineLoses + "\nTCoins Lost: " + gambleMachineTCoinLoses + "\n\nTCoin Button:\n" + "Times pressed: " + TcoinClickAmount + "\nTCoins earned: " + TcoinGainedAmount + "\n\nAFK Mode:\n" + "TCoins earned: " + TcoinGainedFromAFK;
         }
         else
         {
-            statsText.text = "Stats:\n \n" + "Gamble machine pressed: " + gambleMachineBettingAmount + "\nGamble machine regular wins: " + gambleMachineRegularWins + "\nGamble machine Jackpot wins: " + gambleMachineJackpotWins + "\nTCoins won from the gamble machine: " + gambleMachineTCoinWins +
-           "\nGamble machine lost: " + gambleMachineLoses + "\nTCoins Lost from the gamble machine: " + gambleMachineTCoinLoses + "\nTCoins button times pressed: " + TcoinClickAmount + "\nTCoins earned from TCoin button: " + TcoinGainedAmount;
+            statsText.text = "Stats:\n \n" + "Gamble Machine:\n" + "Times pressed: " + gambleMachineBettingAmount + "\nRegular wins: " + gambleMachineRegularWins + "\nJackpot wins: " + gambleMachineJackpotWins + "\nTCoins earned: " + gambleMachineTCoinWins +
+          "\nTimes lost: " + gambleMachineLoses + "\nTCoins Lost: " + gambleMachineTCoinLoses + "\n\nTCoin Button:\n" + "Times pressed: " + TcoinClickAmount + "\nTCoins earned: " + TcoinGainedAmount;
         }
        
     }

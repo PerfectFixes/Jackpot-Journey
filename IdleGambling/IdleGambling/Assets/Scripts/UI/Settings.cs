@@ -101,7 +101,7 @@ public class Settings : MonoBehaviour
         {
             dailyLoginBonus.SetActive(true);
 
-            if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
                 streakRewardText.text = "Streak Reward: 2X";
             }

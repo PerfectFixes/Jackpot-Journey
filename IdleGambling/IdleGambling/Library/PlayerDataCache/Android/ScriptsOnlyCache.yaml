@@ -42,6 +42,7 @@ ScriptsOnlyBuild:
     - UnityEditor.DeviceSimulation.DeviceInfoAsset
     - UnityEditor.DeviceSimulation.SimulatorWindow
     Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatConsoleWindow
     - Unity.Android.Logcat.AndroidLogcatManager
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -89,8 +90,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -1053,7 +1056,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 44d2ee70fd44da3f0fa4a9be9ea666e8
+      Hash: 30735f6c18c8ce55b8f9ad047df9816e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EffectSpawner
@@ -1467,7 +1470,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerRow
   - hash:
       serializedVersion: 2
-      Hash: 992dfc8f1cd0b63ed2eaffcd6977f2b2
+      Hash: a42f482f70358f7bd3cfdc31979469e8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DisplayWinOrLoseIcon
@@ -1694,4 +1697,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Tutorial.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/Stats_Scene.unity
-  playerPath: C:/Users/ttay2/Desktop/GameTesting/Jackpot Journy Test 0.12.apk
+  playerPath: C:/Users/ttay2/Desktop/GameTesting/Jackpot Journy Test 0.13.apk

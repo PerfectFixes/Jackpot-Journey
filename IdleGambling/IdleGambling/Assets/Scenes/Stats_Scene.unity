@@ -733,30 +733,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Stats:
-
-
-    Gamble machine pressed: 0
-
-    Gamble machine regular wins:
-    0
-
-    Gamble machine Jackpot wins: 0
-
-    TCoins won from the gamble machine:
-    0
-
-    Gamble machine lost: 0
-
-    TCoins Lost from the gamble machine: 0
-
-    TCoins
-    button times pressed: 0
-
-    TCoins earned from TCoin button: 0
-
-    TCoins gained
-    from being AFK: 0'
+  m_text: "Stats:\n \nGamble Machine:\nTimes pressed: 0\nRegular wins: 0\nJackpot
+    wins: 0\nTCoins earned: 0\nTimes lost: 0\nTCoins Lost: 0\n\nTCoin Button:\nTimes
+    pressed: 0\nTCoins earned: 0\n\nAFK Mode:\nTCoins earned: 0"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
   m_sharedMaterial: {fileID: 1255796532860828832, guid: c14cce6e24534584381a50fc1d0d08c4, type: 2}
@@ -783,12 +762,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25.9
+  m_fontSize: 34.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 20
-  m_fontSizeMax: 30
+  m_fontSizeMax: 40
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -819,7 +798,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 35.695923, y: 0, z: 37.303253, w: 0}
+  m_margin: {x: 35.695923, y: 214.64209, z: 37.303253, w: 297.43268}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

@@ -166,8 +166,8 @@ public class Randomizer : MonoBehaviour
         }
 
         // ********** FOR TESTING ************ //
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetString("TutorialComplete", "True");
+/*        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetString("TutorialComplete", "True");*/
         // ********** FOR TESTING ************ //
 
         autoClickerGameObject.SetActive(false);
@@ -187,27 +187,27 @@ public class Randomizer : MonoBehaviour
         }
         else if (prestigeLevel == 2)
         {
-            prestigeGoal = 250;
+            prestigeGoal = 500;
         }
         else if (prestigeLevel == 3)
         {
-            prestigeGoal = 1000;
+            prestigeGoal = 1500;
         }
         else if (prestigeLevel == 4)
         {
-            prestigeGoal = 2500;
+            prestigeGoal = 5000;
         }
         else if (prestigeLevel == 5)
         {
-            prestigeGoal = 5000;
+            prestigeGoal = 15000;
         }
         else if (prestigeLevel == 6)
         {
-            prestigeGoal = 25000;
+            prestigeGoal = 30000;
         }
         else if (prestigeLevel == 7)
         {
-            prestigeGoal = 75000;
+            prestigeGoal = 100000;
         }
         else if (prestigeLevel == 8)
         {
@@ -241,7 +241,7 @@ public class Randomizer : MonoBehaviour
         //Sets the login streak reward and gives the correct buff according to the amount of days logged in
         if (prestigeLevel >= 4)
         {
-            if ((PlayerPrefs.GetInt("LoginStreak") >= 3) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
+            if ((PlayerPrefs.GetInt("LoginStreak") >= 2) && (PlayerPrefs.GetInt("LoginStreak") <= 9))
             {
                 PlayerPrefs.SetInt("StreakReward", 2);
             }
@@ -334,6 +334,11 @@ public class Randomizer : MonoBehaviour
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
+
+        // ********** FOR TESTING ************ //
+        //autoGambleToggle.interactable = true;
+        // ********** FOR TESTING ************ //
+
     }
     void Update()
     {
@@ -367,7 +372,7 @@ public class Randomizer : MonoBehaviour
         isWinningNumber = Random.Range(1, 101);
 
         // ******** FOR TESTING ********
-        isWinningNumber = Random.Range(98, 101);
+/*        isWinningNumber = Random.Range(98, 101);*/
         // ******** FOR TESTING ********
 
         //If the ad of increasing luck has been activated the player has better odds of winning
@@ -381,7 +386,7 @@ public class Randomizer : MonoBehaviour
             randomNumberPicker = Random.Range(1, 101);
 
             // ******** FOR TESTING ********
-            randomNumberPicker = Random.Range(100, 101);
+/*            randomNumberPicker = Random.Range(100, 101);*/
             // ******** FOR TESTING ********
 
             //If the ad of increasing luck has been activated choose a better reward
@@ -457,9 +462,10 @@ public class Randomizer : MonoBehaviour
     //Gamble machine logic
     public void StartGambling()
     {
+
         //Updates the amount of money the player has before starting to gamble
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
-        if (playerMoney >= 1)
+        if (playerMoney >= prestigeLevel)
         {
             //Play SFX if can
             if (insertingCoinsSFX.isActiveAndEnabled)
@@ -491,11 +497,11 @@ public class Randomizer : MonoBehaviour
         int randomClicks = Random.Range(1,4);
         if (randomClicks == 1)
         {
-            autoClickerAmount = 50;
+            autoClickerAmount = 45;
         }
         else if (randomClicks == 2)
         {
-            autoClickerAmount = 100;
+            autoClickerAmount = 105;
         }
         else if (randomClicks == 3)
         {
@@ -699,7 +705,7 @@ public class Randomizer : MonoBehaviour
         //Update the amount of money and set it to minus so he wont be able to gamble again
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
-        playerMoney = -1000;
+        playerMoney = 0;
 
         StartCoroutine(SceneTransaction());
     }
