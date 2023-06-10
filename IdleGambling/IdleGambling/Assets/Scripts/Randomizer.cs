@@ -106,6 +106,7 @@ public class Randomizer : MonoBehaviour
     [SerializeField] private TMP_Text buffCounterText;
 
 
+
     [Header("Button")]
     [Tooltip("The button that generates money")]
     [SerializeField] private Image coinButtonImage;
@@ -152,6 +153,10 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
+        if(PlayerPrefs.GetString("GameVersion") != "0.21")
+        {
+            PlayerPrefs.DeleteAll();
+        }
         ironSourceScript = GameObject.Find("IronSource").GetComponent<IronSourceScript>();
 
         isPrestiging = false;
@@ -187,35 +192,35 @@ public class Randomizer : MonoBehaviour
         }
         else if (prestigeLevel == 2)
         {
-            prestigeGoal = 500;
+            prestigeGoal = 200;
         }
         else if (prestigeLevel == 3)
         {
-            prestigeGoal = 1500;
+            prestigeGoal = 600;
         }
         else if (prestigeLevel == 4)
         {
-            prestigeGoal = 5000;
+            prestigeGoal = 3000;
         }
         else if (prestigeLevel == 5)
         {
-            prestigeGoal = 15000;
+            prestigeGoal = 5000;
         }
         else if (prestigeLevel == 6)
         {
-            prestigeGoal = 30000;
+            prestigeGoal = 10000;
         }
         else if (prestigeLevel == 7)
         {
-            prestigeGoal = 100000;
+            prestigeGoal = 25000;
         }
         else if (prestigeLevel == 8)
         {
-            prestigeGoal = 250000;
+            prestigeGoal = 50000;
         }
         else if (prestigeLevel == 9)
         {
-            prestigeGoal = 1000000;
+            prestigeGoal = 100000;
         }
         prestigeGoalText.text = " Target Coins: " + prestigeGoal;
         if (prestigeLevel == 10)

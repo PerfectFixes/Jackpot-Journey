@@ -17,18 +17,18 @@ public class ManualFade : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         //Sets the music to 0
         audioSource.volume = 0;
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 40; i++)
         {
             yield return new WaitForSeconds(0.1f);
-            audioSource.volume += 0.01f;
+            audioSource.volume += 0.02f;
         }
         //Verify the music is at 0.25
-        audioSource.volume = 0.25f;
+        audioSource.volume = 0.8f;
     }
     //Fade the music out
     public IEnumerator FadeOut()
     {
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 50; i++)
         {
             yield return new WaitForSeconds(0.1f);
             audioSource.volume -= 0.02f;

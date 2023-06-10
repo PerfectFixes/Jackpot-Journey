@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Net.NetworkInformation;
 
 public class DialogueManager : MonoBehaviour
 {
     //Checks to see what part of the tutorial the player is currently at
     private int partNumber;
+
+
 
     [Header("Pointers")]
     [SerializeField] private GameObject machinePointer;
@@ -35,11 +38,21 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Image coinClickColor;
 
+    [Header("Canvas")]
+    [SerializeField] private Canvas slotMachineCanvas;
+    [SerializeField] private Canvas settingsCanvas;
+    [SerializeField] private Canvas CoinCanvas;
+    [SerializeField] private Canvas PrestigeCanvas;
+    [SerializeField] private GameObject highlighterGameObject;
+
+    [SerializeField] private TMP_Text nextButtonText;
+
     [Header("SFX")]
     [SerializeField] private AudioSource typeSFX;
 
 
     //Dialogue logic
+    private bool skipSentence;
     private bool isTyping = false;
     private Queue<string> sentences;
     public DialogueTrigger dialogueTrigger;
@@ -60,6 +73,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+        skipSentence = false;
         //Sets the correct values of the alphas
         lowAlpha = new Color(1, 1, 1, 0.5f);
         normalAlpha = new Color(1, 1, 1, 1);
@@ -80,6 +94,18 @@ public class DialogueManager : MonoBehaviour
         partNumber = 0;
         sentences = new Queue<string>();
         StartCoroutine(LoadDelay());
+
+    }
+    private void Update()
+    {
+        if (isTyping)
+        {
+            nextButtonText.text = "Skip";
+        }
+        else
+        {
+            nextButtonText.text = "Next";
+        }
     }
     private IEnumerator LoadDelay()
     {
@@ -160,7 +186,7 @@ public class DialogueManager : MonoBehaviour
         //Playing the next sentence
         DisplayNextSentence();
     }
-    public void DisplayNextSentence()
+    public void NextSentece()
     {
         //Play the next sentence only of it isn't typing
         if (!isTyping)
@@ -171,13 +197,34 @@ public class DialogueManager : MonoBehaviour
                 EndDialougue();
                 return;
             }
-            
+
             string sentence = sentences.Dequeue();
 
             //Printing 1 char at a time
             StartCoroutine(LoadCharInSentence(sentence));
         }
-     
+    }
+    public void DisplayNextSentence()
+    {
+        //Play the next sentence only of it isn't typing
+        if (isTyping)
+        {
+            skipSentence = true;
+        }
+        else
+        {
+            //When the queue has no more sentences go to end dialogue
+            if (sentences.Count == 0)
+            {
+                EndDialougue();
+                return;
+            }
+
+            string sentence = sentences.Dequeue();
+
+            //Printing 1 char at a time
+            StartCoroutine(LoadCharInSentence(sentence));
+        }
     }
     IEnumerator LoadCharInSentence(string sentence)
     {
@@ -185,7 +232,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = true;
 
         //Disalbe the next button
-        nextButton.interactable = false;
+        //nextButton.interactable = false;
 
         //Setting the text to null
         dialogueText.text = "";
@@ -193,7 +240,14 @@ public class DialogueManager : MonoBehaviour
         //Each frame take 1 char from the string array and print it
         foreach (char letter in sentence.ToCharArray())
         {
-            if(letter.ToString() != " "  && !typeSFX.isPlaying)
+            if (skipSentence)
+            {
+                dialogueText.text = sentence;
+                skipSentence = false;
+                isTyping = false;
+                break;
+            }
+            if (letter.ToString() != " "  && !typeSFX.isPlaying)
             {
                     typeSFX.Play();
             }
@@ -202,7 +256,7 @@ public class DialogueManager : MonoBehaviour
         }
         //When its done enable the next button 
         isTyping = false;
-        nextButton.interactable = true;
+        //nextButton.interactable = true;
     }
     public void EndDialougue()
     {
@@ -215,7 +269,7 @@ public class DialogueManager : MonoBehaviour
         switch (partNumber)
         {
             case 1:
-                //Make th machine clickable
+                //Make the machine clickable
                 machineSpriteColor.color = normalAlpha;
                 moneyTextColor.alpha = 1f;
                 coinSpriteColor.color = normalAlpha;
@@ -223,6 +277,7 @@ public class DialogueManager : MonoBehaviour
                 slotTwoColor.color = normalAlpha;
                 slotThreeColor.color = normalAlpha;
                 machineButton.interactable = true;
+                slotMachineCanvas.sortingOrder = 2;
 
                 //Enable the pointer
                 machinePointer.SetActive(true);
@@ -233,6 +288,9 @@ public class DialogueManager : MonoBehaviour
 
             case 2:
 
+                //Change the highlight
+                slotMachineCanvas.sortingOrder = 0;
+                CoinCanvas.sortingOrder = 2;
                 machineButton.interactable = false;
 
                 //Enable the pointer
@@ -244,6 +302,9 @@ public class DialogueManager : MonoBehaviour
 
             case 3:
 
+                //Change the highlight
+                CoinCanvas.sortingOrder = 0;
+                settingsCanvas.sortingOrder = 2;
                 //Enable the pointer
                 settingsPointer.SetActive(true);
 
@@ -254,7 +315,11 @@ public class DialogueManager : MonoBehaviour
                 break;
 
             case 4:
-                //Pointer at prestige
+
+                //Change the highlight
+                settingsCanvas.sortingOrder = 0;
+                //PrestigeCanvas.sortingOrder = 0;
+                Destroy(highlighterGameObject);
 
                 //Make everything interactable
                 machineSpriteColor.color = normalAlpha;
