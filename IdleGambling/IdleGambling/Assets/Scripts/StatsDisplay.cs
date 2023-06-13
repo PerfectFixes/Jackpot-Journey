@@ -32,7 +32,7 @@ public class StatsDisplay : MonoBehaviour
         //Get the updated results of the stats
         UpdateStats();
 
-        //Display the stats
+        //Display the stats according to the level
         if (PlayerPrefs.GetInt("PrestigeLevel") >= 2)
         {
             statsText.text = "Stats:\n \n" + "Gamble Machine:\n" + "Times pressed: " + gambleMachineBettingAmount + "\nRegular wins: " + gambleMachineRegularWins + "\nJackpot wins: " + gambleMachineJackpotWins + "\nTCoins earned: " + gambleMachineTCoinWins +

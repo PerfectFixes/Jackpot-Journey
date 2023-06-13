@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "emulator-5554",
         "name": "com.Tay_Dev.JackpotJourney",
-        "processId": 9309,
+        "processId": 9230,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,43 +11,37 @@
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 4712,
+            "processId": 4531,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 6543,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 7119,
+            "exited": true
+        },
+        {
+            "deviceId": "emulator-5554",
+            "name": "com.Tay_Dev.JackpotJourney",
+            "processId": 7714,
             "exited": true
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.bluestacks.launcher",
-            "processId": 2252,
+            "processId": 2255,
             "exited": false
         },
         {
             "deviceId": "emulator-5554",
             "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 5529,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 6259,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 7327,
-            "exited": true
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 8746,
-            "exited": false
-        },
-        {
-            "deviceId": "emulator-5554",
-            "name": "com.Tay_Dev.JackpotJourney",
-            "processId": 9309,
+            "processId": 9230,
             "exited": false
         }
     ],
@@ -102,7 +96,7 @@
         "Behavior": 0
     },
     "m_FilterOptions": {
-        "m_Filter": "",
+        "m_Filter": "in b",
         "m_UseRegularExpressions": false,
         "m_MatchCase": false
     },

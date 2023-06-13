@@ -383,6 +383,7 @@ public class Randomizer : MonoBehaviour
         //If the ad of increasing luck has been activated the player has better odds of winning
         if (increasedLuck)
         {
+            print("In better Odds");
             isWinningNumber = Random.Range(20, 101);
         }
         if (isWinningNumber >= 66)
@@ -396,7 +397,8 @@ public class Randomizer : MonoBehaviour
 
             //If the ad of increasing luck has been activated choose a better reward
             if (increasedLuck)
-            {         
+            {
+                print("In better Luck");
                 randomNumberPicker = Random.Range(20, 101);
             }
             if (randomNumberPicker >= 1 && randomNumberPicker <= 55)
@@ -467,7 +469,6 @@ public class Randomizer : MonoBehaviour
     //Gamble machine logic
     public void StartGambling()
     {
-
         //Updates the amount of money the player has before starting to gamble
         playerMoney = PlayerPrefs.GetInt("PlayerMoney");
         if (playerMoney >= prestigeLevel)
@@ -493,6 +494,7 @@ public class Randomizer : MonoBehaviour
     //Gives the player auto clicker
     public IEnumerator AutoClicker()
     {
+        print("in bauto clicker");
         //Disable the sleep mode scene & credit & stats
         sleepModeButton.interactable = false;
         creditsSceneButton.interactable = false;

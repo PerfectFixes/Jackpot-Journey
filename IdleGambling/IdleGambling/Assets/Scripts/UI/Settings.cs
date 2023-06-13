@@ -174,7 +174,7 @@ public class Settings : MonoBehaviour
         }
 
     }
-    //As the name suggests
+    //Disable the player from spamming the settings button
     IEnumerator SettingsSpamDisable()
     {
         settingsCooldown = true;

@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Unity\\Unity Projects\\IdleGamblingGit\\Idle-Gambling\\IdleGambling\\IdleGambling\\Temp\\gradleOut\\launcher\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-km\\values-km.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ttay2\\.gradle\\caches\\transforms-2\\files-2.1\\dae4d6ab41d2d582b03ac5a214336f6a\\com.google.android.gms.play-services-basement-18.1.0\\res\\values-km\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "144",
+                        "endOffsets": "339"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "148",
+                        "endOffsets": "199"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\ttay2\\.gradle\\caches\\transforms-2\\files-2.1\\4527d81fa1dab2c4adef56282f6f51b4\\androidx.core.core-1.2.0\\res\\values-km\\values-km.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "204",
+                        "endColumns": "100",
+                        "endOffsets": "300"
+                    }
+                }
+            ]
+        }
+    ]
+}

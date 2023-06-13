@@ -1,0 +1,451 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+MERGED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:3:1-76:12
+MERGED from [:androidx.arch.core.core-runtime-2.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e737982ea91fdf7ea321d344c75db0be\androidx.arch.core.core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [:androidx.asynclayoutinflater.asynclayoutinflater-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\androidx.asynclayoutinflater.asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.coordinatorlayout.coordinatorlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\df8a19ef163eaa8f3d3c8f24458897fd\androidx.coordinatorlayout.coordinatorlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:17:1-26:12
+MERGED from [:androidx.cursoradapter.cursoradapter-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\androidx.cursoradapter.cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.customview.customview-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\androidx.customview.customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.documentfile.documentfile-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\androidx.documentfile.documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.drawerlayout.drawerlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4c1ade53cc4b20d7bc631ac17d3bfca4\androidx.drawerlayout.drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.fragment.fragment-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bbcbf6e10ae52a08d3f4cdfbe738c39d\androidx.fragment.fragment-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.interpolator.interpolator-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\androidx.interpolator.interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.legacy.legacy-support-core-ui-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\androidx.legacy.legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.legacy.legacy-support-core-utils-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\androidx.legacy.legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.lifecycle.lifecycle-livedata-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\androidx.lifecycle.lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.lifecycle.lifecycle-livedata-core-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\androidx.lifecycle.lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [:androidx.lifecycle.lifecycle-runtime-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7aae0fa9f3856e5588f075ec678eaadd\androidx.lifecycle.lifecycle-runtime-2.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [:androidx.lifecycle.lifecycle-viewmodel-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\b42ab30b982239949a81eb93ceae6c0b\androidx.lifecycle.lifecycle-viewmodel-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.loader.loader-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\androidx.loader.loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.localbroadcastmanager.localbroadcastmanager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\androidx.localbroadcastmanager.localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.print.print-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\androidx.print.print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.slidingpanelayout.slidingpanelayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\androidx.slidingpanelayout.slidingpanelayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.swiperefreshlayout.swiperefreshlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\androidx.swiperefreshlayout.swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:androidx.tracing.tracing-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\5ba63b1c70eabe443fa095f6e25f4126\androidx.tracing.tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [:androidx.versionedparcelable.versionedparcelable-1.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\androidx.versionedparcelable.versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
+MERGED from [:androidx.viewpager.viewpager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\androidx.viewpager.viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:17:1-27:12
+MERGED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:16:1-26:12
+MERGED from [:com.ironsource.adapters.unityadsadapter-4.3.27:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a8bf1fc92728199d053151a5bdcc1fce\com.ironsource.adapters.unityadsadapter-4.3.27\AndroidManifest.xml:2:1-11:12
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:2:1-13:12
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:2:1-17:12
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:2:1-9:12
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-26:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+	package
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:70-106
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:107-153
+	android:versionCode
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:1-6:12
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:11-69
+	android:installLocation
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:3:154-194
+supports-screens
+ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:3-163
+	android:largeScreens
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:78-105
+	android:smallScreens
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:21-48
+	android:normalScreens
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:49-77
+	android:xlargeScreens
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:106-134
+	android:anyDensity
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:4:135-160
+application
+ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:5:3-116
+MERGED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:5-74:19
+MERGED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:33:5-74:19
+MERGED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:24:5-89
+MERGED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:19:3-23:17
+MERGED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:19:3-23:17
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:19:3-21:17
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:19:3-21:17
+MERGED from [:androidx.versionedparcelable.versionedparcelable-1.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\androidx.versionedparcelable.versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [:androidx.versionedparcelable.versionedparcelable-1.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\androidx.versionedparcelable.versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:25:5-20
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:25:5-20
+MERGED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:20:5-24:19
+MERGED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:20:5-24:19
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:6:3-12:17
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:6:3-12:17
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:7:3-16:17
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:7:3-16:17
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:4:3-8:17
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:4:3-8:17
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-24:19
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-24:19
+	android:extractNativeLibs
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:5:16-48
+	android:appComponentFactory
+		ADDED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:5:49-81
+	android:icon
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml:5:82-113
+uses-sdk
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+MERGED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-11:41
+MERGED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-11:41
+MERGED from [:androidx.arch.core.core-runtime-2.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e737982ea91fdf7ea321d344c75db0be\androidx.arch.core.core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.arch.core.core-runtime-2.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e737982ea91fdf7ea321d344c75db0be\androidx.arch.core.core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.asynclayoutinflater.asynclayoutinflater-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\androidx.asynclayoutinflater.asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.asynclayoutinflater.asynclayoutinflater-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f1f8381ec1e1c3f6b165a08612cfd883\androidx.asynclayoutinflater.asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.coordinatorlayout.coordinatorlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\df8a19ef163eaa8f3d3c8f24458897fd\androidx.coordinatorlayout.coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.coordinatorlayout.coordinatorlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\df8a19ef163eaa8f3d3c8f24458897fd\androidx.coordinatorlayout.coordinatorlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.core.core-1.2.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4527d81fa1dab2c4adef56282f6f51b4\androidx.core.core-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.cursoradapter.cursoradapter-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\androidx.cursoradapter.cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.cursoradapter.cursoradapter-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7c0677be8011741026309ef690a9f4db\androidx.cursoradapter.cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.customview.customview-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\androidx.customview.customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.customview.customview-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d1ea25f3382273eed14315b543469208\androidx.customview.customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.documentfile.documentfile-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\androidx.documentfile.documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.documentfile.documentfile-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7bcdab9edca68925f6bcb92ddd8a20de\androidx.documentfile.documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.drawerlayout.drawerlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4c1ade53cc4b20d7bc631ac17d3bfca4\androidx.drawerlayout.drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.drawerlayout.drawerlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\4c1ade53cc4b20d7bc631ac17d3bfca4\androidx.drawerlayout.drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.fragment.fragment-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bbcbf6e10ae52a08d3f4cdfbe738c39d\androidx.fragment.fragment-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.fragment.fragment-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bbcbf6e10ae52a08d3f4cdfbe738c39d\androidx.fragment.fragment-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.interpolator.interpolator-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\androidx.interpolator.interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.interpolator.interpolator-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\bcf856ddfeb04b3b73ed182739910d39\androidx.interpolator.interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.legacy.legacy-support-core-ui-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\androidx.legacy.legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.legacy.legacy-support-core-ui-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\f5ec57ec49d0a3e9add695de66a9078c\androidx.legacy.legacy-support-core-ui-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.legacy.legacy-support-core-utils-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\androidx.legacy.legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.legacy.legacy-support-core-utils-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\18f5c1f0dcc08504bb6a1709d838cf6b\androidx.legacy.legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-livedata-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\androidx.lifecycle.lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-livedata-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c6f1e76c078a7e4f5288325854cab247\androidx.lifecycle.lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-livedata-core-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\androidx.lifecycle.lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-livedata-core-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7282e00d74c6a6acf53f4bfd68421266\androidx.lifecycle.lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:18:3-72
+MERGED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:18:3-72
+MERGED from [:androidx.lifecycle.lifecycle-runtime-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7aae0fa9f3856e5588f075ec678eaadd\androidx.lifecycle.lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.lifecycle.lifecycle-runtime-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\7aae0fa9f3856e5588f075ec678eaadd\androidx.lifecycle.lifecycle-runtime-2.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.lifecycle.lifecycle-viewmodel-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\b42ab30b982239949a81eb93ceae6c0b\androidx.lifecycle.lifecycle-viewmodel-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.lifecycle.lifecycle-viewmodel-2.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\b42ab30b982239949a81eb93ceae6c0b\androidx.lifecycle.lifecycle-viewmodel-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.loader.loader-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\androidx.loader.loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.loader.loader-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\2118a7099009bdd29f0289728ee82c0d\androidx.loader.loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.localbroadcastmanager.localbroadcastmanager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\androidx.localbroadcastmanager.localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.localbroadcastmanager.localbroadcastmanager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\androidx.localbroadcastmanager.localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.print.print-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\androidx.print.print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.print.print-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\androidx.print.print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.slidingpanelayout.slidingpanelayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\androidx.slidingpanelayout.slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.slidingpanelayout.slidingpanelayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\aa2f1cd22069a9bb65f1845d902d729f\androidx.slidingpanelayout.slidingpanelayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:18:3-72
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:18:3-72
+MERGED from [:androidx.swiperefreshlayout.swiperefreshlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\androidx.swiperefreshlayout.swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.swiperefreshlayout.swiperefreshlayout-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a083b9190df6cd0b2eed1b8d83acb3d5\androidx.swiperefreshlayout.swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.tracing.tracing-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\5ba63b1c70eabe443fa095f6e25f4126\androidx.tracing.tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.tracing.tracing-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\5ba63b1c70eabe443fa095f6e25f4126\androidx.tracing.tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.versionedparcelable.versionedparcelable-1.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\androidx.versionedparcelable.versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.versionedparcelable.versionedparcelable-1.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\androidx.versionedparcelable.versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [:androidx.viewpager.viewpager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\androidx.viewpager.viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:androidx.viewpager.viewpager-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\ebc8011c39d26c440b76466a9b971345\androidx.viewpager.viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:20:5-44
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:20:5-44
+MERGED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:18:5-43
+MERGED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:18:5-43
+MERGED from [:com.ironsource.adapters.unityadsadapter-4.3.27:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a8bf1fc92728199d053151a5bdcc1fce\com.ironsource.adapters.unityadsadapter-4.3.27\AndroidManifest.xml:7:5-9:41
+MERGED from [:com.ironsource.adapters.unityadsadapter-4.3.27:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\a8bf1fc92728199d053151a5bdcc1fce\com.ironsource.adapters.unityadsadapter-4.3.27\AndroidManifest.xml:7:5-9:41
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:3:3-72
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:3:3-72
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:3:3-72
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:3:3-72
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:3:3-72
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:3:3-72
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		ADDED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+		INJECTED from D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\launcher\src\main\AndroidManifest.xml
+uses-permission#com.google.android.gms.permission.AD_ID
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-79
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:23:5-79
+MERGED from [:com.google.android.gms.play-services-ads-identifier-18.0.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\e555007db90afa40b0a2352db64056f0\com.google.android.gms.play-services-ads-identifier-18.0.1\AndroidManifest.xml:23:5-79
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:6:3-77
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:6:3-77
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-76
+uses-feature#0x00030000
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-54
+	android:glEsVersion
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:19-51
+uses-feature#android.hardware.vulkan.version
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:5-18:36
+	android:required
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-55
+uses-permission#android.permission.INTERNET
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:5-67
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:4:3-65
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:4:3-65
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:5:3-65
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:5:3-65
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:5-79
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:5:3-77
+MERGED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:5:3-77
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:4:3-77
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:4:3-77
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
+MERGED from [:unityLibrary:IronSource.plugin] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\IronSource.plugin\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:22-76
+uses-feature#android.hardware.touchscreen
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:5-25:36
+	android:required
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:9-52
+uses-feature#android.hardware.touchscreen.multitouch
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:5-28:36
+	android:required
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:28:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-63
+uses-feature#android.hardware.touchscreen.multitouch.distinct
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:29:5-31:36
+	android:required
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:31:9-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:30:9-72
+activity#com.unity3d.player.UnityPlayerActivity
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:34:9-54:20
+	android:screenOrientation
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:40:13-53
+	android:launchMode
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:38:13-44
+	android:hardwareAccelerated
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:37:13-48
+	android:resizeableActivity
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:39:13-47
+	android:configChanges
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:36:13-194
+	android:theme
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:41:13-54
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:35:13-66
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:42:13-46:29
+action#android.intent.action.MAIN
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:17-69
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:43:25-66
+category#android.intent.category.LAUNCHER
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:17-77
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:45:27-74
+meta-data#unityplayer.UnityActivity
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:48:13-50:40
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:50:17-37
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:49:17-57
+meta-data#android.notch_support
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:51:13-53:40
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:53:17-37
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:52:17-53
+meta-data#unity.splash-mode
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:56:9-58:33
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:58:13-30
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:57:13-45
+meta-data#unity.splash-enable
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:59:9-61:36
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:61:13-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:60:13-47
+meta-data#unity.launch-fullscreen
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:62:9-64:36
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:64:13-33
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:63:13-51
+meta-data#unity.allow-resizable-window
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:65:9-67:37
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:67:13-34
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:66:13-56
+meta-data#notch.config
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:68:9-70:50
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:70:13-47
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:69:13-40
+meta-data#unity.build-id
+ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:71:9-73:68
+	android:value
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:73:13-65
+	android:name
+		ADDED from [:unityLibrary] D:\Unity\Unity Projects\IdleGamblingGit\Idle-Gambling\IdleGambling\IdleGambling\Temp\gradleOut\unityLibrary\build\intermediates\library_manifest\debug\AndroidManifest.xml:72:13-42
+provider#androidx.startup.InitializationProvider
+ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:20:5-22:16
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:20:5-182
+MERGED from [:androidx.startup.startup-runtime-1.1.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\afca11e8ceb070baa80dd28896bb2689\androidx.startup.startup-runtime-1.1.1\AndroidManifest.xml:20:5-182
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:12:5-15:16
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:12:5-15:16
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:5:5-7:16
+MERGED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:5:5-7:16
+	tools:node
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:20:161-179
+	android:authorities
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:20:70-135
+	android:exported
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:20:136-160
+	android:name
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:20:15-69
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:21:7-115
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:13:7-115
+MERGED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:13:7-115
+	android:value
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:21:80-112
+	android:name
+		ADDED from [:androidx.lifecycle.lifecycle-process-2.5.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\1a42abe28e93c6851eedf7d863c6e83e\androidx.lifecycle.lifecycle-process-2.5.1\AndroidManifest.xml:21:18-79
+meta-data#com.google.android.gms.version
+ADDED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [:com.google.android.gms.play-services-basement-18.1.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\dae4d6ab41d2d582b03ac5a214336f6a\com.google.android.gms.play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+activity#com.ironsource.sdk.controller.ControllerActivity
+ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:7:5-163
+	android:hardwareAccelerated
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:7:126-160
+	android:configChanges
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:7:79-125
+	android:name
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:7:15-78
+activity#com.ironsource.sdk.controller.InterstitialActivity
+ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:8:5-214
+	android:hardwareAccelerated
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:8:128-162
+	android:configChanges
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:8:81-127
+	android:theme
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:8:163-211
+	android:name
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:8:15-80
+activity#com.ironsource.sdk.controller.OpenUrlActivity
+ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:9:5-209
+	android:hardwareAccelerated
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:9:123-157
+	android:configChanges
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:9:76-122
+	android:theme
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:9:158-206
+	android:name
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:9:15-75
+activity#com.ironsource.mediationsdk.testSuite.TestSuiteActivity
+ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:10:5-218
+	android:hardwareAccelerated
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:10:133-167
+	android:configChanges
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:10:86-132
+	android:theme
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:10:168-215
+	android:name
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:10:15-85
+provider#com.ironsource.lifecycle.IronsourceLifecycleProvider
+ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:11:5-162
+	android:authorities
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:11:83-159
+	android:name
+		ADDED from [:com.ironsource.sdk.mediationsdk-7.3.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\c05b1659a06d2dc94e7692ffa43f822d\com.ironsource.sdk.mediationsdk-7.3.0\AndroidManifest.xml:11:15-82
+activity#com.unity3d.services.ads.adunit.AdUnitActivity
+ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:5-356
+	android:hardwareAccelerated
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:260-294
+	android:exported
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:235-259
+	android:configChanges
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:77-234
+	android:theme
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:295-353
+	android:name
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:8:15-76
+activity#com.unity3d.services.ads.adunit.AdUnitTransparentActivity
+ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:5-379
+	android:hardwareAccelerated
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:271-305
+	android:exported
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:246-270
+	android:configChanges
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:88-245
+	android:theme
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:306-376
+	android:name
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:9:15-87
+activity#com.unity3d.services.ads.adunit.AdUnitTransparentSoftwareActivity
+ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:5-388
+	android:hardwareAccelerated
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:279-314
+	android:exported
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:254-278
+	android:configChanges
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:96-253
+	android:theme
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:315-385
+	android:name
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:10:15-95
+activity#com.unity3d.services.ads.adunit.AdUnitSoftwareActivity
+ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:5-365
+	android:hardwareAccelerated
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:268-303
+	android:exported
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:243-267
+	android:configChanges
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:85-242
+	android:theme
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:304-362
+	android:name
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:11:15-84
+meta-data#com.unity3d.services.core.configuration.AdsSdkInitializer
+ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:14:7-126
+	android:value
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:14:91-123
+	android:name
+		ADDED from [:com.unity3d.ads.unity-ads-4.6.1:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\57a1ad4493e46dd6b111c12080ed105f\com.unity3d.ads.unity-ads-4.6.1\AndroidManifest.xml:14:18-90
+meta-data#com.unity3d.services.identifiers.UnitySharedLibraryInitializer
+ADDED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:6:7-131
+	android:value
+		ADDED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:6:96-128
+	android:name
+		ADDED from [:com.unity3d.services.identifiers.unity-services-identifiers-1.0.0:] C:\Users\ttay2\.gradle\caches\transforms-2\files-2.1\8871e251b7194dd88453b83365e2c608\com.unity3d.services.identifiers.unity-services-identifiers-1.0.0\AndroidManifest.xml:6:18-95

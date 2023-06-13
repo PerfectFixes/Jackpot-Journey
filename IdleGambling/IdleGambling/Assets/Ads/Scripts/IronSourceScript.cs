@@ -25,6 +25,7 @@ public class IronSourceScript : MonoBehaviour
 
     private void Awake()
     {
+        //Using a singleton 
         if (instance == null)
         {
             instance = this;
@@ -34,6 +35,7 @@ public class IronSourceScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        //Gets the correct components
         errorMessageAnimator = GameObject.Find("Error_Message_Display").GetComponent<Animator>();
         errorMessageText = GameObject.Find("Error_Message_Display").GetComponent<TMP_Text>();
         randomizer = GameObject.Find("Randomize_Number").GetComponent<Randomizer>();
@@ -45,6 +47,7 @@ public class IronSourceScript : MonoBehaviour
     }
     private void OnLevelWasLoaded(int level)
     {
+        //Detect what level is it on
         if (level == 0)
         {
             isTutorial = false;
@@ -73,9 +76,9 @@ public class IronSourceScript : MonoBehaviour
         }
 
     }
-    // Start is called before the first frame update
     void Start()
     {
+        //Sets the correct data and starts the ad time
         isFirstTime = true;
         autoClicker = false;
         IronSource.Agent.init(appKey, IronSourceAdUnits.REWARDED_VIDEO);
@@ -86,39 +89,47 @@ public class IronSourceScript : MonoBehaviour
             StartCoroutine(EnableAds(true));
         }
     }
+    //When the scene is changing restart the countdown of the ad
     public IEnumerator RestartAdTimer()
     {
         yield return new WaitForSeconds(0.5f);
         isFirstTime = true;
         StopAllCoroutines();
     }
+    //Display the ads in the correct time
     private IEnumerator EnableAds(bool isLongCooldown)
     {
+        //If its the first time the player should incounter the ad the cooldown will be higher
         yield return null;
         if (isLongCooldown)
         {
+            //Display the ad after 120 seconds
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
-            yield return new WaitForSeconds(120);//Set time to 240
+            yield return new WaitForSeconds(120);//Set time to 120
 
+            //Display the ad for only 30 seconds
             isFirstTime = false;
             autoClickerAnimator.SetBool("isAdReady", true);
             increaseLuckAnimator.SetBool("isAdReady", true);
-            yield return new WaitForSeconds(30);//Set time to 60
+            yield return new WaitForSeconds(30);//Set time to 30
 
+            //Restart the coroutine
             StartCoroutine(EnableAds(false));
         }      
         else
         {
-
+            //When it finishes the first time display the ad after 60 seconds
             autoClickerAnimator.SetBool("isAdReady", false);
             increaseLuckAnimator.SetBool("isAdReady", false);
-            yield return new WaitForSeconds(60);//Set time to 180
+            yield return new WaitForSeconds(85);//Set time to 60
 
+            //Display the ad for only 30 seconds
             autoClickerAnimator.SetBool("isAdReady", true);
             increaseLuckAnimator.SetBool("isAdReady", true);
-            yield return new WaitForSeconds(30);//Set time to 60
+            yield return new WaitForSeconds(30);//Set time to 30
 
+            //Restart the coroutine
             StartCoroutine(EnableAds(false));
         }
 
@@ -150,6 +161,7 @@ public class IronSourceScript : MonoBehaviour
     {
         IronSource.Agent.onApplicationPause(isPaused);
     }
+    //Try and load the banner
     public void LoadBanner()
     {
         IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
@@ -165,18 +177,23 @@ public class IronSourceScript : MonoBehaviour
     }
     public void ShowRewardedAd(string rewardName)
     {
+        //Checks to see if there is an ad available
         if (IronSource.Agent.isRewardedVideoAvailable())
         {
+            //Restart the ads timer
             StopAllCoroutines();
             StartCoroutine(EnableAds(false));
+            //Checks to see if its autoclicker buff
             if (rewardName == "Auto Clicker")
             {
                 autoClicker = true;
             }
+            //Show the ad
             IronSource.Agent.showRewardedVideo();
         }
         else
         {
+            //Display the error
             errorMessageAnimator.Play("Error_Message_Display");
             errorMessageText.text = "No ads currently available";
         }
@@ -191,6 +208,7 @@ public class IronSourceScript : MonoBehaviour
     //Invoked when the banner loading process has failed.
     void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
     {
+        //If the banner ad doesnt work, display another banner
         print("Backup banner online");
         bannerBackup.SetActive(true);
     }
@@ -238,8 +256,8 @@ public class IronSourceScript : MonoBehaviour
     // The placement parameter will include the reward data.
     // When using server-to-server callbacks, you may ignore this event and wait for the ironSource server callback.
     void RewardedVideoOnAdRewardedEvent(IronSourcePlacement placement, IronSourceAdInfo adInfo)
-    {
-        
+    { 
+        //After the video is done give the player the correct buff
         if (autoClicker)
         {
             StartCoroutine(randomizer.AutoClicker());
