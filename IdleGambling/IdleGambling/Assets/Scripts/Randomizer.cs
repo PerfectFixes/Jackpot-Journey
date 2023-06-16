@@ -169,12 +169,6 @@ public class Randomizer : MonoBehaviour
         {
             SceneManager.LoadScene("Tutorial");
         }
-
-        // ********** FOR TESTING ************ //
-/*        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetString("TutorialComplete", "True");*/
-        // ********** FOR TESTING ************ //
-
         autoClickerGameObject.SetActive(false);
         //Disable the prestige button
         prestigeButton.interactable = false;
@@ -339,11 +333,6 @@ public class Randomizer : MonoBehaviour
         //Update the player money in the UI
         playerMoneyText.text = playerMoney.ToString();
         playerMoneyText.text = $"{playerMoney:N0}";
-
-        // ********** FOR TESTING ************ //
-        //autoGambleToggle.interactable = true;
-        // ********** FOR TESTING ************ //
-
     }
     void Update()
     {
@@ -376,14 +365,9 @@ public class Randomizer : MonoBehaviour
         //Randomizing the number to know if the play can win a prize
         isWinningNumber = Random.Range(1, 101);
 
-        // ******** FOR TESTING ********
-/*        isWinningNumber = Random.Range(98, 101);*/
-        // ******** FOR TESTING ********
-
         //If the ad of increasing luck has been activated the player has better odds of winning
         if (increasedLuck)
         {
-            print("In better Odds");
             isWinningNumber = Random.Range(20, 101);
         }
         if (isWinningNumber >= 66)
@@ -391,14 +375,9 @@ public class Randomizer : MonoBehaviour
             //Randomizing the prize that the player will get 
             randomNumberPicker = Random.Range(1, 101);
 
-            // ******** FOR TESTING ********
-/*            randomNumberPicker = Random.Range(100, 101);*/
-            // ******** FOR TESTING ********
-
             //If the ad of increasing luck has been activated choose a better reward
             if (increasedLuck)
             {
-                print("In better Luck");
                 randomNumberPicker = Random.Range(20, 101);
             }
             if (randomNumberPicker >= 1 && randomNumberPicker <= 55)
@@ -494,7 +473,6 @@ public class Randomizer : MonoBehaviour
     //Gives the player auto clicker
     public IEnumerator AutoClicker()
     {
-        print("in bauto clicker");
         //Disable the sleep mode scene & credit & stats
         sleepModeButton.interactable = false;
         creditsSceneButton.interactable = false;

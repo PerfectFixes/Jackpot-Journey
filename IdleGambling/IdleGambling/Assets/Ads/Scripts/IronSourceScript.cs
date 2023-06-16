@@ -209,7 +209,6 @@ public class IronSourceScript : MonoBehaviour
     void BannerOnAdLoadFailedEvent(IronSourceError ironSourceError)
     {
         //If the banner ad doesnt work, display another banner
-        print("Backup banner online");
         bannerBackup.SetActive(true);
     }
     // Invoked when end user clicks on the banner ad
@@ -261,12 +260,10 @@ public class IronSourceScript : MonoBehaviour
         if (autoClicker)
         {
             StartCoroutine(randomizer.AutoClicker());
-            print("Gave the player autoClicker");
         }
         else 
         {
             StartCoroutine(increaseLuckTimer.LuckTimer());
-            print("Gave the player DoubleWin");
         }
         autoClicker = false; 
     }

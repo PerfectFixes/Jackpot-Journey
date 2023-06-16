@@ -262,8 +262,6 @@ public class DialogueManager : MonoBehaviour
     {
         //Animate the exit of the dialogue box
         dialogueAnimator.SetBool("IsOpen", false);
-
-        print(partNumber);
         
         //At the end of the dialogue do specific actions
         switch (partNumber)
