@@ -153,10 +153,6 @@ public class Randomizer : MonoBehaviour
     private DisplayWinOrLoseIcon displayingResult;
     private void Awake()
     {
-        if(PlayerPrefs.GetString("GameVersion") != "0.21")
-        {
-            PlayerPrefs.DeleteAll();
-        }
         ironSourceScript = GameObject.Find("IronSource").GetComponent<IronSourceScript>();
 
         isPrestiging = false;
@@ -363,7 +359,7 @@ public class Randomizer : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
 
         //Randomizing the number to know if the play can win a prize
-        isWinningNumber = Random.Range(1, 101);
+        isWinningNumber = Random.Range(prestigeLevel, 101);
 
         //If the ad of increasing luck has been activated the player has better odds of winning
         if (increasedLuck)
@@ -373,12 +369,12 @@ public class Randomizer : MonoBehaviour
         if (isWinningNumber >= 66)
         {
             //Randomizing the prize that the player will get 
-            randomNumberPicker = Random.Range(1, 101);
+            randomNumberPicker = Random.Range(prestigeLevel, 101);
 
             //If the ad of increasing luck has been activated choose a better reward
             if (increasedLuck)
             {
-                randomNumberPicker = Random.Range(20, 101);
+                randomNumberPicker = Random.Range(20 + prestigeLevel, 101);
             }
             if (randomNumberPicker >= 1 && randomNumberPicker <= 55)
             {
@@ -692,7 +688,31 @@ public class Randomizer : MonoBehaviour
         playerMoneyText.text = $"{playerMoney:N0}";
         playerMoney = 0;
 
-        StartCoroutine(SceneTransaction());
+        if(PlayerPrefs.GetInt("PrestigeLevel") != 10)
+        {
+            StartCoroutine(SceneTransaction());
+        }
+        else
+        {
+            StartCoroutine(TheEndScene());
+        }
+    }
+    IEnumerator TheEndScene()
+    {
+        //Fade out the music 
+        StartCoroutine(musicLogic.FadeOut());
+
+        //Reset the timer of the ads
+        StartCoroutine(ironSourceScript.RestartAdTimer());
+
+        //Play the animation to change scene
+        sceneLoader.SetTrigger("Load_Scene");
+
+        yield return new WaitForSeconds(1.25f);
+
+        //Reload the scene
+        SceneManager.LoadScene("The_End");
+
     }
     IEnumerator SceneTransaction()
     {

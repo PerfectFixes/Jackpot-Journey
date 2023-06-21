@@ -378,7 +378,6 @@ public class RandomizerTutorial : MonoBehaviour
     }
     IEnumerator SceneTransaction()
     {
-        PlayerPrefs.SetString("GameVersion", "0.21");
         sceneLoader.SetTrigger("Load_Scene");
         yield return new WaitForSeconds(1.25f);
         //Reseting the amount of money the player has

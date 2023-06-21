@@ -4397,7 +4397,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 888ec37d52dcbbe45a8d080151d2342b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5618,7 +5618,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5c8b522bf362ef479ac40731e1f18de, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6988,7 +6988,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930623224}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 18.846153, y: 0, z: 0}
+  m_LocalPosition: {x: 21.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10676,7 +10676,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c5360d20523dc9b4f87d9c2507e5c4eb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10844,7 +10844,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.2
+  m_fontSize: 29.2
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10929,7 +10929,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -35.000122}
+  m_AnchoredPosition: {x: 0, y: -35.000244}
   m_SizeDelta: {x: 584.6, y: 471.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552415460
@@ -11738,7 +11738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684350342}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: -18.846153, y: 0, z: 0}
+  m_LocalPosition: {x: -21.875, y: 0, z: 0}
   m_LocalScale: {x: 65, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13381,10 +13381,10 @@ RectTransform:
   m_Father: {fileID: 2010027134}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.07777778, y: 0.14262985}
-  m_AnchorMax: {x: 0.96444446, y: 0.36748064}
-  m_AnchoredPosition: {x: 0, y: -31.559998}
-  m_SizeDelta: {x: 0, y: 63.12}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -1, y: 359}
+  m_SizeDelta: {x: 798, y: 420.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997375007
 MonoBehaviour:
