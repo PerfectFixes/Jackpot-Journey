@@ -58,33 +58,6 @@ public class CoinLogic : MonoBehaviour
                 gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
             }
         }
-/*        //If the gameobject is a clover 
-        if (gameObject.name == "Clover_Prefab(Clone)" || gameObject.name == "Clover_Prefab")
-        {
-            if(spinDirection == 1)
-            {
-                gameObject.transform.Rotate(new Vector3(0, 0, 100) * Time.fixedDeltaTime);
-            }
-            else
-            {
-                gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
-            }
-            
-        }
-        //If the gameobject is a clicker 
-        if (gameObject.name == "Clicker_Prefab(Clone)" || gameObject.name == "Clicker_Prefab")
-        {
-            if (spinDirection == 1)
-            {
-                gameObject.transform.Rotate(new Vector3(0, 0, 100) * Time.fixedDeltaTime);
-            }
-            else
-            {
-                gameObject.transform.Rotate(new Vector3(0, 0, -100) * Time.fixedDeltaTime);
-            }
-            
-        }*/
-        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

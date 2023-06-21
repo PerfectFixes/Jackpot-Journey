@@ -1,4 +1,4 @@
-                                                                                                        using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,9 +26,6 @@ public class StatsDisplay : MonoBehaviour
    
     private void Awake()
     {
-/*        PlayerPrefs.DeleteAll();
-        PlayerPrefs.SetString("TutorialComplete", "True");
-        PlayerPrefs.SetInt("PrestigeLevel", 7);*/
         //Get the updated results of the stats
         UpdateStats();
 

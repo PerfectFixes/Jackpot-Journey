@@ -22,7 +22,7 @@ public class EffectSpawner : MonoBehaviour
         //spawn coins corresponds to the amount of coins the player won (Fixed number)
         else if (item == "SmallCoins")
         {
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 30; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.03f);
@@ -30,7 +30,7 @@ public class EffectSpawner : MonoBehaviour
         }
         else if (item == "MediumCoins")
         {
-            for (int i = 0; i < 40; i++)
+            for (int i = 0; i < 50; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.03f);
@@ -38,7 +38,7 @@ public class EffectSpawner : MonoBehaviour
         }
         else if (item == "BigCoins")
         {
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 100; i++)
             {
                 Instantiate(coinsGameObject, transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(0.03f);
